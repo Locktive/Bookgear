@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgb(43, 43, 46);
+        background-image: url(".jpg");
+    }
+
+    .container {
+
+        display: grid;
+        background-color: rgb(66, 66, 66);
+        justify-content: space-evenly;
+    }
+    
+    .menu {
+        height: 5%;
+        width: 100%;
+        grid-template-columns: 100px 400px 100px;
+        grid-template-rows: 20px 25px 20px;
+        justify-content: space-evenly;
+    }
+
+    .principal {
+        background-color: rgb(66, 66, 66);
+        padding: 20px;
+        height: 100%;
+        width: 97%;
+        justify-content: space-between;
+        grid-template-columns: 250px 150px 150px 150px 150px;
+        grid-template-rows: 200px 200px 200px 200px 200px;
+    }
+
+    .pesquisa {
+        text-align: center;
+        font: bold 18px sans-serif;
+        color: rgb(173, 173, 173);
+        background-color: rgb(238, 238, 238);
+        grid-row: 2/3;
+        grid-column: 2/3;
+    }
+
+    .categorias {
+        text-align: center;
+        color: grey;
+        font: bold 15px sans-serif;
+        background-color: rgb(43, 43, 46);
+        grid-row: 1/6;
+        grid-column: 1/2;
+    }
+
+    .meio {
+        height: 400px;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <div class="container menu">
+        <div class="item pesquisa">pesquisar</div>
+        <div class="item item2"></div>
+        <div class="item item3"></div>
+    </div>
+    <div class="meio">
+    </div>
+    <div class="container principal">
+        <div class="item categorias">CATEGORIAS</div>
+    </div>
+</body>
+
+</html>
