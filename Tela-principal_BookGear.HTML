@@ -11,15 +11,19 @@
     body {
         background-color: rgb(43, 43, 46);
         background-image: url(BG.png);
+        background-size: cover;
+
+
     }
 
     .container {
 
         display: grid;
-        background-color: rgb(33, 35, 37);
+        background-color: rgba(33, 35, 37, .8);
         justify-content: space-evenly;
+
     }
-    
+
     .menu {
         height: 5%;
         width: 100%;
@@ -29,33 +33,39 @@
     }
 
     .principal {
-        opacity: 0,5;
-        background-color: rgb(33, 35, 37) ;
+        opacity: 0, 5;
+        background-color: rgba(33, 35, 37, .9);
         padding: 20px;
         height: 100%;
         width: 97%;
         justify-content: space-between;
+        align-content: space-between;
         grid-template-columns: 250px 150px 150px 150px 150px;
         grid-template-rows: 200px 200px 200px 200px 200px;
     }
-    .item{
+
+    .item {
         text-align: center;
+        justify-content: space-around;
     }
 
     .pesquisa {
         text-align: center;
         font: bold 18px sans-serif;
         color: rgb(173, 173, 173);
-        background-color: rgb(238, 238, 238);
+        background-color: rgba(238, 238, 238, .0);
         grid-row: 2/3;
+        border: 2px solid rgb(69, 69, 70);
+        border-radius: 5px;
         grid-column: 2/3;
     }
 
     .categorias {
         text-align: center;
+        padding: 6px;
         color: grey;
         font: bold 15px sans-serif;
-        background-color: rgb(43, 43, 46);
+        background-color: rgba(43, 43, 46, .4);
         grid-row: 1/6;
         grid-column: 1/2;
     }
@@ -64,11 +74,20 @@
         height: 400px;
         width: 100%;
     }
+
+    .livros {
+        width: 100%;
+        height: 100%;
+    }
 </style>
 
 <body>
+    <!-- Menu com barra de pesquisa, botões e outras coisas -->
     <div class="container menu">
-        <input class="pesquisa" type="text" placehouder="pesquisar" name="Pesquisa">
+        <input class="pesquisa" type="text" placehouder="pesquisar">
+        <a class="search-bnt"> 
+            <img class="lupa"src="./lupa.png">
+        </a>
         <div class="item item2">2</div>
         <div class="item item3">3</div>
         <div class="item item3">4</div>
@@ -82,6 +101,15 @@
     </div>
     <div class="container principal">
         <div class="item categorias">CATEGORIAS</div>
+    <IMG class="item livros" SRC="Livro bookgear.png" alt="capa do livro">
+    <IMG class="item livros" SRC="Livro bookgear.png" alt="capa do livro">
+    <IMG class="item livros" SRC="Livro bookgear.png" alt="capa do livro">
+    <IMG class="item livros" SRC="Livro bookgear.png" alt="capa do livro">
+        <!-- segunda coluna de livros-->
+    <IMG class="item livros" SRC="Livro bookgear.png" alt="capa do livro">
+    <IMG class="item livros" SRC="Livro bookgear.png" alt="capa do livro">
+    <IMG class="item livros" SRC="Livro bookgear.png" alt="capa do livro">
+    <IMG class="item livros" SRC="Livro bookgear.png" alt="capa do livro">
     </div>
 </body>
 
