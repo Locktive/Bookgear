@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        body{
+            background-image: url(BG.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 75vh;
+            border-bottom: 30px solid gray;
+        }
+        header{
+            background-color: grey;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            height: 15%;
+            position: fixed;
+            top: 0;
+        }
+        .form-busca-site{
+            width: 400px;
+            height: 80%;
+        }
+        .btn-text-top{
+            background-color: antiquewhite;
+            border: 1px solid rgba(255, 255, 255, 1);
+            border-radius: 20px;
+            padding: 15px 50px 15px 30px;
+        }
+        .btn-buscar-top{
+            width: 20px;
+            height: 22px;
+            background: url(http://www.devmedia.com.br/imagens/2013/buscar_grey.png);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transform: translateY(-150%);
+            left: 100px;
+        }
+        .texto{
+            color: white;
+            width: 20%;
+            height: 20%;
+            margin-top: 15%;
+            
+        }
+        .Login{
+            color: yellow;
+            font: bold 30px sans-serif;
+            margin-left: 160px;
+        }
+        .box{
+            background-color: rgb(41, 41, 41);
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            margin: 180px;
+            width: 30%;
+            height: 90%;
+            text-align: top;
+            justify-content: top;
+        }
+        .btn-username{
+            color: white;
+            background-color: rgb(41, 41, 41);
+            border-bottom: 1px solid rgba(255, 255, 255, 1);
+            height: 30px;
+            width: 60%;
+            margin-left: 80px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <form action="busca.php" class="form-busca-site">
+            <input type="text" name="txtsearch" class="btn-text-top" placeholder="Buscar">
+            <div><button class="btn-buscar-top"></button></div>
+        </form>
+    </header>
+    <div class="box">
+        <div class="texto"><p class="Login">Login</p></div>
+        <input type="text" name="username" class="btn-username" placeholder="Nome de usuário">
+        <input type="password" name="username" class="btn-username" placeholder="Senha">
+        <div style="margin-left: 80px;">
+            <input style="margin-top: 30px;" type="checkbox" name="connected" id="c">
+            <label for="c" style="color: white; font-family: Arial, Helvetica, sans-serif;">Continuar Conectado</label>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
