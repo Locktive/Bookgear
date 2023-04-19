@@ -3,11 +3,12 @@
 }
 
 header{
-    background-color: black;
+    background-color: rgb(49, 49, 49);
     color: white;
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    position: fixed;
 }
 
 nav{
@@ -20,13 +21,12 @@ ul{
     list-style: none;
     margin: 0;
     padding: 0;
-    border-left: solid 5px;
-    border-right: solid 5px;
+    
 }
 
 li{
     margin: 0 74px;
-    
+    position: relative;
 }
 
 a{
