@@ -20,10 +20,13 @@ ul{
     list-style: none;
     margin: 0;
     padding: 0;
+    border-left: solid 5px;
+    border-right: solid 5px;
 }
 
 li{
-    margin: 0 75px;
+    margin: 0 74px;
+    
 }
 
 a{
@@ -35,3 +38,4 @@ a{
 a:hover{
     color: orange;
 }
+
