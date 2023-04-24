@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+    background-color: rgb(66, 66, 66);
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+  *{
+    font-family: Arial, Helvetica, sans-serif;
+}
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  .logo img {
+    margin-left: 20px;
+    height: 80px;
+  }
+  
+  .user a {
+    color: #ff7300;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+  
+  nav {
+    background-color: #333;
+    height: 50px;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    position: relative;
+    margin: 0px 55px;
+  }
+  
+  nav ul li a {
+    display: block;
+    color: #fdfdfc;
+    font-size: 16px;
+    padding: 15px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #f85d03;
+  }
+
+  .search-box{
+        position: absolute;
+        top: 40%;
+        left: 470px;
+        transform: translate(-50%, -50%);
+        background: #363636;
+        height: 40px;
+        border-radius: 40px;
+        padding: 10px;
+        position: relative;
+    }
+
+    .search-box:hover >input{
+        width: 200px;  
+        padding: 0 10px;
+         }
+
+         .search-box:hover > .icon{
+            background: #ff5e00;
+            color: #000000;
+         }
+
+         .icon:hover{
+            transform: rotate(360deg) scale(0.8);
+            color: #000000;
+         }
+
+         input{
+            width: 0;
+            border: none;
+            outline: none;
+            padding: 0;
+            background: none;
+            font-size: 1.1rem;
+            transition: 0.5s ease;
+            line-height: 40px;
+            color: #fff;
+
+         }
+
+         .icon{
+            color: #ff5e00;
+            float: right;
+            width: 40px;
+            height: 40px;
+            font-size: 1.3rem;
+            border-radius: 50%;
+             background: #4b4b4b;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             transition: 0.4s;
+             cursor: pointer;
+
+         }
+
+         
+    </style>
+</head>
+<body>
+    <header class="main">
+        <div class="container">
+          <div class="logo">
+            <a href="#"><img class="logotipo" src="Capturar-removebg-preview.png" alt="bookgear"></a>
+          </div>
+          <div class="search-box">
+            <input type="text" placeholder="Pesquisar">
+            <a href="#" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg></a>
+        </div>  
+          <div class="user">
+            <a href="#">Entrar</a>
+            <a href="#">Cadastrar</a>
+          </div>
+        </div>
+        <div class="cabecalho">
+        <nav>
+          <ul>
+            <li><a href="#" class="books">LIVROS</a></li>
+            <li><a href="#" class="boxes">CAIXAS</a></li>
+            <li><a href="#" class="checkout">CARRINHO</a></li>
+            <li><a href="#" class="publisher">EDITORA</a></li>
+            <li><a href="#" class="desejos">WISHLIST</a></li>
+            <li><a href="#" class="autor">AUTORES</a></li>
+          </ul>
+        </nav>
+      </div>
+      </header>    
+</body>
+</html>
+
+    
