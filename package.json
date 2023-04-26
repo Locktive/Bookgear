@@ -1,0 +1,22 @@
+{
+  "name": "bookgear",
+  "version": "1.0.0",
+  "description": "",
+  "main": "myapp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Locktive/Bookgear.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Locktive/Bookgear/issues"
+  },
+  "homepage": "https://github.com/Locktive/Bookgear#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
