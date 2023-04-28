@@ -2,40 +2,40 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-header{
-    background-color: black;
+.cab{
+    background-color: rgb(49, 49, 49);
     color: white;
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    position: fixed;
 }
 
-nav{
-    display: flex;
-    align-items: center;
-}
-
-ul{
+nav {
+    background-color: #333;
+    height: 50px;
+  }
+  
+  nav ul {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
-    border-left: solid 5px;
-    border-right: solid 5px;
-}
-
-li{
-    margin: 0 74px;
-    
-}
-
-a{
-    color: white;
+  }
+  
+  nav ul li {
+    margin: 0 57px;
+  }
+  
+  nav ul li a {
+    display: block;
+    color: #fdfdfc;
+    font-size: 16px;
+    padding: 15px 20px;
     text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-a:hover{
-    color: orange;
-}
-
+    transition: background-color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #f85d03;
+  }
