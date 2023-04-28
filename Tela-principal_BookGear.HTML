@@ -9,13 +9,13 @@
     <title>Bookgear</title>
 </head>
 <style>
+
     body {
-        background-color: rgb(43, 43, 46);
- 
-    }
-    body {
-        background-color: rgb(43, 43, 46);
-        background-image: url(BG.png);
+        background-color: rgb(255, 255, 255);
+        background-image: url(background.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
     }
 
     .container {
@@ -24,32 +24,57 @@
         background-color: rgb(66, 66, 66);
         justify-content: space-evenly;
     }
-    
-    .menu {
+    .header {
         height: 5%;
         width: 100%;
         grid-template-columns: 100px 400px 100px;
         grid-template-rows: 20px 25px 20px;
+        background-color: rgba(42, 41, 43, 0.9);
+        box-shadow: 0px 0px 10px rgb(42, 41, 43);
         justify-content: space-evenly;
     }
 
     .principal {
-        background-color: rgb(66, 66, 66);
+        background-color: rgba(42, 41, 43, 0.9);
+        box-shadow: 0px 0px 10px rgb(42, 41, 43);
         padding: 20px;
         height: 100%;
         width: 97%;
+        row-gap: 60px;
         justify-content: space-between;
         grid-template-columns: 250px 150px 150px 150px 150px;
         grid-template-rows: 200px 200px 200px 200px 200px;
     }
 
     .pesquisa {
+        justify-content: center;
+        border: solid 2px whitesmoke;
+        border-radius: 25px;
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+        background-color: whitesmoke;
+    }
+
+    .lupa {
+        position: relative;
+        bottom: 23px;
+        right: 4px;
+        width: 21px;
+        height: 21px;
+        float: right;
+
+    }
+
+    #texto_pesquisa {
         text-align: center;
-        font: bold 18px sans-serif;
-        color: rgb(173, 173, 173);
-        background-color: rgb(238, 238, 238);
-        grid-row: 2/3;
-        grid-column: 2/3;
+        float: left;
+        background-color: transparent;
+        padding-left: 5px;
+        font-style: italic;
+        font-size: 18px;
+        width: 390px;
+        border: none;
+
     }
 
     .categorias {
@@ -61,13 +86,46 @@
         grid-column: 1/2;
     }
 
+    .ul {
+        color: white;
+        padding: 20px;
+    }
+
     .meio {
         height: 400px;
         width: 100%;
     }
+
+    .box {
+        width: 150px;
+        height: 200px;
+        
+    }
+
+    .item{
+        color: white;
+        justify-content: center;
+        font-family: 'Verdana', Courier, monospace;
+        text-align: center;
+    }
+    .descrição{
+        margin: auto;
+        color: grey;
+    }
+
+    a:link{
+        color: grey;
+    }
+    a:visited{
+        color: grey;
+    }
+    a:hover{
+        background-color: black;
+    }
 </style>
 
 <body>
+
     <div class="container menu">
         <input class="pesquisa" type="placehouder">
         <div class="item item2"></div>
@@ -86,11 +144,54 @@
             </ul>
         </nav>
         </header>
-    
     <div class="meio">
     </div>
     <div class="container principal">
-        <div class="item categorias">CATEGORIAS</div>
+        <div class="item item1">
+            <img class="item box" src="box.jpg">
+            <p class="descrição">Caixa da BookGear</p>
+        </div>
+        <div class="item item2">
+            <img class="item box" src="box.jpg">
+            <p class="descrição">Caixa da BookGear</p>
+        </div>
+        <div class="item item3">
+            <img class="item box" src="box.jpg">
+            <p class="descrição">Caixa da BookGear</p>
+        </div>
+        <div class="item item4">
+            <img class="item box" src="box.jpg">
+            <p class="descrição">Caixa da BookGear</p>
+        </div>
+        <div class="item item5">
+            <img class="item box" src="box.jpg">
+            <p class="descrição">Caixa da BookGear</p>
+        </div>
+        <div class="item item6">
+            <img class="item box" src="box.jpg">
+            <p class="descrição">Caixa da BookGear</p>
+        </div>
+        <div class="item item7">
+            <img class="item box" src="box.jpg">
+            <p class="descrição">Caixa da BookGear</p>
+        </div>
+
+        <div class="categorias">
+            <h1>categorias</h1>
+            <ul class="linkcateorias">
+                <li><a href="#" class="linkcateorias">ação</a></li>
+                <li><a href="#" class="link_cateorias">aventura</a></li>
+                <li><a href="#" class="link_cateorias">clássicos</a></li>
+                <li><a href="#" class="link_cateorias">drama</a></li>
+                <li><a href="#" class="link_cateorias">fantasia</a></li>
+                <li><a href="#" class="link_cateorias">ficção cientifica</a></li>
+                <li><a href="#" class="link_cateorias">infantil</a></li>
+                <li><a href="#" class="link_cateorias">jogos</a></li>
+                <li><a href="#" class="link_cateorias">suspense</a></li>
+                <li><a href="#" class="link_cateorias">terror</a></li>
+            </ul>
+
+        </div>
     </div>
 </body>
 
