@@ -12,7 +12,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  height: 70px;
+  height: 80px;
   z-index: 999;
 }
 
@@ -60,7 +60,7 @@ nav {
   }
   
   nav ul li {
-    margin: 0 57px;
+    margin: 0 100px;
   }
   
   nav ul li a {
