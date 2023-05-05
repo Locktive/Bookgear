@@ -8,12 +8,11 @@
     <link rel="stylesheet" type="text/css" href="./../stylesheets/cabecalho.css">
     <link rel="stylesheet" type="text/css" href="./../stylesheets/barrapesquisa.css">
     <title>Bookgear</title>
-
+</head>
 <style>
-
     body {
         background-color: rgb(255, 255, 255);
-        background-image: url(background.jpg);
+        background-image: url(../images/background.jpg);
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
@@ -25,6 +24,7 @@
         background-color: rgb(66, 66, 66);
         justify-content: space-evenly;
     }
+
     .header {
         height: 5%;
         width: 100%;
@@ -46,6 +46,22 @@
         grid-template-columns: 250px 150px 150px 150px 150px;
         grid-template-rows: 200px 200px 200px 200px 200px;
     }
+    .banners_meio{
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100px 320px;
+    }
+    .banner1{
+        grid-row: 2/3;
+        grid-column: 1/2;
+        
+    }
+    .banner2{
+        grid-row: 2/3;
+        grid-column: 2/3;
+    }
+
 
     .pesquisa {
         justify-content: center;
@@ -93,90 +109,109 @@
     }
 
     .meio {
-        height: 400px;
+        height: 460px;
         width: 100%;
     }
 
     .box {
         width: 150px;
         height: 200px;
-        
+
     }
 
-    .item{
+    .item {
         color: white;
         justify-content: center;
         font-family: 'Verdana', Courier, monospace;
         text-align: center;
     }
-    .descrição{
+
+    .descrição {
         margin: auto;
         color: grey;
     }
 
-    a:link{
+    a:link, a:visited{
         color: grey;
     }
-    a:visited{
-        color: grey;
-    }
-    a:hover{
-        background-color: black;
+
+
+    a:hover {
+        background-color: rgb(255, 102, 0);
+        color: rgb(19, 19, 19);
     }
 </style>
-</head>
-<body>
 
-    <div class="container menu">
-        <input class="pesquisa" type="placehouder">
-        <div class="item item2"></div>
-        <div class="item item3"></div>
+<body>
+    <header class="main">
         
-    </div>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#" class="books">LIVROS</a></li>
-                <li><a href="#" class="boxes">CAIXAS</a></li>
-                <li><a href="#" class="checkout">CARRINHO</a></li>
-                <li><a href="#" class="publisher">EDITORA</a></li>
-                <li><a href="#" class="desejos">WISHLIST</a></li>
-                <li><a href="#" class="autor">AUTORES</a></li>
-            </ul>
-        </nav>
-        </header>
+            <div class="containermenu">
+                <div class="logo">
+                    <a href="#"><img class="logotipo" src="Capturar-removebg-preview.png" alt="bookgear"></a>
+
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Pesquisar">
+                    <a href="#" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg></a>
+                </div>
+                <div class="user">
+                    <a href="#">Entrar</a>
+                    <a href="#">Cadastrar</a>
+                </div>
+            </div>
+            <div class="cabecalho">
+                <nav>
+                    <ul>
+                        <li><a href="#" class="books">LIVROS</a></li>
+                        <li><a href="#" class="boxes">CAIXAS</a></li>
+                        <li><a href="#" class="checkout">CARRINHO</a></li>
+                        <li><a href="#" class="publisher">EDITORA</a></li>
+                        <li><a href="#" class="desejos">WISHLIST</a></li>
+                        <li><a href="#" class="autor">AUTORES</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+    </header>
     <div class="meio">
+        <div class="banners_meio">
+            <img class="banner1 banner" src="../images/banner1.png" alt="banner">
+            <img class="banner2 banner" src="../images/banner1.png" alt="banner">
     </div>
     <div class="container principal">
         <div class="item item1">
-            <img class="item box" src="box.jpg">
+            <img class="item box" src="../images/box.jpg">
             <p class="descrição">Caixa da BookGear</p>
         </div>
         <div class="item item2">
-            <img class="item box" src="box.jpg">
+            <img class="item box" src="../images/box.jpg">
             <p class="descrição">Caixa da BookGear</p>
         </div>
         <div class="item item3">
-            <img class="item box" src="box.jpg">
+            <img class="item box" src="../images/box.jpg">
             <p class="descrição">Caixa da BookGear</p>
         </div>
         <div class="item item4">
-            <img class="item box" src="box.jpg">
+            <img class="item box" src="../images/box.jpg">
             <p class="descrição">Caixa da BookGear</p>
         </div>
         <div class="item item5">
-            <img class="item box" src="box.jpg">
+            <img class="item box" src="../images/box.jpg">
             <p class="descrição">Caixa da BookGear</p>
         </div>
         <div class="item item6">
-            <img class="item box" src="box.jpg">
+            <img class="item box" src="../images/box.jpg">
             <p class="descrição">Caixa da BookGear</p>
         </div>
         <div class="item item7">
-            <img class="item box" src="box.jpg">
+            <img class="item box" src="../images/box.jpg">
             <p class="descrição">Caixa da BookGear</p>
         </div>
-        
+
         <div class="categorias">
             <h1>categorias</h1>
             <ul class="linkcateorias">
@@ -195,5 +230,4 @@
         </div>
     </div>
 </body>
-
 </html>

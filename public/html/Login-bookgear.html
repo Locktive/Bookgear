@@ -13,49 +13,49 @@
             background-image: url(./../images/background.jpg);
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100vh;
+            height: 75vh;
+           border-bottom: 40px solid rgb(41, 41, 41);
         }
         
         .texto{
             color: white;
-            width: 100px;
-            height: 40px;
-            margin-top: 10px;
+            width: 20%;
+            height: 10%;
+            margin-top: 20px;
+            
         }
         
         .box{
-          margin-top: 200px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
+            
+            
+            flex-direction: column;
+            margin: 150px 0px 0px 450px;
+            width: 400px;
+            height: 450px;
+            text-align: center;
+            justify-content: center;
+            overflow-y: auto;
         }
-
         .Login{
             color: #ff7300;
             font: bold 30px sans-serif;
+            margin-left: 180%;
         }
-
         .btn-username{
             color: white;
             background-color: rgba(52, 52, 52, 0.789);
             border-bottom: 1px solid rgba(255, 255, 255, 1);
             height: 30px;
-            width: 350px;
+            width: 55%;
             margin-top: 20px;
+            
         }
-
         .forgot-password{
             margin-top: 20px;
             color: #ff7300;
             font: bold 17px sans-serif;
+            
         }
-        .checkmark{
-            height: 25px;
-            width: 25px;
-            color: #ff7300;
-        }
-        
     </style>
 </head>
 <body>
@@ -75,7 +75,7 @@
                     </svg></a>
             </div>
             <div class="user">
-                <a href="./Login-bookgear.html">Entrar</a>
+                <a href="#">Entrar</a>
                 <a href="#">Cadastrar</a>
             </div>
         </div>
@@ -91,21 +91,25 @@
 
                 </ul>
             </nav>
-            <div class="box">
-                <div class="texto"><p class="Login">Login</p></div>
-                
-                <input type="email" name="username" class="btn-username" placeholder="Email">
-        
-                <input type="password" name="username" class="btn-username" placeholder="Senha">
-        
-                <p class="forgot-password">Esqueceu a senha?</p>
-        
-                <p class="forgot-password">Não tem conta?</p>
-        
-            </div>
         </div>
 </header>
-    
+    <div class="box">
+        <div class="texto"><p class="Login">Login</p></div>
+        
+        <input type="email" name="username" class="btn-username" placeholder="Email">
+
+        <input type="password" name="username" class="btn-username" placeholder="Senha">
+
+        <p class="forgot-password">Esqueceu a senha?</p>
+
+        <p class="forgot-password">Não tem conta?</p>
+
+        <div>
+            <input style="margin-top: 20px;" type="checkbox" name="connected" id="c">
+            <label for="c" style="color: white; font-family: Arial, Helvetica, sans-serif;">Continuar Conectado</label>
+        </div>
+        
+    </div>
     
 </body>
 </html>
