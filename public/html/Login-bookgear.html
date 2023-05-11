@@ -51,7 +51,7 @@
             text-align: center;
         }
 
-        .forgot-password {
+        .forgot-password a:link , .forgot-password a:visited, .forgot-password {
             margin-top: 20px;
             color: #ff7300;
             font: bold 17px sans-serif;
@@ -123,13 +123,13 @@
             <div class="texto">
                 <p class="Login">Login</p>
             </div>
+            <form action="#" name="form">
+                <input type="email" name="username" class="btn-username" placeholder="Email">
 
-            <input type="email" name="username" class="btn-username" placeholder="Email">
+                <input type="password" name="username" class="btn-username" placeholder="Senha">
 
-            <input type="password" name="username" class="btn-username" placeholder="Senha">
-
-            <p class="forgot-password">Esqueceu a senha?</p>
-
+                <p class="forgot-password"><a href="#">Esqueceu a senha?</a></p>
+            </form>    
             <div>
                 <input style="margin-top: 20px;" type="checkbox" name="connected" id="c">
                 <label for="c" style="color: white; font-family: Arial, Helvetica, sans-serif;">Continuar
@@ -138,7 +138,7 @@
 
             <div class="mini-box">
                 <a style="margin-left: 0px;" href="Tela-principal_BookGear.html">Conectar</a>
-                <a href="#">Cadastrar</a>
+                <a href="cadastro.html">Cadastrar</a>
             </div>
         </div>
     </div>
