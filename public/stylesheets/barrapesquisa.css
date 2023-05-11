@@ -1,16 +1,16 @@
 .search-box {
    top: 26px;
    left: 440px;
-   transform: translate(-50%, -50%);
+   transform: translate(50%, 50%, 50%);
    background: #363636;
    height: 40px;
    border-radius: 40px;
    padding: 6px;
-   position: relative;
 
 }
 
 .search-box:hover>input {
+
    width: 500px;
    padding: 0 10px;
 }

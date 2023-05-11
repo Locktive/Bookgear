@@ -35,7 +35,22 @@ header {
   color: #ff7300;
   font-weight: bold;
   margin-left: 20px;
-}  
+}
+
+.botaoentrar{
+  border: none;
+  color: grey;
+  background-color: grey;
+  padding: 6px 29px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  
+}
 
 .cab{
     background-color: rgb(49, 49, 49);
@@ -69,7 +84,7 @@ nav {
     font-size: 15px;
     padding: 10px 20px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: 0.3s ease;
   }
   
   nav ul li a:hover {

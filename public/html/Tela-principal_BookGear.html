@@ -11,7 +11,7 @@
 </head>
 <style>
     body {
-        background-color:   rgb(66, 66, 66);
+        background-color: rgb(66, 66, 66);
         background-image: url(./../images/background2.jpg);
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -41,28 +41,25 @@
         padding: 20px;
         height: 1000px;
         width: 97%;
-        row-gap: 60px;
+        row-gap: 10px;
         justify-content: space-between;
         grid-template-columns: 250px 150px 150px 150px 150px;
-        grid-template-rows: 200px 200px 200px 200px 200px;
+        grid-template-rows: 270px 270px 270px 270px 270px;
     }
-    .banners_meio{
+
+    .banners_meio {
         display: flex;
         margin-top: 60px;
         margin-bottom: 25px;
-        padding-left: 20px;
         justify-content: space-around;
         gap: 80px;
-        height: 400px;
-       
-    }
-    .banner1{
-
-         
-    }
-    .banner2{
+        height: 300px;
 
     }
+
+    .banner1 {}
+
+    .banner2 {}
 
 
     .pesquisa {
@@ -116,17 +113,31 @@
         width: 100%;
     }
 
-    .box {
+    .imgbox {
         width: 150px;
         height: 200px;
-
+        display:block;
+        justify-content: center;
+        font-family: 'Verdana', Courier, monospace;
+        text-align: center;
     }
 
     .item {
+        display:block;
         color: white;
         justify-content: center;
         font-family: 'Verdana', Courier, monospace;
         text-align: center;
+        transition: 0.5s ease;
+
+    }
+    .item:hover{
+        transform: scale(1.2); 
+        background-color: rgba(26, 26, 26,0.8);
+        transition: 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0px 0px 10px rgb(42, 41, 43);
+
     }
 
     .descrição {
@@ -134,7 +145,8 @@
         color: grey;
     }
 
-    a:link, a:visited{
+    a:link,
+    a:visited {
         color: grey;
     }
 
@@ -144,93 +156,100 @@
         color: rgb(19, 19, 19);
     }
 </style>
-
 <body>
     <header class="main">
-        
-            <div class="containermenu">
-                <div class="logo">
-                    <a href="#"><img class="logotipo" src="Capturar-removebg-preview.png" alt="bookgear"></a>
 
-                </div>
-                <div class="search-box">
-                    <input type="text" placeholder="Pesquisar">
-                    <a href="#" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                        </svg></a>
-                </div>
-                <div class="user">
-                    <a href="#">Entrar</a>
-                    <a href="#">Cadastrar</a>
-                </div>
+        <div class="containermenu">
+            <div class="logo">
+                <a href="#"><img class="logotipo" src="../images/Capturar-removebg-preview.png" alt="bookgear"></a>
             </div>
-            <div class="cabecalho">
-                <nav>
-                    <ul>
-                        <li><a href="#" class="books">LIVROS</a></li>
-                        <li><a href="#" class="boxes">CAIXAS</a></li>
-                        <li><a href="#" class="checkout">CARRINHO</a></li>
-                        <li><a href="#" class="publisher">EDITORA</a></li>
-                        <li><a href="#" class="desejos">WISHLIST</a></li>
-                        <li><a href="#" class="autor">AUTORES</a></li>
 
-                    </ul>
-                </nav>
+            <div class="search-box">
+                <input type="text" placeholder="Pesquisar">
+                <a href="#" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg></a>
             </div>
+
+            <div class="user">
+                <button type="button" class="botaoentrar" value="Entrar">Entrar</button>
+                    <a href="Login-bookgear.html">entrar</a>
+                <a href="#">Cadastrar</a>
+            </div>
+        </div>
+
+
+        <div class="cabecalho">
+            <nav>
+                <ul>
+                    <li><a href="#" class="books">LIVROS</a></li>
+                    <li><a href="#" class="boxes">CAIXAS</a></li>
+                    <li><a href="#" class="checkout">CARRINHO</a></li>
+                    <li><a href="#" class="publisher">EDITORA</a></li>
+                    <li><a href="#" class="desejos">WISHLIST</a></li>
+                    <li><a href="#" class="autor">AUTORES</a></li>
+
+                </ul>
+            </nav>
+        </div>
     </header>
+
+
+    
     <div class="meio">
         <div class="banners_meio">
             <img class="banner1 banner" src="../images/banner1.png" alt="banner">
             <img class="banner2 banner" src="../images/banner1.png" alt="banner">
-    </div>
-    <div class="container principal">
-        <div class="item item1">
-            <img class="item box" src="../images/box.jpg">
-            <p class="descrição">Caixa da BookGear</p>
         </div>
-        <div class="item item2">
-            <img class="item box" src="../images/box.jpg">
-            <p class="descrição">Caixa da BookGear</p>
-        </div>
-        <div class="item item3">
-            <img class="item box" src="../images/box.jpg">
-            <p class="descrição">Caixa da BookGear</p>
-        </div>
-        <div class="item item4">
-            <img class="item box" src="../images/box.jpg">
-            <p class="descrição">Caixa da BookGear</p>
-        </div>
-        <div class="item item5">
-            <img class="item box" src="../images/box.jpg">
-            <p class="descrição">Caixa da BookGear</p>
-        </div>
-        <div class="item item6">
-            <img class="item box" src="../images/box.jpg">
-            <p class="descrição">Caixa da BookGear</p>
-        </div>
-        <div class="item item7">
-            <img class="item box" src="../images/box.jpg">
-            <p class="descrição">Caixa da BookGear</p>
-        </div>
+        <div class="container principal">
+            <div class="item item1"> <!-- Campo onde ficam os produtos -->
+                <img class="imgbox" src="../images/box.jpg">
+                <p class="descrição">Caixa da BookGear Lorem ipsum dolor sit amet consectetura</p>
+            </div>
+            <div class="item item2">
+                <img class="imgbox" src="../images/box.jpg">
+                <p class="descrição">Caixa da BookGear</p>
+            </div>
+            <div class="item item3">
+                <img class="imgbox" src="../images/box.jpg">
+                <p class="descrição">Caixa da BookGear</p>
+            </div>
+            <div class="item item4">
+                <img class="imgbox" src="../images/box.jpg">
+                <p class="descrição">Caixa da BookGear</p>
+            </div>
+            <div class="item item5">
+                <img class="imgbox" src="../images/box.jpg">
+                <p class="descrição">Caixa da BookGear</p>
+            </div>
+            <div class="item item6">
+                <img class="imgbox" src="../images/box.jpg">
+                <p class="descrição">Caixa da BookGear</p>
+            </div>
+            <div class="item item7">
+                <img class="imgbox" src="../images/box.jpg">
+                <p class="descrição">Caixa da BookGear</p>
+            </div>
 
-        <div class="categorias">
-            <h1>categorias</h1>
-            <ul class="linkcateorias">
-                <li><a href="#" class="linkcateorias">ação</a></li>
-                <li><a href="#" class="link_cateorias">aventura</a></li>
-                <li><a href="#" class="link_cateorias">clássicos</a></li>
-                <li><a href="#" class="link_cateorias">drama</a></li>
-                <li><a href="#" class="link_cateorias">fantasia</a></li>
-                <li><a href="#" class="link_cateorias">ficção cientifica</a></li>
-                <li><a href="#" class="link_cateorias">infantil</a></li>
-                <li><a href="#" class="link_cateorias">jogos</a></li>
-                <li><a href="#" class="link_cateorias">suspense</a></li>
-                <li><a href="#" class="link_cateorias">terror</a></li>
-            </ul>
+            <div class="categorias">
+                <h1>categorias</h1>
+                <ul class="linkcateorias">
+                    <li><a href="#" class="linkcateorias">ação</a></li>
+                    <li><a href="#" class="link_cateorias">aventura</a></li>
+                    <li><a href="#" class="link_cateorias">clássicos</a></li>
+                    <li><a href="#" class="link_cateorias">drama</a></li>
+                    <li><a href="#" class="link_cateorias">fantasia</a></li>
+                    <li><a href="#" class="link_cateorias">ficção cientifica</a></li>
+                    <li><a href="#" class="link_cateorias">infantil</a></li>
+                    <li><a href="#" class="link_cateorias">jogos</a></li>
+                    <li><a href="#" class="link_cateorias">suspense</a></li>
+                    <li><a href="#" class="link_cateorias">terror</a></li>
+                </ul>
 
+            </div>
         </div>
-    </div>
 </body>
+
 </html>
