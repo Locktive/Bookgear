@@ -31,7 +31,7 @@
         grid-template-rows: 20px 25px 20px;
         background-color: rgba(42, 41, 43, 0.9);
         box-shadow: 0px 0px 10px rgb(42, 41, 43);
-        justify-content: space-evenly;
+        justify-content: space-;
     }
 
     .principal {
@@ -96,12 +96,12 @@
     .categorias {
         text-align: center;
         color: grey;
-        height: 1000px;
+        height: fit-content;
         font: bold 15px sans-serif;
         background-color: rgb(24, 24, 24);
         grid-row: 1/6;
         grid-column: 1/2;
-        
+        list-style-type: none;
     }
 
     .ul {
@@ -146,52 +146,51 @@
         margin: auto;
         color: grey;
     }
+    
+        .input_categoria {
+            font-size: 15px;
+            border: none;
+            padding: 10px;
+            margin: 8px;
+            width: 220px;
+            transition: 0.6s ease;
+            background-color:rgb(24, 24, 24);
+            color: grey;
+        }
 
-    .orange a:link,
-    .orange a:visited {
-        color: grey;
-        text-decoration: none;
-    }
-
-    .orange:hover {
+    .input_categoria:hover {
         background-color: #f85d03;
         transition: 0.3s ease;
         text-decoration: none;
+        cursor: pointer;
+        color: black;
     }
 
-    .orange {
-        padding: 10px;
-        margin: 10px;
-        transition: 0.6s ease;
-        color: #f85d03;
-    }
 
-    .orange a:hover {
-        color: rgb(182, 182, 182);
-    }
 </style>
 
 <body>
     <header class="main">
 
+
         <div class="containermenu">
             <div class="logo">
                 <a href="#"><img class="logotipo" src="../images/Capturar-removebg-preview.png" alt="bookgear"></a>
             </div>
-
             <div class="search-box">
                 <input type="text" placeholder="Pesquisar">
                 <a href="#" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                         fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                     </svg></a>
             </div>
 
+
             <div class="user">
-                <button type="button" class="botaoentrar" value="Entrar">Entrar</button>
-                <a class="login" href="Login-bookgear.html">entrar</a>
-                <a class="login" href="#">Cadastrar</a>
+                <a href="Login-bookgear.html">
+                    <button type="url" class="botao">Entrar</button></a>
+                <a class="login" href="#">
+                    <button type="url" class="botao">Cadastrar</button></a>
             </div>
         </div>
         <div class="cabecalho">
@@ -248,17 +247,18 @@
 
             <div class="categorias">
                 <h1>categorias</h1>
-                <ul class="linkcateorias">
-                    <li class="orange"><a href="#">Ação</a></li>
-                    <li class="orange"><a href="#" class="link_cateorias">Aventura</a></li>
-                    <li class="orange"><a href="#" class="link_cateorias">Clássicos</a></li>
-                    <li class="orange"><a href="#" class="link_cateorias">Drama</a></li>
-                    <li class="orange"><a href="#" class="link_cateorias">Fantasia</a></li>
-                    <li class="orange"><a href="#" class="link_cateorias">Ficção cientifica</a></li>
-                    <li class="orange"><a href="#" class="link_cateorias">Infantil</a></li>
-                    <li class="orange"><a href="#" class="link_cateorias">Jogos</a></li>
-                    <li class="orange"><a href="#" class="link_cateorias">Suspense</a></li>
-                    <li class="orange"><a href="#" class="link_cateorias">Terror</a></li>
+                <ul class="categorias">
+                    <li><button type="url" href="#"class="input_categoria">Ação</button></li>
+                    <li><button type="url" href="#"class="input_categoria">Aventura</button></li>
+                    <li><button type="url" href="#"class="input_categoria">Clássicos</button></li>
+                    <li><button type="url" href="#"class="input_categoria">Drama</button></li>
+                    <li><button type="url" href="#"class="input_categoria">Fantasia</button></li>
+                    <li><button type="url" href="#"class="input_categoria">Ficção cientifica</button></li>
+                    <li><button type="url" href="#"class="input_categoria">Infantil</button></li>
+                    <li><button type="url" href="#"class="input_categoria">Jogos</button></li>
+                    <li><button type="url" href="#"class="input_categoria">Suspense</button></li>
+                    <li><button type="url" href="#"class="input_categoria">Terror</button></li>
+
                 </ul>
             </div>
         </div>
