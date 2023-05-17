@@ -10,12 +10,12 @@
     <link rel="icon" type="image/x-icon" href="./../images/logo-removebg-preview.png">
     <title>Cadastro - Bookgear</title>
     <style>
-        .bimage {
-            background-image: url(./../images/background.jpg);
+        body {
+            background-color: rgb(66, 66, 66);
+            background-image: url(./../images/background2.jpg);
             background-repeat: no-repeat;
+            background-attachment: fixed;
             background-size: cover;
-            height: 85vh;
-            border-bottom: 80px solid rgba(12, 12, 12, 0.89);
         }
 
         .texto {
@@ -86,10 +86,10 @@
 <body>
     <header class="main">
 
+
         <div class="containermenu">
             <div class="logo">
-                <a href="#"><img class="logotipo" src="./../images/Capturar-removebg-preview.png" alt="bookgear"></a>
-
+                <a href="#"><img class="logotipo" src="../images/Capturar-removebg-preview.png" alt="bookgear"></a>
             </div>
             <div class="search-box">
                 <input type="text" placeholder="Pesquisar">
@@ -99,21 +99,24 @@
                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                     </svg></a>
             </div>
+
+
             <div class="user">
-                <a href="Login-bookgear.html">Entrar</a>
-                <a href="cadastro.html">Cadastrar</a>
+                <a href="Login-bookgear.html">
+                    <button type="url" class="botao">Entrar</button></a>
+                <a class="login" href="#">
+                    <button type="url" class="botao">Cadastrar</button></a>
             </div>
         </div>
         <div class="cabecalho">
             <nav>
                 <ul>
-                    <li><a href="#" class="books">LIVROS</a></li>
-                    <li><a href="#" class="boxes">CAIXAS</a></li>
-                    <li><a href="#" class="checkout">CARRINHO</a></li>
-                    <li><a href="#" class="publisher">EDITORA</a></li>
-                    <li><a href="#" class="desejos">WISHLIST</a></li>
-                    <li><a href="#" class="autor">AUTORES</a></li>
-
+                    <li><a href="#">LIVROS</a></li>
+                    <li><a href="#">CAIXAS</a></li>
+                    <li><a href="#">CARRINHO</a></li>
+                    <li><a href="#">EDITORA</a></li>
+                    <li><a href="#">WISHLIST</a></li>
+                    <li><a href="#">AUTORES</a></li>
                 </ul>
             </nav>
         </div>
@@ -121,15 +124,15 @@
     <div class="bimage">
         <div class="box">
             <div class="texto">
-            <p class="Login">Cadastro</p>
-        </div>
+                <p class="Login">Cadastro</p>
+            </div>
 
-        <form action="#" name="cadastro">
-            <input type="text" name="username" class="btn-username" placeholder="Nome">
-            <input type="email" name="email" class="btn-username" placeholder="E-mail">
-            <input type="password" name="password" class="btn-username" placeholder="Senha">
-            <input type="password" name="confirm" class="btn-username" placeholder="Confirmar senha">
-        </form>    
+            <form action="#" name="cadastro">
+                <input type="text" name="username" class="btn-username" placeholder="Nome">
+                <input type="email" name="email" class="btn-username" placeholder="E-mail">
+                <input type="password" name="password" class="btn-username" placeholder="Senha">
+                <input type="password" name="confirm" class="btn-username" placeholder="Confirmar senha">
+            </form>
 
             <div class="mini-box">
                 <a href="#">Cadastrar</a>
