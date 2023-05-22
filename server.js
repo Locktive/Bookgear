@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
   password: 'root',
-  database: 'universidade'
+  database: 'bookgear'
 });
 
 connection.connect(function(err){
@@ -15,7 +15,7 @@ connection.connect(function(err){
 
 // simple query
 connection.query(
-  'SELECT * FROM `aluno`',
+  'SELECT * FROM `tema`',
   function(err, rows, fields) {
     if(!err){
         console.log("Resultado:", rows);

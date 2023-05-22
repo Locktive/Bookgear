@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Maio-2023 às 17:03
+-- Tempo de geração: 22-Maio-2023 às 13:33
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -59,18 +59,19 @@ INSERT INTO `autor` (`id_autor`, `nome`, `data_nascimento`, `data_morte`, `telef
 
 CREATE TABLE `caixa` (
   `id_caixa` int NOT NULL,
-  `id_tipocaixa` int NOT NULL
+  `id_tipocaixa` int NOT NULL,
+  `id_tema` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `caixa`
 --
 
-INSERT INTO `caixa` (`id_caixa`, `id_tipocaixa`) VALUES
-(1, 1),
-(4, 1),
-(2, 2),
-(3, 3);
+INSERT INTO `caixa` (`id_caixa`, `id_tipocaixa`, `id_tema`) VALUES
+(1, 1, 1),
+(2, 2, 2),
+(3, 2, 10),
+(4, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -209,24 +210,25 @@ CREATE TABLE `livro` (
   `fk_editora` int NOT NULL,
   `Preco` decimal(10,2) NOT NULL,
   `Nome` varchar(100) NOT NULL,
-  `Estoque` int NOT NULL
+  `Estoque` int NOT NULL,
+  `id_tema` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `livro`
 --
 
-INSERT INTO `livro` (`id_livro`, `fk_autor`, `fk_editora`, `Preco`, `Nome`, `Estoque`) VALUES
-(1, 7, 9, '23.72', 'Pearls and Pigs (Helmiä ja sikoja)', 444),
-(2, 1, 2, '79.35', 'Highwaymen', 429),
-(3, 4, 8, '21.41', 'Cirque du Soleil: Dralion', 881),
-(4, 6, 5, '21.71', 'Dead Man\'s Letters (Pisma myortvogo cheloveka)', 461),
-(5, 2, 3, '12.21', 'Cosmos', 497),
-(6, 3, 9, '29.99', 'Where the Heart Is', 6),
-(7, 10, 5, '43.24', 'Home', 521),
-(8, 9, 9, '83.49', 'Eddie Izzard: Force Majeure Live', 600),
-(9, 3, 7, '49.42', 'Major Movie Star', 512),
-(10, 9, 10, '95.01', 'Master of Ballantrae, The', 47);
+INSERT INTO `livro` (`id_livro`, `fk_autor`, `fk_editora`, `Preco`, `Nome`, `Estoque`, `id_tema`) VALUES
+(1, 7, 9, '23.72', 'Pearls and Pigs (Helmiä ja sikoja)', 444, 1),
+(2, 1, 2, '79.35', 'Highwaymen', 429, 5),
+(3, 4, 8, '21.41', 'Cirque du Soleil: Dralion', 881, 8),
+(4, 6, 5, '21.71', 'Dead Man\'s Letters (Pisma myortvogo cheloveka)', 461, 10),
+(5, 2, 3, '12.21', 'Cosmos', 497, 10),
+(6, 3, 9, '29.99', 'Where the Heart Is', 6, 4),
+(7, 10, 5, '43.24', 'Home', 521, 6),
+(8, 9, 9, '83.49', 'Eddie Izzard: Force Majeure Live', 600, 7),
+(9, 3, 7, '49.42', 'Major Movie Star', 512, 1),
+(10, 9, 10, '95.01', 'Master of Ballantrae, The', 47, 9);
 
 -- --------------------------------------------------------
 
@@ -237,20 +239,27 @@ INSERT INTO `livro` (`id_livro`, `fk_autor`, `fk_editora`, `Preco`, `Nome`, `Est
 CREATE TABLE `livros_caixa` (
   `id_livros_caixa` int NOT NULL,
   `id_livro` int NOT NULL,
-  `id_caixa` int NOT NULL,
-  `id_tema` int NOT NULL
+  `id_caixa` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `livros_caixa`
 --
 
-INSERT INTO `livros_caixa` (`id_livros_caixa`, `id_livro`, `id_caixa`, `id_tema`) VALUES
-(1, 1, 1, 1),
-(2, 2, 1, 1),
-(3, 3, 1, 1),
-(4, 4, 1, 1),
-(5, 7, 4, 9);
+INSERT INTO `livros_caixa` (`id_livros_caixa`, `id_livro`, `id_caixa`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 1),
+(5, 7, 4),
+(6, 6, 4),
+(7, 3, 2),
+(8, 5, 3),
+(9, 7, 3),
+(10, 6, 3),
+(11, 2, 3),
+(12, 10, 3),
+(13, 4, 2);
 
 -- --------------------------------------------------------
 
@@ -269,7 +278,16 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`id_produto`, `id_caixa`, `id_livro`) VALUES
-(1, 4, NULL);
+(1, 3, 5),
+(2, 4, 3),
+(3, 1, 9),
+(4, NULL, 4),
+(5, NULL, 3),
+(6, NULL, 10),
+(7, 2, NULL),
+(8, 1, NULL),
+(9, 2, 9),
+(10, NULL, 5);
 
 -- --------------------------------------------------------
 
@@ -295,13 +313,6 @@ CREATE TABLE `produto_carrinho` (
   `id_carrinho` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Extraindo dados da tabela `produto_carrinho`
---
-
-INSERT INTO `produto_carrinho` (`id_produto_carrinho`, `id_produto`, `id_carrinho`) VALUES
-(1, 1, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -310,26 +321,25 @@ INSERT INTO `produto_carrinho` (`id_produto_carrinho`, `id_produto`, `id_carrinh
 
 CREATE TABLE `tema` (
   `id_tema` int NOT NULL,
-  `nome` varchar(30) NOT NULL,
-  `cor` varchar(25) NOT NULL
+  `nome` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `tema`
 --
 
-INSERT INTO `tema` (`id_tema`, `nome`, `cor`) VALUES
-(1, 'Acao', '#ba669a'),
-(2, 'Aventura', '#47c5ab'),
-(3, 'Clássicos', '#340c65'),
-(4, 'Drama', '#b1fb39'),
-(5, 'Fantasia', '#0258b2'),
-(6, 'Ficcao cientifica', '#1373ae'),
-(7, 'Infantil', '#bc5e84'),
-(8, 'Jogos', '#1a67e3'),
-(9, 'Suspense', '#0ddaa9'),
-(10, 'Terror', '#ea3828'),
-(11, 'Padrão', '#000000');
+INSERT INTO `tema` (`id_tema`, `nome`) VALUES
+(1, 'Acao'),
+(2, 'Aventura'),
+(3, 'Clássicos'),
+(4, 'Drama'),
+(5, 'Fantasia'),
+(6, 'Ficcao cientifica'),
+(7, 'Infantil'),
+(8, 'Jogos'),
+(9, 'Suspense'),
+(10, 'Terror'),
+(11, 'Padrão');
 
 --
 -- Índices para tabelas despejadas
@@ -346,7 +356,8 @@ ALTER TABLE `autor`
 --
 ALTER TABLE `caixa`
   ADD PRIMARY KEY (`id_caixa`),
-  ADD KEY `caixa_ibfk_2` (`id_tipocaixa`);
+  ADD KEY `caixa_ibfk_2` (`id_tipocaixa`),
+  ADD KEY `id_tema` (`id_tema`);
 
 --
 -- Índices para tabela `caixa_tipo`
@@ -394,7 +405,8 @@ ALTER TABLE `lista_de_desejos`
 ALTER TABLE `livro`
   ADD PRIMARY KEY (`id_livro`),
   ADD KEY `fk_autor` (`fk_autor`),
-  ADD KEY `fk_editora` (`fk_editora`);
+  ADD KEY `fk_editora` (`fk_editora`),
+  ADD KEY `id_tema` (`id_tema`);
 
 --
 -- Índices para tabela `livros_caixa`
@@ -402,8 +414,7 @@ ALTER TABLE `livro`
 ALTER TABLE `livros_caixa`
   ADD PRIMARY KEY (`id_livros_caixa`),
   ADD KEY `id_livro` (`id_livro`),
-  ADD KEY `id_caixa` (`id_caixa`),
-  ADD KEY `id_tema` (`id_tema`);
+  ADD KEY `id_caixa` (`id_caixa`);
 
 --
 -- Índices para tabela `produto`
@@ -491,19 +502,19 @@ ALTER TABLE `lista_de_desejos`
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `livros_caixa`
 --
 ALTER TABLE `livros_caixa`
-  MODIFY `id_livros_caixa` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_livros_caixa` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id_produto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_produto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `produtos_compra`
@@ -531,7 +542,8 @@ ALTER TABLE `tema`
 -- Limitadores para a tabela `caixa`
 --
 ALTER TABLE `caixa`
-  ADD CONSTRAINT `caixa_ibfk_2` FOREIGN KEY (`id_tipocaixa`) REFERENCES `caixa_tipo` (`id_caixatipo`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `caixa_ibfk_2` FOREIGN KEY (`id_tipocaixa`) REFERENCES `caixa_tipo` (`id_caixatipo`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `caixa_ibfk_3` FOREIGN KEY (`id_tema`) REFERENCES `tema` (`id_tema`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `carrinho`
@@ -557,15 +569,15 @@ ALTER TABLE `lista_de_desejos`
 --
 ALTER TABLE `livro`
   ADD CONSTRAINT `fk_autor` FOREIGN KEY (`fk_autor`) REFERENCES `autor` (`id_autor`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `fk_editora` FOREIGN KEY (`fk_editora`) REFERENCES `editora` (`id_editora`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `fk_editora` FOREIGN KEY (`fk_editora`) REFERENCES `editora` (`id_editora`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `livro_ibfk_1` FOREIGN KEY (`id_tema`) REFERENCES `tema` (`id_tema`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `livros_caixa`
 --
 ALTER TABLE `livros_caixa`
   ADD CONSTRAINT `id_caixa` FOREIGN KEY (`id_caixa`) REFERENCES `caixa` (`id_caixa`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `id_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `id_tema` FOREIGN KEY (`id_tema`) REFERENCES `tema` (`id_tema`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `produto`
