@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/cabecalho.css">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/barrapesquisa.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/cabecalho.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/barrapesquisa.css">
     <title>Bookgear</title>
 </head>
 <style>
     body {
         background-color: rgb(66, 66, 66);
-        background-image: url(./../images/background2.jpg);
+        background-image: url(./../public/images/background2.jpg);
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
@@ -49,12 +49,14 @@
     .grid {
 
         background-color: rgba(255, 255, 255, 0);
-        height: 1000px;
-        width: 900px;
+        height:500px;
+        width: 910px;
         row-gap: 28px;
         justify-content: space-between;
         grid-template-columns: 900px;
         grid-auto-rows: 150px;
+        overflow: scroll;
+        overflow-x: hidden;
     }
 
     .pesquisa {
@@ -137,7 +139,7 @@
 
         <div class="containermenu">
             <div class="logo">
-                <a href="#"><img class="logotipo" src="../images/Capturar-removebg-preview.png" alt="bookgear"></a>
+                <a href="#"><img class="logotipo" src="../public/images/Capturar-removebg-preview.png" alt="bookgear"></a>
             </div>
             <div class="search-box">
                 <input type="text" placeholder="Pesquisar">
@@ -175,31 +177,31 @@
         <div class="container grid">
 
             <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../images/box.jpg"></div>
+                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
             </div>
 
             <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../images/box.jpg"></div>
+                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
             </div>
 
             <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../images/box.jpg"></div>
+                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
             </div>
 
             <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../images/box.jpg"></div>
+                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
             </div>
 
             <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../images/box.jpg"></div>
+                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
             </div>
 
             <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../images/box.jpg"></div>
+                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
             </div>
 
             <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../images/box.jpg"></div>
+                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
             </div>
         </div>
 
