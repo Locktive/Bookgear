@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/cabecalho.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/barrapesquisa.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/scrollbar.css">
     <title>Bookgear</title>
 </head>
 <style>
     body {
-        background-color: rgb(66, 66, 66);
+        background-color: rgb(20, 20, 20);
         background-image: url(./../public/images/background2.jpg);
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -37,6 +38,8 @@
 
     .principal {
         margin-top: 100px;
+        position: relative;
+        bottom: 60px;
         background-color: rgba(255, 255, 255, 0);
         padding: 20px;
         padding-top: 30px;
@@ -47,14 +50,14 @@
     }
 
     .grid {
-
         background-color: rgba(255, 255, 255, 0);
-        height:500px;
-        width: 910px;
-        row-gap: 28px;
+        height: 500px;
+        width: 923px;
+        row-gap: 24px;
         justify-content: space-between;
         grid-template-columns: 900px;
         grid-auto-rows: 150px;
+        margin-right: 10px;
         overflow: scroll;
         overflow-x: hidden;
     }
@@ -96,40 +99,93 @@
     }
 
     .imgbox {
-        width: 160px;
-        height: 150px;
+        width: 140px;
+        height: 130px;
         display: block;
         justify-content: center;
         font-family: 'Verdana', Courier, monospace;
         text-align: center;
+        margin: 10px;
         float: left;
 
     }
 
     .item {
-        display: block;
+        color: grey;
+        display: grid;
         box-shadow: 0px 0px 3px rgb(42, 41, 43);
         background-color: rgba(42, 41, 43, 0.8);
         border-radius: 4px;
         justify-content: center;
         font-family: 'Verdana', Courier, monospace;
         text-align: center;
+        grid-template-columns: 150px 575px 175px;
+        grid-template-rows: 150px;
         transition: 0.5s ease;
+
     }
 
-    .descrição {
+    .remove {
+        border: none;
+        border-radius: 3px;
+        color: rgb(48, 48, 48);
+        background: #888888;
+        padding: 5px 25px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        margin: 40px 2px;
+        cursor: pointer;
+    }
+
+    .remove:hover {
+        color: #080808;
+        background: #6b6b6b;
+        text-align: center;
+
+        cursor: pointer;
+    }
+
+    .descricao {
+        height: 150px;
+        width: 550px;
+        font-size: large;
         margin: auto;
         color: grey;
+        grid-column: 2 / 3;
     }
 
-    .preco {
+    .descricao2 {
+        height: 150px;
+        width: 175px;
+        font-size: larger;
+        float: left;
+        margin: auto;
+        color: grey;
+        grid-column: 3 / 4;
+
+    }
+
+    .compra {
         width: 380px;
         height: 330px;
         background-color: rgba(42, 41, 43, 0.8);
         box-shadow: 0px 0px 3px rgb(42, 41, 43);
         border-radius: 4px;
         left: 950px;
-        position: fixed;
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+    }
+    .preco{
+        width: 175px;
+        height: 30px;
+        margin-top: 20px;
+        align-items:flex-end;
+        font-size: x-large;
+
+    }
+    .estoque{
+        font-size: small;
     }
 </style>
 
@@ -139,7 +195,8 @@
 
         <div class="containermenu">
             <div class="logo">
-                <a href="#"><img class="logotipo" src="../public/images/Capturar-removebg-preview.png" alt="bookgear"></a>
+                <a href="#"><img class="logotipo" src="../public/images/Capturar-removebg-preview.png"
+                        alt="bookgear"></a>
             </div>
             <div class="search-box">
                 <input type="text" placeholder="Pesquisar">
@@ -176,36 +233,39 @@
     <div class="container principal">
         <div class="container grid">
 
-            <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
+            <div class="item">
+                <img class="imgbox" src="../public/images/box.jpg">
+                <div class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt a suscipit
+                    deleniti, numquam sint eius est aut, ducimus dicta quas, doloribus dolore quisquam? Eius, accusamus
+                    soluta veritatis nulla nesciunt aspernatur.</div>
+                <div class="descricao2">
+                    <div class="preco">R$: 90,00</div>
+                    <div class="estoque">Em estoque</div>
+                    <button class="remove"type="url">Remover do carrinho</button></a>
+                </div>
             </div>
 
-            <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
+            <div class="item">
+                <img class="imgbox" src="../public/images/box.jpg">
             </div>
-
-            <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
+            <div class="item">
+                <img class="imgbox" src="../public/images/box.jpg">
             </div>
-
-            <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
+            <div class="item">
+                <img class="imgbox" src="../public/images/box.jpg">
             </div>
-
-            <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
+            <div class="item">
+                <img class="imgbox" src="../public/images/box.jpg">
             </div>
-
-            <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
+            <div class="item">
+                <img class="imgbox" src="../public/images/box.jpg">
             </div>
-
-            <div class="Div item">
-                <div class="imgbox"><img class="imgbox" src="../public/images/box.jpg"></div>
+            <div class="item">
+                <img class="imgbox" src="../public/images/box.jpg">
             </div>
         </div>
 
-        <div class="preco">
+        <div class="compra">
         </div>
 
     </div>
