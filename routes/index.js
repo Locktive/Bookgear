@@ -20,7 +20,7 @@ router.get('/cadastro', function(req,res,next){
   res.sendFile(cadastro);
 })
 
-app.use(app.router);
+app.use(router);
 
 // Since this is the last non-error-handling
 // middleware use()d, we assume 404, as nothing else
