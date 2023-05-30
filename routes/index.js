@@ -1,8 +1,19 @@
 const express = require('express');
 var router = express.Router();
 const path = require('path');
+var bodyParser = require('body-parser');
+var mysql = require('mysql2')
 var app = express();
 app.use(express.static('../public'))
+
+const connection = mysql.createConnection({
+  host: '127.0.0.1',
+  user: 'root',
+  password: 'root',
+  database: 'bookgear',
+  port: '3306'
+});
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -15,10 +26,77 @@ router.get('/Login', function(req,res,next){
   res.sendFile(login);
 })
 
+router.post('/Login', function (req, res) {
+  var name = req.body.name;
+  var password = req.body.senha;
+  var sql = 'SELECT * FROM cliente WHERE nome = ?';
+  connection.query(sql, [name], function (err, results, fields) {
+      if (!err) {
+          console.log("Resultado:", results);
+          console.log(name)
+          console.log(password)
+          if (results  && results.length > 0) {
+              var passCheck = results[0].senha;
+              if (password === passCheck) {
+                  res.send("Bem vindo " + name)
+                  console.log("deu bom")
+              } else {
+                  res.send("Senha errada")
+                  console.log("nao deu bom")
+              }
+          } else {
+              res.send("Usuario nao encontrado")
+          }
+      } else {
+          console.log("Consulta não realizada");
+      }
+
+  })
+  console.log("Enviado ao servidor");
+});
+
 router.get('/cadastro', function(req,res,next){
   let cadastro = path.join(__dirname, "../views/cadastro.html");
   res.sendFile(cadastro);
 })
+
+router.post('/cadastro', function (req, res) {
+  var name = req.body.username;
+  var password = req.body.password;
+  var email = req.body.email;
+  var confirm = req.body.confirm;
+  var addres = req.body.address;
+  var sql = 'INSERT * FROM cliente';
+  connection.query(sql, [name], function (err, results, fields) {
+      if (!err) {
+          console.log("Resultado:", results);
+          console.log(name)
+          console.log(password)
+          if (results  && results.length > 0) {
+              var passCheck = results[0].senha;
+              if (password === passCheck) {
+                  res.send("Bem vindo " + name)
+                  console.log("deu bom")
+              } else {
+                  res.send("Senha errada")
+                  console.log("nao deu bom")
+              }
+          } else {
+              res.send("Usuario nao encontrado")
+          }
+      } else {
+          console.log("Consulta não realizada");
+      }
+
+  })
+  console.log("Enviado ao servidor");
+});
+
+router.get('/compre', function(req,res,next){
+  let login = path.join(__dirname, "../views/book.html");
+  res.sendFile(login);
+})
+
 
 app.use(router);
 

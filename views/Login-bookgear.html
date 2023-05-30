@@ -64,12 +64,14 @@
             flex-direction: row;
         }
 
-        .mini-box a{
+        .mini-box a,
+        .mini-box input{
             border-radius: 10px;
         }
 
         .mini-box a:link,
-        .mini-box a:visited {
+        .mini-box a:visited,
+        .mini-box input {
             background-color: #ff7300;
             color: rgb(34, 34, 34);
             width: 100px;
@@ -79,10 +81,13 @@
             display: inline-block;
             font: bold 17px sans-serif;
             margin: 20px 0px 0px 10px;
+            cursor: pointer;
         }
 
         .mini-box a:hover,
-        .mini-box a:active {
+        .mini-box a:active,
+        .mini-box input:hover,
+        .mini-box input:active {
             background-color: #d15e00;
         }
     </style>
@@ -130,22 +135,26 @@
             <div class="texto">
                 <p class="Login">Login</p>
             </div>
-            <form action="#" name="form">
-                <input type="email" name="username" class="btn-username" placeholder="Email">
+            <form action="/Login" method="post" name="form">
+                <input type="text" name="name" id="name" class="btn-username" placeholder="Nome de usuário">
 
-                <input type="password" name="username" class="btn-username" placeholder="Senha">
+                <input type="password" id="senha" name="senha" class="btn-username" placeholder="Senha"> <br>
+                
+                <div class="mini-box">
+                    <input type="submit" placeholder="Entrar">
+                    <a href="/cadastro">Cadastrar</a>
+                </div>
+            </form>
 
+           
                 <p class="forgot-password"><a href="#">Esqueceu a senha?</a></p>
-            </form>    
+                
             <div>
                 <input style="margin-top: 20px;" type="checkbox" name="connected" id="c">
                 <label for="c" style="color: white; font-family: Arial, Helvetica, sans-serif;">Continuar Conectado</label>
             </div>
 
-            <div class="mini-box">
-                <a style="margin-left: 0px;" href="/">Conectar</a>
-                <a href="/cadastro">Cadastrar</a>
-            </div>
+            
         </div>
     </div>
 

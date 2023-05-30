@@ -23,14 +23,14 @@
             color: white;
             width: 35px;
             height: 10%;
-            margin-top: 120px;
+            margin-top: 60px;
         }
 
         .box {
             flex-direction: column;
             margin: 38px 0px 0px 475px;
             width: 400px;
-            height: 500px;
+            height: 510px;
             text-align: center;
             justify-content: center;
             overflow-y: auto;
@@ -56,12 +56,8 @@
             flex-direction: row;
         }
 
-        .mini-box a{
+        .mini-box input{
             border-radius: 10px;
-        }
-
-        .mini-box a:link,
-        .mini-box a:visited {
             background-color: #ff7300;
             color: rgb(34, 34, 34);
             width: 100px;
@@ -70,11 +66,11 @@
             text-decoration: none;
             display: inline-block;
             font: bold 17px sans-serif;
-            margin: 20px 0px 0px 10px;
+            margin: 20px 0px 0px 60px;
+            cursor: pointer;
         }
 
-        .mini-box a:hover,
-        .mini-box a:active {
+        .mini-box input:hover{
             background-color: #d15e00;
         }
 
@@ -128,16 +124,20 @@
                 <p class="Login">Cadastro</p>
             </div>
 
-            <form action="#" name="cadastro">
+            <form action="/cadastro" method="post" name="cadastro">
                 <input type="text" name="username" class="btn-username" placeholder="Nome">
                 <input type="email" name="email" class="btn-username" placeholder="E-mail">
                 <input type="password" name="password" class="btn-username" placeholder="Senha">
                 <input type="password" name="confirm" class="btn-username" placeholder="Confirmar senha">
+                <input type="text" name="address" class="btn-username" placeholder="Endereço">
+                <br>
+                <div class="mini-box">
+                    <input type="submit" id="cadastro">
+                    <label for="cadastro">Cadastrar</label>
+                </div>
             </form>
 
-            <div class="mini-box">
-                <a href="#">Cadastrar</a>
-            </div>
+            
 
             <div>
                 <p class="forgot-password">Já tem conta? <a href="/Login">Entrar</a></p>
