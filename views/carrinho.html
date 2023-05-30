@@ -119,7 +119,7 @@
         justify-content: center;
         font-family: 'Verdana', Courier, monospace;
         text-align: center;
-        grid-template-columns: 150px 575px 175px;
+        grid-template-columns: 150px 555px 195px;
         grid-template-rows: 150px;
         transition: 0.5s ease;
 
@@ -134,7 +134,7 @@
         text-align: center;
         font-size: 12px;
         font-weight: bold;
-        margin: 40px 2px;
+        margin: 15px 2px;
         cursor: pointer;
     }
 
@@ -142,17 +142,20 @@
         color: #080808;
         background: #6b6b6b;
         text-align: center;
-
         cursor: pointer;
     }
 
     .descricao {
-        height: 150px;
-        width: 550px;
+        height: 125px;
+        width: 500px;
+        word-wrap: break-word;
+        overflow: hidden;
+        text-align: left;
         font-size: large;
         margin: auto;
         color: grey;
         grid-column: 2 / 3;
+        white-space: normal;
     }
 
     .descricao2 {
@@ -161,7 +164,7 @@
         font-size: larger;
         float: left;
         margin: auto;
-        color: grey;
+        color:whitesmoke;
         grid-column: 3 / 4;
 
     }
@@ -181,11 +184,13 @@
         height: 30px;
         margin-top: 20px;
         align-items:flex-end;
-        font-size: x-large;
+        font-size: xx-large;
 
     }
     .estoque{
+        margin: 10px;
         font-size: small;
+        color:springgreen;
     }
 </style>
 
@@ -235,10 +240,10 @@
 
             <div class="item">
                 <img class="imgbox" src="../public/images/box.jpg">
-                <div class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt a suscipit
-                    deleniti, numquam sint eius est aut, ducimus dicta quas, doloribus dolore quisquam? Eius, accusamus
-                    soluta veritatis nulla nesciunt aspernatur.</div>
+                <!-- nome/descrição do produto -->
+                <p class="descricao">Caixa da bookgear 4 livros, cases para livros, marca paginas personalizado, 3 suportes para livros.</p>
                 <div class="descricao2">
+                    <!-- preço do produto -->
                     <div class="preco">R$: 90,00</div>
                     <div class="estoque">Em estoque</div>
                     <button class="remove"type="url">Remover do carrinho</button></a>
@@ -247,21 +252,86 @@
 
             <div class="item">
                 <img class="imgbox" src="../public/images/box.jpg">
+                <!-- nome/descrição do produto -->
+                <p class="descricao">Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Earum enim, maxime cupiditate quisquam 
+                    consequatur reprehenderit repellat asperiores delectus ipsam, 
+                    eveniet repudiandae temporibus impedit, aut quis tenetur 
+                    facere nesciunt illum quibusdam?.</p>
+                <div class="descricao2">
+                    <!-- preço do produto -->
+                    <div class="preco">R$: 82,00</div>
+                    <div class="estoque">Em estoque</div>
+                    <button class="remove"type="url">Remover do carrinho</button></a>
+                </div>
             </div>
             <div class="item">
                 <img class="imgbox" src="../public/images/box.jpg">
+                <!-- nome/descrição do produto -->
+                <p class="descricao">Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Officia ab a qui tempore eius nulla et,
+                     in ex fugiat autem. Nulla blanditiis aliquid, quae at 
+                     nostrum maiores qui quia est.</p>
+                <div class="descricao2">
+                    <!-- preço do produto -->
+                    <div class="preco">R$: 90,00</div>
+                    <div class="estoque">Em estoque</div>
+                    <button class="remove"type="url">Remover do carrinho</button></a>
+                </div>
             </div>
             <div class="item">
                 <img class="imgbox" src="../public/images/box.jpg">
+                <!-- nome/descrição do produto -->
+                <p class="descricao">Caixa da bookgear 4 livros, cases para livros, 
+                    marca paginas personalizado, 3 suportes para livros, 4 livros, 
+                    cases para livros, marca paginas personalizado, 3 suportes para 
+                    livros 4 livros, cases para livros, marca paginas personalizado, 
+                    3 suportes para livros</p>
+                <div class="descricao2">
+                    <!-- preço do produto -->
+                    <div class="preco">R$: 12,00</div>
+                    <div class="estoque">Em estoque</div>
+                    <button class="remove"type="url">Remover do carrinho</button></a>
+                </div>
             </div>
             <div class="item">
                 <img class="imgbox" src="../public/images/box.jpg">
+                <!-- nome/descrição do produto -->
+                <p class="descricao">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+                <div class="descricao2">
+                    <!-- preço do produto -->
+                    <div class="preco">R$: 889,95</div>
+                    <div class="estoque">Em estoque</div>
+                    <button class="remove"type="url">Remover do carrinho</button></a>
+                </div>
             </div>
             <div class="item">
                 <img class="imgbox" src="../public/images/box.jpg">
+                <!-- nome/descrição do produto -->
+                <p class="descricao">Caixa da bookgear 0 livros,0 cases para 
+                    livros,0 marca paginas personalizado, 0 suportes para livros.</p>
+                <div class="descricao2">
+                    <!-- preço do produto -->
+                    <div class="preco">R$: 1257,02</div>
+                    <div class="estoque">Em estoque</div>
+                    <button class="remove"type="url">Remover do carrinho</button></a>
+                </div>
             </div>
             <div class="item">
                 <img class="imgbox" src="../public/images/box.jpg">
+                <!-- nome/descrição do produto -->
+                <p class="descricao"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, 
+                    accusamus id nostrum consectetur ab quas nihil? Ducimus numquam nostrum,
+                     deleniti accusamus magnam unde explicabo maxime, rerum minima praesentium adipisci
+                      quos? Ex distinctio placeat nam eius earum corporis sit magnam, tempora fugit, 
+                      temporibus numquam aliquid. At similique sint nostrum corrupti eaque. Ipsa, est?</p>
+                <div class="descricao2">
+                    <!-- preço do produto -->
+                    <div class="preco">R$: 76,55</div>
+                    <div class="estoque">Em estoque</div>
+                    <button class="remove"type="url">Remover do carrinho</button></a>
+                </div>
             </div>
         </div>
 
