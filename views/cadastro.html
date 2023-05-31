@@ -48,7 +48,7 @@
             border-bottom: 1px solid rgb(59, 59, 59);
             height: 30px;
             width: 260px;
-            margin-top: 20px;
+            margin-top: 15px;
             text-align: left;
         }
         .mini-box {
@@ -78,6 +78,11 @@
             margin-top: 20px;
             color: #ff7300;
             font: bold 17px sans-serif;
+        }
+        .wrongpass{
+            color: red;
+            margin-top: 10px;
+            display: none;
         }
     </style>
 </head>
@@ -124,15 +129,16 @@
                 <p class="Login">Cadastro</p>
             </div>
 
-            <form action="/cadastro" method="post" name="cadastro">
+            <form action="/cadastro" method="post" name="cadastro" id="cadastro">
                 <input type="text" name="username" class="btn-username" placeholder="Nome">
                 <input type="email" name="email" class="btn-username" placeholder="E-mail">
-                <input type="password" name="password" class="btn-username" placeholder="Senha">
-                <input type="password" name="confirm" class="btn-username" placeholder="Confirmar senha">
+                <input type="password" id="senha" name="password" class="btn-username" placeholder="Senha">
+                <p class="wrongpass">Senhas não coincidem</p>
+                <input type="password" id="confirmar" name="confirm" class="btn-username" placeholder="Confirmar senha">
                 <input type="text" name="address" class="btn-username" placeholder="Endereço">
                 <br>
                 <div class="mini-box">
-                    <input type="submit" id="cadastro">
+                    <input type="submit" id="botao">
                     <label for="cadastro">Cadastrar</label>
                 </div>
             </form>
@@ -144,7 +150,16 @@
             </div>
         </div>
     </div>
-
+    <script>
+        const senha = document.getElementById('senha');
+        const confirm = document.getElementById('confirmar');
+        const wrongpass = document.querySelector('.wrongpass');
+        const cadastro = document.getElementById('cadastro')
+        const botao = document.getElementById('botao')
+        const urlparam = new URLSearchParams(window.location.search);
+        
+        
+    </script>
 </body>
 
 </html>

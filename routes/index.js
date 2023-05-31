@@ -2,7 +2,8 @@ const express = require('express');
 var router = express.Router();
 const path = require('path');
 var bodyParser = require('body-parser');
-var mysql = require('mysql2')
+var mysql = require('mysql2');
+const { set } = require('../app');
 var app = express();
 app.use(express.static('../public'))
 
@@ -65,30 +66,24 @@ router.post('/cadastro', function (req, res) {
   var password = req.body.password;
   var email = req.body.email;
   var confirm = req.body.confirm;
-  var addres = req.body.address;
-  var sql = 'INSERT * FROM cliente';
-  connection.query(sql, [name], function (err, results, fields) {
+  var address = req.body.address;
+  var values = [
+    [name,email,password,address]
+  ];
+  var sql = 'INSERT INTO cliente (nome,email,senha,endereco) VALUES ?';
+
+  if(password === confirm){
+  connection.query(sql, [values], function (err, results, fields) {
       if (!err) {
           console.log("Resultado:", results);
-          console.log(name)
-          console.log(password)
-          if (results  && results.length > 0) {
-              var passCheck = results[0].senha;
-              if (password === passCheck) {
-                  res.send("Bem vindo " + name)
-                  console.log("deu bom")
-              } else {
-                  res.send("Senha errada")
-                  console.log("nao deu bom")
-              }
-          } else {
-              res.send("Usuario nao encontrado")
-          }
       } else {
           console.log("Consulta não realizada");
       }
-
-  })
+    
+  })} else{
+    console.log('Senhas não coincidem')
+    res.redirect('/cadastro?wrongp')
+  };
   console.log("Enviado ao servidor");
 });
 
