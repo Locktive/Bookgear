@@ -40,11 +40,12 @@ header {
 }
 
 .botao{
+  font-weight: bold;
   border: none;
   border-radius: 18px;
   color: rgb(158, 158, 158);
   background: #363636;
-  padding: 9px 29px;
+  padding: 9px 27px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -59,7 +60,6 @@ header {
   border-radius: 18px;
   color:  #080808;
   background: #f85d03;
-  padding: 9px 29px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
