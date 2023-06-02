@@ -52,3 +52,6 @@ input {
    transition: 0.4s;
    cursor: pointer;
 }
+.search-box >input:hover ~ .icon{
+   transform: rotate(360deg) scale(0.8);
+}
