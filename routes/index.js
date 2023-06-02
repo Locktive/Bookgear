@@ -92,6 +92,11 @@ router.get('/compre', function(req,res,next){
   res.sendFile(login);
 })
 
+router.get('/carrinho', function(req,res,next){
+  let carrinho = path.join(__dirname, "../views/carrinho.html");
+  res.sendFile(carrinho);
+})
+
 
 app.use(router);
 
