@@ -97,6 +97,10 @@ router.get('/carrinho', function(req,res,next){
   res.sendFile(carrinho);
 })
 
+router.get('/user', function(req, res, next) {
+  let principal = path.join(__dirname, "../views/tela_usuario.html")
+  res.sendFile(principal)
+});
 
 app.use(router);
 
