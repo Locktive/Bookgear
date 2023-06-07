@@ -57,21 +57,21 @@
             flex-direction: row;
         }
 
-        .mini-box input {
+        .mini-box button {
             border-radius: 10px;
             background-color: #ff7300;
             color: rgb(34, 34, 34);
             width: 100px;
-            height: 20px;
+            height: 25px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font: bold 17px sans-serif;
-            margin: 20px 0px 0px 0px;
-            cursor: pointer;
+            margin: 15px 0px 0px 10px;
+            border: none;
         }
 
-        .mini-box input:hover {
+        .mini-box button:hover {
             background-color: #d15e00;
         }
 
@@ -133,84 +133,53 @@
                 <p class="Login">Cadastro</p>
             </div>
 
-            <form onsubmit="verifyPassword()" method="#" name="cadastro" id="cadastro">
-                <input type="text" name="username" class="btn-username" placeholder="Nome" id="nome">
-                <input type="email" name="email" class="btn-username" placeholder="E-mail" id="email">
-                <input type="password" id="senha" name="password" class="btn-username" placeholder="Senha">
-                <input type="password" id="confirmar" name="confirm" class="btn-username" placeholder="Confirmar senha">
-                <input id="address" type="text" name="address" class="btn-username" placeholder="Endereço">
+            <form action="/cadastro" method="post" name="cadastro" id="cadastro">
+                <input type="text" name="username" class="btn-username" placeholder="Nome" id="nome" required>
+                <input type="email" name="email" class="btn-username" placeholder="E-mail" id="email" required>
+                <input type="password" id="senha" name="password" class="btn-username" placeholder="Senha" required>
+                <input type="password" id="confirmar" name="confirm" class="btn-username" placeholder="Confirmar senha" required>
+                <input id="address" type="text" name="address" class="btn-username" placeholder="Endereço" required>
                 <br>
-                <span id="message" style="color:red"> </span>
+
+                <span id="message" style="color:red"></span>
                 <br>
                 <div class="mini-box">
-                    <input type="submit" value="Cadastrar" id="botao">
+                    <button onclick="verifyPassword()" id="botao">Cadastrar</button>
                 </div>
             </form>
-
-
-
             <div>
                 <p class="forgot-password">Já tem conta? <a href="/Login">Entrar</a></p>
             </div>
         </div>
     </div>
     <script>
-        const confirm = document.getElementById('confirmar').value;
-        const wrongpass = document.querySelector('.wrongpass');
-        const cadastro = document.getElementById('cadastro')
-        const botao = document.getElementById('botao')
-        const nome = document.getElementById('nome').value;
-        const email = document.getElementById('email').value;
-        const address = document.getElementById('address').value;
-        const urlparam = new URLSearchParams(window.location.search);
-
-
         function verifyPassword() {
             var pw = document.getElementById("senha").value;
+            const confirm = document.getElementById("confirmar").value;
+            const email = document.getElementById("email").value;
+            const address = document.getElementById("address").value;
             //check empty password field  
-            var serversend = true;
-            if (pw == "") {
-                document.getElementById("message").innerHTML = "**Fill the password please!";
-                return serversend = false;
-            }
-
-            //minimum password length validation  
-            if (pw.length < 8) {
-                document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";
-                return serversend = false;
-            }
-
-            if (nome == "") {
-                document.getElementById("message").innerHTML = "**Fill the name please!";
-                return serversend = false;
-            }
-
-            if (email == "") {
-                document.getElementById("message").innerHTML = "**Fill the email please!";
-                return serversend = false;
-            }
-
-            if (address == "") {
-                document.getElementById("message").innerHTML = "**Fill the address please!";
-                return serversend = false;
-            }
-
-            //maximum length of password validation  
-            if (pw.length > 15) {
-                document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";
-                return serversend = false;
-            } 
-
-            if(pw != confirm){
+            if(pw !== "" || email !== "" || address !== "" || nome !== ""){
+                // document.getElementById("message").innerHTML = "**Preencha todos os dados";
+                document.getElementById("message").innerHTML = pw + " " + confirm;
+            }else{
+            if(pw === confirm) {
+                if (pw.length > 8) {
+                    if (pw.length <= 15) {
+                        document.getElementById("cadastro").submit();
+                    } else {
+                        document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";
+                    }
+                }
+                else {
+                    document.getElementById("message").innerHTML = senha + confirm;
+                
+                }
+            } else {
                 document.getElementById("message").innerHTML = "**Senhas não coincidem";
-                return serversend = false;
-            } 
-            
-            
-            if(serversend === true) {
-                cadastro.setAttribute('method','post');
                 
             }
+        }
         };
 
     </script>
