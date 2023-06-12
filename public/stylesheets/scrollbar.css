@@ -1,7 +1,9 @@
 
 
 *::-webkit-scrollbar {
-    width: 10px;
+
+    width:0.8vmax;
+    height: 0.8vmax;
     background: rgba(68, 68, 68, 0);
     /* width of the entire scrollbar */
 }
@@ -14,6 +16,6 @@
 
 *::-webkit-scrollbar-thumb {
     background-color: rgb(56, 56, 56);
-    border: 2px solid rgb(29, 29, 29);
+    border: 0.2vmax solid rgb(29, 29, 29);
     border-radius: 20px;
 }

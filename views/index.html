@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+        function id(el) {
+            return document.getElementById(el);
+        }
+        window.onload = function () {
+            id('mais').onclick = function () {
+                id('format').value = parseInt(id('format').value) + 1;
+
+                id('total').value = 20 * id('format').value;
+            }
+            id('menos').onclick = function () {
+                if (id('format').value > 0)
+                    id('format').value = parseInt(id('format').value) - 1;
+
+                id('total').value = 20 * id('format').value;
+            }
+        }       
+    </script>
+</head>
+<style>
+    #mais {
+        width: 20px;
+        border: none;
+        background: #888888;
+
+    }
+
+    #menos {
+        border: none;
+        background: rgba(42, 41, 43, 0.0);
+        width: 20px;
+    }
+
+    #format {
+        width: 25px;
+        background-color: #888888;
+        border:none;
+        text-align: center;
+        color: rgb(48, 48, 48);
+    }
+    #Qtd{
+        
+        width: 73px;
+        padding: 2px;
+        border:solid 1px;
+        border-radius: 3px;
+        background-color: #888888;
+    }
+</style>
+
+<body>
+    <div class="Qtd_produtos">
+        Qtd:
+        <div id="Qtd">
+            <input type="button" name="mais" id="mais" value="+" />
+            <input type="text" name="format" value="0" id="format" size="2" />
+            <input type="button" name="menos" id="menos" value="-"/>
+        </div>
+        Total: <input type="text" name="total" id="total" value="1"/>
+    </div>
+</body>
+
+</html>
