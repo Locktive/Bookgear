@@ -97,6 +97,11 @@ router.get('/carrinho', function(req,res,next){
   res.sendFile(carrinho);
 })
 
+router.get('/wishlist', function(req,res,next){
+  let wishlist = path.join(__dirname, "../views/wishlist.html");
+  res.sendFile(wishlist);
+})
+
 
 app.use(router);
 
