@@ -91,6 +91,7 @@ router.get('/carrinho', function (req, res, next) {
   res.sendFile(carrinho);
 })
 
+
 router.get('/user', function (req, res, next) {
   let principal = path.join(__dirname, "../views/tela_usuario.html")
   res.sendFile(principal)
@@ -100,6 +101,11 @@ router.get('/pagamento', function (req, res, next) {
   let principal = path.join(__dirname, "../views/book.html")
   res.sendFile(principal)
 });
+
+router.get('/wishlist', function(req,res,next){
+  let wishlist = path.join(__dirname, "../views/wishlist.html");
+  res.sendFile(wishlist);
+})
 
 app.use(router);
 
