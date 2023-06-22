@@ -65,25 +65,19 @@ router.post('/cadastro', function (req, res) {
   var name = req.body.username;
   var password = req.body.password;
   var email = req.body.email;
-  var confirm = req.body.confirm;
   var address = req.body.address;
   var values = [
     [name, email, password, address]
   ];
   var sql = 'INSERT INTO cliente (nome,email,senha,endereco) VALUES ?';
-
-  if (password === confirm) {
     connection.query(sql, [values], function (err, results, fields) {
       if (!err) {
         console.log("Resultado:", results);
       } else {
-        console.log("Consulta não realizada");
+        console.log(err);
       }
 
     })
-  } else {
-    console.log('Senhas não coincidem')
-  };
   console.log("Enviado ao servidor");
 });
 
@@ -99,6 +93,11 @@ router.get('/carrinho', function (req, res, next) {
 
 router.get('/user', function (req, res, next) {
   let principal = path.join(__dirname, "../views/tela_usuario.html")
+  res.sendFile(principal)
+});
+
+router.get('/pagamento', function (req, res, next) {
+  let principal = path.join(__dirname, "../views/book.html")
   res.sendFile(principal)
 });
 

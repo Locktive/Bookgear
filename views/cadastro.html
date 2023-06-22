@@ -57,7 +57,7 @@
             flex-direction: row;
         }
 
-        .mini-box button {
+        .mini-box input {
             border-radius: 10px;
             background-color: #ff7300;
             color: rgb(34, 34, 34);
@@ -71,7 +71,7 @@
             border: none;
         }
 
-        .mini-box button:hover {
+        .mini-box input:hover {
             background-color: #d15e00;
         }
 
@@ -117,7 +117,7 @@
         <div class="cabecalho">
             <nav>
                 <ul>
-                    <li><a href="#">LIVROS</a></li>
+                    <li><a href="#">HOME/</a></li>
                     <li><a href="#">CAIXAS</a></li>
                     <li><a href="#">CARRINHO</a></li>
                     <li><a href="#">EDITORA</a></li>
@@ -137,14 +137,15 @@
                 <input type="text" name="username" class="btn-username" placeholder="Nome" id="nome" required>
                 <input type="email" name="email" class="btn-username" placeholder="E-mail" id="email" required>
                 <input type="password" id="senha" name="password" class="btn-username" placeholder="Senha" required>
-                <input type="password" id="confirmar" name="confirm" class="btn-username" placeholder="Confirmar senha" required>
+                <input type="password" id="confirmar" name="confirm" class="btn-username" placeholder="Confirmar senha"
+                    required>
                 <input id="address" type="text" name="address" class="btn-username" placeholder="Endereço" required>
                 <br>
 
                 <span id="message" style="color:red"></span>
                 <br>
                 <div class="mini-box">
-                    <button onclick="verifyPassword()" id="botao">Cadastrar</button>
+                    <input type="submit" placeholder="Cadastrar" id="botao">
                 </div>
             </form>
             <div>
@@ -153,34 +154,39 @@
         </div>
     </div>
     <script>
-        function verifyPassword() {
+        var cadastro = document.getElementById("cadastro");
+        cadastro.addEventListener("submit", (e) => {
             var pw = document.getElementById("senha").value;
-            const confirm = document.getElementById("confirmar").value;
-            const email = document.getElementById("email").value;
-            const address = document.getElementById("address").value;
+            var confirm = document.getElementById("confirmar").value;
+            var email = document.getElementById("email").value;
+            var address = document.getElementById("address").value;
             //check empty password field  
-            if(pw !== "" || email !== "" || address !== "" || nome !== ""){
-                // document.getElementById("message").innerHTML = "**Preencha todos os dados";
-                document.getElementById("message").innerHTML = pw + " " + confirm;
-            }else{
-            if(pw === confirm) {
-                if (pw.length > 8) {
-                    if (pw.length <= 15) {
-                        document.getElementById("cadastro").submit();
-                    } else {
-                        document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";
-                    }
-                }
-                else {
-                    document.getElementById("message").innerHTML = senha + confirm;
-                
-                }
+            if (pw === "" || email === "" || address === "" || nome === "") {
+                event.preventDefault();
+                document.getElementById("message").innerHTML = "**Preencha todos os dados";
+                // document.getElementById("message").innerHTML = pw + " " + confirm;
             } else {
-                document.getElementById("message").innerHTML = "**Senhas não coincidem";
-                
+                if (pw === confirm) {
+                    event.preventDefault();
+                    if (pw.length >= 8) {
+                        event.preventDefault();
+                        if (pw.length <= 15) {
+                            return document.getElementById("cadastro").submit();
+                        } else {
+                            event.preventDefault();
+                            document.getElementById("message").innerHTML = "Tamanho da senha não deve ser maior que 15 caracteres";
+                        }
+                    }
+                    else {
+                        event.preventDefault();
+                        document.getElementById("message").innerHTML = "Senha necessita ter mais de 8 caracteres";
+                    }
+                } else {
+                    document.getElementById("message").innerHTML = "Senhas não coincidem";
+                    event.preventDefault();
+                }
             }
-        }
-        };
+        });
 
     </script>
 </body>
