@@ -42,12 +42,12 @@
         box-shadow: 0px 0px 10px rgb(42, 41, 43);
         padding: 20px;
         padding-top: 30px;
-        height: 1000px;
+        height: fit-content;
         width: 97%;
         row-gap: 28px;
         justify-content: space-between;
-        grid-template-columns: 250px 150px 150px 150px 150px;
-        grid-auto-rows: 270px;
+        grid-template-columns: 250px 180px 180px 180px 180px;
+        grid-auto-rows: 220px;
     }
 
     .banners_meio {
@@ -163,6 +163,111 @@
         cursor: pointer;
         color: black;
     }
+
+    /* produto */
+    .imagem-produto {
+        max-width: 100%;
+        display: block;
+    }
+
+    .product {
+        height: fit-content;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        font-weight: 400;
+        transition: .15s ease;
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
+        color: grey;
+        &:hover {
+            transform: scale(1.1);
+            width: auto;
+            background-color: rgba(26, 26, 26, 0.8);
+            transition: 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px rgb(42, 41, 43);
+            z-index: 2;
+        }
+    }
+
+    .product-image {
+        display: block;
+        border-radius: 0.25rem 0.25rem 0 0;
+        overflow: hidden;
+        height: 110px;
+        background-color: #FFF;
+        position: relative;
+    }
+
+    .product-image:hover {
+        min-height: 110px;
+        overflow: visible;
+        height: fit-content;
+    }
+
+    .product-content {
+
+        border-radius: 0 0 0.25rem 0.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: .15s ease;
+        background-color: #FFF;
+    }
+
+    .product-title {
+        font-size: 17px;
+        line-height: 1.25;
+        overflow: hidden;
+        height: 45px;
+        width: 120px;
+        word-wrap: break-word;
+    }
+
+    .bottom {
+        min-height: 90px;
+        display: flex;
+        background-color: #FFF;
+        padding: 10px;
+        justify-content: right;
+    }
+
+    .product-action {
+        color: grey;
+        width: 40px;
+        height: 40px;
+        border-radius: .25rem;
+        font-size: 1rem;
+        border: none;
+        position: relative;
+        top: 20px;
+        display: flex;
+background-color: #FFF;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: .15s ease;
+
+        &:hover {
+            background-color: #ebebeb;
+        }
+    }
+
+    .product-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-title:hover {
+        min-height: 45px;
+        height: fit-content;
+
+    }
+
+    .product-price {
+        margin-top: .25rem;
+    }
 </style>
 
 <body>
@@ -212,60 +317,168 @@
             <img class="banner2 banner" src="../images/banner1.png" alt="banner">
         </div>
         <div class="container principal">
-            <a href="/compre">
-                <div class="item item1">
-                    <!-- Campo onde ficam os produtos -->
-                    <img class="imgbox" src="../images/box.jpg">
-                    <p class="descrição">Caixa da BookGear Lorem ipsum dolor sit amet consectetura</p>
+
+            <a class="product" href="#">
+                <div class="product-image">
+                    <img class="imagem-produto" src="../images/box.jpg" />
                 </div>
-            </a>
-            <a href="/compre">
-                <div class="item item2">
-                    <img class="imgbox" src="../images/box.jpg">
-                    <p class="descrição">Caixa da BookGear</p>
-                </div>
-            </a>
-            <a href="/compre">
-                <div class="item item3">
-                    <img class="imgbox" src="../images/box.jpg">
-                    <p class="descrição">Caixa da BookGear</p>
-                </div>
-            </a>
-            <a href="/compre">
-                <div class="item item4">
-                    <img class="imgbox" src="../images/box.jpg">
-                    <p class="descrição">Caixa da BookGear</p>
-                </div>
-            </a>
-            <a href="/compre">
-                <div class="item item5">
-                    <img class="imgbox" src="../images/box.jpg">
-                    <p class="descrição">Caixa da BookGear</p>
-                </div>
-            </a>
-            <a href="/compre">
-                <div class="item item4">
-                    <img class="imgbox" src="../images/box.jpg">
-                    <p class="descrição">Caixa da BookGear Lorem ipsum dolor sit exercitationem at ducimus placeat doloribus optio. Doloremque voluptatibus ullam debitis consequuntur consectetur ex voluptatem saepe reiciendis provident quod.</p>
-                </div>
-            </a>
-            <a href="/compre">
-                <div class="item item6">
-                    <img class="imgbox" src="../images/box.jpg">
-                    <p class="descrição">Caixa da BookGear</p>
-                </div>
-            </a>
-            <a href="/compre">
-                <div class="item item7">
-                    <img class="imgbox" src="../images/box.jpg">
-                    <p class="descrição">Caixa da BookGear</p>
+                <div class="bottom">
+                    <div class="product-content">
+                        <div class="product-info">
+                            <h2 class="product-title">Star wars oo imperio contra adipisicing elit. Nulla, rem deserunt
+                                quae accusantium iure, voluptas delectus voluptatum ipsam alias harum sint quaerat autem
+                                illum perferendis iusto magnam.</h2>
+                            <p class="product-price">$ 10</p>
+                        </div>
+
+                    </div>
+                    <button class="product-action"><i class="material-icons-outlined">like</i></button>
                 </div>
             </a>
 
-            <div class="item item8">
-                <img class="imgbox" src="../images/box.jpg">
-                <p class="descrição">Caixa da BookGear</p>
-            </div>
+            <a class="product" href="#">
+                <div class="product-image">
+                    <img class="imagem-produto" src="../images/box.jpg" />
+                </div>
+                <div class="bottom">
+                    <div class="product-content">
+                        <div class="product-info">
+                            <h2 class="product-title">Star wars oo imperio contra adipisicing elit. Nulla, rem deserunt
+                                quae accusantium iure, voluptas delectus voluptatum ipsam alias harum sint quaerat autem
+                                illum perferendis iusto magnam.</h2>
+                            <p class="product-price">$ 10</p>
+                        </div>
+
+                    </div>
+                    <button class="product-action"><i class="material-icons-outlined">like</i></button>
+                </div>
+            </a>
+
+            <a class="product" href="#">
+                <div class="product-image">
+                    <img class="imagem-produto" src="../images/box.jpg" />
+                </div>
+                <div class="bottom">
+                    <div class="product-content">
+                        <div class="product-info">
+                            <h2 class="product-title">Star wars oo imperio contra adipisicing elit. Nulla, rem deserunt
+                                quae accusantium iure, voluptas delectus voluptatum ipsam alias harum sint quaerat autem
+                                illum perferendis iusto magnam.</h2>
+                            <p class="product-price">$ 10</p>
+                        </div>
+
+                    </div>
+                    <button class="product-action"><i class="material-icons-outlined">like</i></button>
+                </div>
+            </a>
+
+            <a class="product" href="#">
+                <div class="product-image">
+                    <img class="imagem-produto" src="../images/box.jpg" />
+                </div>
+                <div class="bottom">
+                    <div class="product-content">
+                        <div class="product-info">
+                            <h2 class="product-title">Star wars oo imperio contra adipisicing elit. Nulla, rem deserunt
+                                quae accusantium iure, voluptas delectus voluptatum ipsam alias harum sint quaerat autem
+                                illum perferendis iusto magnam.</h2>
+                            <p class="product-price">$ 10</p>
+                        </div>
+
+                    </div>
+                    <button class="product-action"><i class="material-icons-outlined">like</i></button>
+                </div>
+            </a>
+
+            <a class="product" href="#">
+                <div class="product-image">
+                    <img class="imagem-produto" src="../images/box.jpg" />
+                </div>
+                <div class="bottom">
+                    <div class="product-content">
+                        <div class="product-info">
+                            <h2 class="product-title">Star wars oo imperio contra adipisicing elit. Nulla, rem deserunt
+                                quae accusantium iure, voluptas delectus voluptatum ipsam alias harum sint quaerat autem
+                                illum perferendis iusto magnam.</h2>
+                            <p class="product-price">$ 10</p>
+                        </div>
+
+                    </div>
+                    <button class="product-action"><i class="material-icons-outlined">like</i></button>
+                </div>
+            </a>
+
+            <a class="product" href="#">
+                <div class="product-image">
+                    <img class="imagem-produto" src="../images/box.jpg" />
+                </div>
+                <div class="bottom">
+                    <div class="product-content">
+                        <div class="product-info">
+                            <h2 class="product-title">Star wars oo imperio contra adipisicing elit. Nulla, rem deserunt
+                                quae accusantium iure, voluptas delectus voluptatum ipsam alias harum sint quaerat autem
+                                illum perferendis iusto magnam.</h2>
+                            <p class="product-price">$ 10</p>
+                        </div>
+
+                    </div>
+                    <button class="product-action"><i class="material-icons-outlined">like</i></button>
+                </div>
+            </a>
+
+            <a class="product" href="#">
+                <div class="product-image">
+                    <img class="imagem-produto" src="../images/box.jpg" />
+                </div>
+                <div class="bottom">
+                    <div class="product-content">
+                        <div class="product-info">
+                            <h2 class="product-title">Star wars oo imperio contra adipisicing elit. Nulla, rem deserunt
+                                quae accusantium iure, voluptas delectus voluptatum ipsam alias harum sint quaerat autem
+                                illum perferendis iusto magnam.</h2>
+                            <p class="product-price">$ 10</p>
+                        </div>
+
+                    </div>
+                    <button class="product-action"><i class="material-icons-outlined">like</i></button>
+                </div>
+            </a>
+
+            <a class="product" href="#">
+                <div class="product-image">
+                    <img class="imagem-produto" src="../images/box.jpg" />
+                </div>
+                <div class="bottom">
+                    <div class="product-content">
+                        <div class="product-info">
+                            <h2 class="product-title">Star wars oo imperio contra adipisicing elit. Nulla, rem deserunt
+                                quae accusantium iure, voluptas delectus voluptatum ipsam alias harum sint quaerat autem
+                                illum perferendis iusto magnam.</h2>
+                            <p class="product-price">$ 10</p>
+                        </div>
+
+                    </div>
+                    <button class="product-action"><i class="material-icons-outlined">like</i></button>
+                </div>
+            </a>
+
+            <a class="product" href="#">
+                <div class="product-image">
+                    <img class="imagem-produto" src="../images/box.jpg" />
+                </div>
+                <div class="bottom">
+                    <div class="product-content">
+                        <div class="product-info">
+                            <h2 class="product-title">Star wars oo imperio contra adipisicing elit. Nulla, rem deserunt
+                                quae accusantium iure, voluptas delectus voluptatum ipsam alias harum sint quaerat autem
+                                illum perferendis iusto magnam.</h2>
+                            <p class="product-price">$ 10</p>
+                        </div>
+
+                    </div>
+                    <button class="product-action"><i class="material-icons-outlined">like</i></button>
+                </div>
+            </a>
 
             <div class="categorias">
                 <h1>Categorias</h1>
