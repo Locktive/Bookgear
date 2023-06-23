@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuário - Bookgear</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/cabecalho.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/barrapesquisa.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/scrollbar.css">
+    <link rel="icon" type="image/x-icon" href="images/logo-removebg-preview.png">
+    <style>
+        body {
+            background-color: rgb(66, 66, 66);
+            background-image: url(../images/background2.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .containermenu {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .logo img {
+            margin-left: 15px;
+            height: 80px;
+        }
+
+        .user a {
+            color: #ff7300;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        .container {
+            display: grid;
+            justify-content: space-evenly;
+        }
+
+
+        .principal {
+            background-color: rgba(42, 41, 43, 0.7);
+            padding: 20px;
+            padding-top: 30px;
+            height: 80%;
+            width: 55%;
+            margin: 110px 0px 0px 20%;
+            row-gap: 28px;
+            justify-content: space-between;
+            grid-template-columns: 250px 150px 150px 150px 150px;
+            grid-auto-rows: 270px;
+        }
+        .insidebox{
+            background-color: #181818;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main">
+        <div class="containermenu">
+            <div class="logo">
+                <a href="/"><img class="logotipo" src="../images/Capturar-removebg-preview.png" alt="bookgear"></a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Pesquisar">
+                <a href="#" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg></a>
+            </div>
+
+
+            <div class="user">
+                <a href="/Login">
+                    <button type="url" class="botao">Entrar</button></a>
+                <a class="login" href="/Cadastro">
+                    <button type="url" class="botao">Cadastrar</button></a>
+            </div>
+        </div>
+        <div class="cabecalho">
+            <nav>
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="#">CAIXAS</a></li>
+                    <li><a href="/user">AUTORES</a></li>
+                    <li><a href="#">EDITORA</a></li>
+                    <li><a href="#">WISHLIST</a></li>
+                    <li><a href="/carrinho">CARRINHO</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="principal">
+        <div class="insidebox"></div>
+        <p>teste</p>
+    </div>
+
+</body>
+
+</html>
