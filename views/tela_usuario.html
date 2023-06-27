@@ -46,21 +46,50 @@
 
 
         .principal {
-            background-color: rgba(42, 41, 43, 0.7);
+            background-color: rgba(42, 41, 43);
             padding: 20px;
-            padding-top: 30px;
+            padding-top: 20px;
             height: 80%;
-            width: 55%;
-            margin: 110px 0px 0px 20%;
-            row-gap: 28px;
+            width: 65%;
+            margin: 120px 0px 0px 16%;
             justify-content: space-between;
-            grid-template-columns: 250px 150px 150px 150px 150px;
-            grid-auto-rows: 270px;
         }
         .insidebox{
             background-color: #181818;
             display: flex;
+            flex-direction: column;
+            height: 360px;
+            width: 220px;
+            align-items: center; 
         }
+        
+        .categorias{
+            list-style-type: none;  
+        }
+
+        .input_categoria {
+        font-size: 15px;
+        border: none;
+        padding: 10px;
+        margin: 15px;
+        width: 200px;
+        transition: 0.6s ease;
+        background-color: rgb(24, 24, 24);
+        color: gray;
+    }
+
+    .input_categoria:hover {
+        background-color: #f85d03;
+        transition: 0.3s ease;
+        text-decoration: none;
+        cursor: pointer;
+        color: black;
+    }
+
+    .User{
+        margin: 30px;
+        color: white;
+    }
     </style>
 </head>
 
@@ -102,8 +131,14 @@
     </header>
 
     <div class="principal">
-        <div class="insidebox"></div>
-        <p>teste</p>
+        <div class="insidebox">
+            <h1 class="User">User</h1>
+                <ul class="categorias">
+                    <li><button type="url" href="#" class="input_categoria">Dados pessoais</button></li>
+                    <li><button type="url" href="#" class="input_categoria">Histórico de compras</button></li>
+                    <li><button type="url" href="#" class="input_categoria">Status de entrega</button></li>
+                </ul>
+        </div>
     </div>
 
 </body>

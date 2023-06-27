@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Maio-2023 às 13:33
+-- Tempo de geração: 27-Jun-2023 às 17:19
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -32,24 +32,25 @@ CREATE TABLE `autor` (
   `nome` varchar(80) NOT NULL,
   `data_nascimento` date NOT NULL,
   `data_morte` date DEFAULT NULL,
-  `telefone` int NOT NULL
+  `telefone` int NOT NULL,
+  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `autor`
 --
 
-INSERT INTO `autor` (`id_autor`, `nome`, `data_nascimento`, `data_morte`, `telefone`) VALUES
-(1, 'Halli Petkovic', '1944-07-25', '1997-02-06', 2147463147),
-(2, 'Hildegaard Bodemeaid', '1979-12-13', NULL, 2147483647),
-(3, 'Koenraad Bullivent', '1984-09-19', NULL, 2147481892),
-(4, 'Erny Angrock', '1985-02-12', NULL, 2142783247),
-(5, 'Natalina Favill', '1977-08-19', '2002-12-29', 1932923539),
-(6, 'Caren Leyes', '1965-08-27', NULL, 2147458447),
-(7, 'Feliza Antat', '1967-04-03', NULL, 1442822868),
-(8, 'Janot Simants', '2000-05-12', NULL, 2145283647),
-(9, 'Rudie O\'Halligan', '1993-08-15', NULL, 2147483612),
-(10, 'Shayne Stansall', '1939-04-25', '2005-11-17', 1271963237);
+INSERT INTO `autor` (`id_autor`, `nome`, `data_nascimento`, `data_morte`, `telefone`, `image_url`) VALUES
+(1, 'Halli Petkovic', '1944-07-25', '1997-02-06', 2147463147, ''),
+(2, 'Hildegaard Bodemeaid', '1979-12-13', NULL, 2147483647, ''),
+(3, 'Koenraad Bullivent', '1984-09-19', NULL, 2147481892, ''),
+(4, 'Erny Angrock', '1985-02-12', NULL, 2142783247, ''),
+(5, 'Natalina Favill', '1977-08-19', '2002-12-29', 1932923539, ''),
+(6, 'Caren Leyes', '1965-08-27', NULL, 2147458447, ''),
+(7, 'Feliza Antat', '1967-04-03', NULL, 1442822868, ''),
+(8, 'Janot Simants', '2000-05-12', NULL, 2145283647, ''),
+(9, 'Rudie O\'Halligan', '1993-08-15', NULL, 2147483612, ''),
+(10, 'Shayne Stansall', '1939-04-25', '2005-11-17', 1271963237, '');
 
 -- --------------------------------------------------------
 
@@ -124,24 +125,29 @@ CREATE TABLE `cliente` (
   `nome` varchar(80) NOT NULL,
   `email` varchar(120) NOT NULL,
   `senha` varchar(100) NOT NULL,
-  `endereco` varchar(150) NOT NULL
+  `endereco` varchar(150) NOT NULL,
+  `imagem` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `cliente`
 --
 
-INSERT INTO `cliente` (`id_cliente`, `nome`, `email`, `senha`, `endereco`) VALUES
-(1, 'Hillard', 'hfeasby0@google.nl', '5xC6i0Zlxe', '0 Merry Place'),
-(2, 'Madelle', 'mbark1@arstechnica.com', 'bN2Pe64RvIo', '9 Scoville Court'),
-(3, 'Sybilla', 'sstoakley2@house.gov', 'Uhe2zjG', '430 Hermina Alley'),
-(4, 'Dionne', 'dtarrier3@adobe.com', 'YOHMLq8p', '415 Lakeland Pass'),
-(5, 'Mitchell', 'mvasnev4@yahoo.com', 'leiSLc', '7 Dorton Way'),
-(6, 'Gerardo', 'gblofeld5@theatlantic.com', 'bzI7ImzL', '59365 Prairie Rose Road'),
-(7, 'Byram', 'bseth6@jugem.jp', 'jk1VPDEo', '87 4th Crossing'),
-(8, 'Ebba', 'etreske7@instagram.com', '48yZffyOr8', '037 Kingsford Crossing'),
-(9, 'Emelia', 'eroz8@wiley.com', 'gxrYWOiGnz', '260 Sachtjen Lane'),
-(10, 'Juliet', 'jbrimble9@cdbaby.com', 'WlGKM4YS', '29 Stuart Hill');
+INSERT INTO `cliente` (`id_cliente`, `nome`, `email`, `senha`, `endereco`, `imagem`) VALUES
+(1, 'Hillard', 'hfeasby0@google.nl', '5xC6i0Zlxe', '0 Merry Place', ''),
+(2, 'Madelle', 'mbark1@arstechnica.com', 'bN2Pe64RvIo', '9 Scoville Court', ''),
+(3, 'Sybilla', 'sstoakley2@house.gov', 'Uhe2zjGi', '430 Hermina Alley', ''),
+(4, 'Dionne', 'dtarrier3@adobe.com', 'YOHMLq8p', '415 Lakeland Pass', ''),
+(5, 'Mitchell', 'mvasnev4@yahoo.com', 'leiSLcaw', '7 Dorton Way', ''),
+(6, 'Gerardo', 'gblofeld5@theatlantic.com', 'bzI7ImzL', '59365 Prairie Rose Road', ''),
+(7, 'Byram', 'bseth6@jugem.jp', 'jk1VPDEo', '87 4th Crossing', ''),
+(8, 'Ebba', 'etreske7@instagram.com', '48yZffyOr8', '037 Kingsford Crossing', ''),
+(9, 'Emelia', 'eroz8@wiley.com', 'gxrYWOiGnz', '260 Sachtjen Lane', ''),
+(10, 'Juliet', 'jbrimble9@cdbaby.com', 'WlGKM4YS', '29 Stuart Hill', ''),
+(26, 'mano', 'mano@gmail.com', 'manitomassa', 'rua do mano 1', ''),
+(36, 'Bodia', 'bodia@letsgo', 'feijoada', 'rua papel mache', ''),
+(37, 'a', 'a@a', 'a', 'a', ''),
+(39, 'EU', 'EU@EUMESMO.COM', 'EUESTOUAQUI', 'BEM AQUI', NULL);
 
 -- --------------------------------------------------------
 
@@ -167,24 +173,25 @@ CREATE TABLE `compra` (
 CREATE TABLE `editora` (
   `id_editora` int NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `telefone` int NOT NULL
+  `telefone` int NOT NULL,
+  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `editora`
 --
 
-INSERT INTO `editora` (`id_editora`, `nome`, `telefone`) VALUES
-(1, 'Bode LLC', 994354522),
-(2, 'Kuhic', 995458464),
-(3, 'Considine Inc', 999599298),
-(4, 'Heaney Inc', 998989847),
-(5, 'Beier, Bashirian and Parker', 227287287),
-(6, 'Mitchell\'s Books', 989585291),
-(7, 'Treutel Adventure Stories', 949299296),
-(8, 'Bechtelar and Sons', 212845968),
-(9, 'Conroy Fantasy', 414717878),
-(10, 'Goyette', 511387374);
+INSERT INTO `editora` (`id_editora`, `nome`, `telefone`, `image_url`) VALUES
+(1, 'Bode LLC', 994354522, ''),
+(2, 'Kuhic', 995458464, ''),
+(3, 'Considine Inc', 999599298, ''),
+(4, 'Heaney Inc', 998989847, ''),
+(5, 'Beier, Bashirian and Parker', 227287287, ''),
+(6, 'Mitchell\'s Books', 989585291, ''),
+(7, 'Treutel Adventure Stories', 949299296, ''),
+(8, 'Bechtelar and Sons', 212845968, ''),
+(9, 'Conroy Fantasy', 414717878, ''),
+(10, 'Goyette', 511387374, '');
 
 -- --------------------------------------------------------
 
@@ -211,24 +218,25 @@ CREATE TABLE `livro` (
   `Preco` decimal(10,2) NOT NULL,
   `Nome` varchar(100) NOT NULL,
   `Estoque` int NOT NULL,
-  `id_tema` int NOT NULL
+  `id_tema` int NOT NULL,
+  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `livro`
 --
 
-INSERT INTO `livro` (`id_livro`, `fk_autor`, `fk_editora`, `Preco`, `Nome`, `Estoque`, `id_tema`) VALUES
-(1, 7, 9, '23.72', 'Pearls and Pigs (Helmiä ja sikoja)', 444, 1),
-(2, 1, 2, '79.35', 'Highwaymen', 429, 5),
-(3, 4, 8, '21.41', 'Cirque du Soleil: Dralion', 881, 8),
-(4, 6, 5, '21.71', 'Dead Man\'s Letters (Pisma myortvogo cheloveka)', 461, 10),
-(5, 2, 3, '12.21', 'Cosmos', 497, 10),
-(6, 3, 9, '29.99', 'Where the Heart Is', 6, 4),
-(7, 10, 5, '43.24', 'Home', 521, 6),
-(8, 9, 9, '83.49', 'Eddie Izzard: Force Majeure Live', 600, 7),
-(9, 3, 7, '49.42', 'Major Movie Star', 512, 1),
-(10, 9, 10, '95.01', 'Master of Ballantrae, The', 47, 9);
+INSERT INTO `livro` (`id_livro`, `fk_autor`, `fk_editora`, `Preco`, `Nome`, `Estoque`, `id_tema`, `image_url`) VALUES
+(1, 7, 9, '23.72', 'Pearls and Pigs (Helmiä ja sikoja)', 444, 1, ''),
+(2, 1, 2, '79.35', 'Highwaymen', 429, 5, ''),
+(3, 4, 8, '21.41', 'Cirque du Soleil: Dralion', 881, 8, ''),
+(4, 6, 5, '21.71', 'Dead Man\'s Letters (Pisma myortvogo cheloveka)', 461, 10, ''),
+(5, 2, 3, '12.21', 'Cosmos', 497, 10, ''),
+(6, 3, 9, '29.99', 'Where the Heart Is', 6, 4, ''),
+(7, 10, 5, '43.24', 'Home', 521, 6, ''),
+(8, 9, 9, '83.49', 'Eddie Izzard: Force Majeure Live', 600, 7, ''),
+(9, 3, 7, '49.42', 'Major Movie Star', 512, 1, ''),
+(10, 9, 10, '95.01', 'Master of Ballantrae, The', 47, 9, '');
 
 -- --------------------------------------------------------
 
@@ -260,6 +268,24 @@ INSERT INTO `livros_caixa` (`id_livros_caixa`, `id_livro`, `id_caixa`) VALUES
 (11, 2, 3),
 (12, 10, 3),
 (13, 4, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `log`
+--
+
+CREATE TABLE `log` (
+  `id_log` int NOT NULL,
+  `id_cliente` int DEFAULT NULL,
+  `id_autor` int DEFAULT NULL,
+  `id_caixa` int DEFAULT NULL,
+  `id_livro` int DEFAULT NULL,
+  `id_editora` int DEFAULT NULL,
+  `action` varchar(100) NOT NULL,
+  `qtde_original` int NOT NULL,
+  `qtde_nova` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -417,6 +443,12 @@ ALTER TABLE `livros_caixa`
   ADD KEY `id_caixa` (`id_caixa`);
 
 --
+-- Índices para tabela `log`
+--
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`id_log`);
+
+--
 -- Índices para tabela `produto`
 --
 ALTER TABLE `produto`
@@ -478,7 +510,7 @@ ALTER TABLE `carrinho`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_cliente` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de tabela `compra`
@@ -509,6 +541,12 @@ ALTER TABLE `livro`
 --
 ALTER TABLE `livros_caixa`
   MODIFY `id_livros_caixa` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de tabela `log`
+--
+ALTER TABLE `log`
+  MODIFY `id_log` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
