@@ -8,276 +8,13 @@
     <link rel="stylesheet" type="text/css" href="../stylesheets/cabecalho.css">
     <link rel="stylesheet" type="text/css" href="../stylesheets/barrapesquisa.css">
     <link rel="stylesheet" type="text/css" href="../stylesheets/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/tela-principal.css">
     <link rel="icon" type="image/x-icon" href="images/logo-removebg-preview.png">
     <title>Bookgear</title>
 </head>
-<style>
-    body {
-        background-color: rgb(37, 37, 37);
-        background-image: url(../images/background2.jpg);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-
-    .container {
-        display: grid;
-        background-color: rgb(66, 66, 66);
-        justify-content: space-evenly;
-    }
-
-
-    .header {
-        height: 5%;
-        width: 100%;
-        grid-template-columns: 100px 400px 100px;
-        grid-template-rows: 20px 25px 20px;
-        background-color: rgba(42, 41, 43, 0.8);
-        box-shadow: 0px 0px 10px rgb(42, 41, 43);
-    }
-
-
-    .principal {
-        background-color: rgba(42, 41, 43, 0.9);
-        box-shadow: 0px 0px 10px rgb(42, 41, 43);
-        padding: 20px;
-        padding-top: 30px;
-        height: fit-content;
-        width: 97%;
-        row-gap: 28px;
-        justify-content: space-between;
-        grid-template-columns: 250px 180px 180px 180px 180px;
-        grid-auto-rows: 220px;
-    }
-
-    .banners_meio {
-        display: flex;
-        margin-top: 60px;
-        margin-bottom: 25px;
-        justify-content: space-around;
-        gap: 80px;
-        height: 300px;
-
-    }
-
-    .pesquisa {
-        justify-content: center;
-        border: solid 2px whitesmoke;
-        border-radius: 25px;
-        grid-row: 2 / 3;
-        grid-column: 2 / 3;
-        background-color: whitesmoke;
-    }
-
-    .lupa {
-        position: relative;
-        bottom: 23px;
-        right: 4px;
-        width: 21px;
-        height: 21px;
-        float: right;
-
-    }
-
-    #texto_pesquisa {
-        text-align: center;
-        float: left;
-        background-color: transparent;
-        padding-left: 5px;
-        font-style: italic;
-        font-size: 18px;
-        width: 390px;
-        border: none;
-
-    }
-
-    .categorias {
-        text-align: center;
-        color: grey;
-        height: fit-content;
-        font: bold 15px sans-serif;
-        background-color: rgb(24, 24, 24);
-        grid-row: 1/6;
-        grid-column: 1/2;
-        list-style-type: none;
-    }
-
-    .ul {
-        color: white;
-        padding: 20px;
-    }
-
-    .meio {
-        height: 460px;
-        width: 100%;
-    }
-
-    .imgbox {
-        width: 150px;
-        height: 200px;
-        display: block;
-        justify-content: center;
-        font-family: 'Verdana', Courier, monospace;
-        text-align: center;
-    }
-
-    .item {
-        display: block;
-        color: white;
-        justify-content: center;
-        font-family: 'Verdana', Courier, monospace;
-        text-align: center;
-        transition: 0.5s ease;
-
-    }
-
-    .item:hover {
-        transform: scale(1.2);
-        background-color: rgba(26, 26, 26, 0.8);
-        transition: 0.3s ease;
-        cursor: pointer;
-        box-shadow: 0px 0px 10px rgb(42, 41, 43);
-
-    }
-
-    .descrição {
-        margin: auto;
-        color: grey;
-    }
-
-    .categorias{
-        list-style-type: none;  
-    }
-
-    .input_categoria {
-        font-size: 15px;
-        border: none;
-        padding: 10px;
-        margin: 8px;
-        width: 220px;
-        transition: 0.6s ease;
-        background-color: rgb(24, 24, 24);
-        color: grey;
-    }
-
-    .input_categoria:hover {
-        background-color: #f85d03;
-        transition: 0.3s ease;
-        text-decoration: none;
-        cursor: pointer;
-        color: black;
-    }
-
-    /* produto */
-    .imagem-produto {
-        max-width: 100%;
-        display: block;
-    }
-
-    .product {
-        height: fit-content;
-        border-radius: 0.25rem;
-        text-decoration: none;
-        font-weight: 400;
-        transition: .15s ease;
-        overflow: hidden;
-        position: relative;
-        z-index: 0;
-        color: grey;
-        &:hover {
-            transform: scale(1.1);
-            width: auto;
-            background-color: rgba(26, 26, 26, 0.8);
-            transition: 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0px 0px 10px rgb(42, 41, 43);
-            z-index: 2;
-        }
-    }
-
-    .product-image {
-        display: block;
-        border-radius: 0.25rem 0.25rem 0 0;
-        overflow: hidden;
-        height: 110px;
-        background-color: #FFF;
-        position: relative;
-    }
-
-    .product-image:hover {
-        min-height: 110px;
-        overflow: visible;
-        height: fit-content;
-    }
-
-    .product-content {
-
-        border-radius: 0 0 0.25rem 0.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        transition: .15s ease;
-        background-color: #FFF;
-    }
-
-    .product-title {
-        font-size: 17px;
-        line-height: 1.25;
-        overflow: hidden;
-        height: 45px;
-        width: 120px;
-        word-wrap: break-word;
-    }
-
-    .bottom {
-        min-height: 90px;
-        display: flex;
-        background-color: #FFF;
-        padding: 10px;
-        justify-content: right;
-    }
-
-    .product-action {
-        color: grey;
-        width: 40px;
-        height: 40px;
-        border-radius: .25rem;
-        font-size: 1rem;
-        border: none;
-        position: relative;
-        top: 20px;
-        display: flex;
-background-color: #FFF;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: .15s ease;
-
-        &:hover {
-            background-color: #ebebeb;
-        }
-    }
-
-    .product-info {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .product-title:hover {
-        min-height: 45px;
-        height: fit-content;
-
-    }
-
-    .product-price {
-        margin-top: .25rem;
-    }
-</style>
 
 <body>
     <header class="main">
-
-
         <div class="containermenu">
             <div class="logo">
                 <a href="/"><img class="logotipo" src="../images/Capturar-removebg-preview.png" alt="bookgear"></a>
@@ -314,7 +51,6 @@ background-color: #FFF;
     </header>
 
 
-
     <div class="meio">
         <div class="banners_meio">
             <img class="banner1 banner" src="../images/banner1.png" alt="banner">
@@ -322,7 +58,7 @@ background-color: #FFF;
         </div>
         <div class="container principal">
 
-            <a class="product" href="#">
+            <a class="product" href="/produto">
                 <div class="product-image">
                     <img class="imagem-produto" src="../images/box.jpg" />
                 </div>
@@ -340,7 +76,7 @@ background-color: #FFF;
                 </div>
             </a>
 
-            <a class="product" href="#">
+            <a class="product" href="/produto">
                 <div class="product-image">
                     <img class="imagem-produto" src="../images/box.jpg" />
                 </div>
@@ -358,7 +94,7 @@ background-color: #FFF;
                 </div>
             </a>
 
-            <a class="product" href="#">
+            <a class="product" href="/produto">
                 <div class="product-image">
                     <img class="imagem-produto" src="../images/box.jpg" />
                 </div>
@@ -376,7 +112,7 @@ background-color: #FFF;
                 </div>
             </a>
 
-            <a class="product" href="#">
+            <a class="product" href="/produto">
                 <div class="product-image">
                     <img class="imagem-produto" src="../images/box.jpg" />
                 </div>
@@ -394,7 +130,7 @@ background-color: #FFF;
                 </div>
             </a>
 
-            <a class="product" href="#">
+            <a class="product" href="/produto">
                 <div class="product-image">
                     <img class="imagem-produto" src="../images/box.jpg" />
                 </div>
@@ -412,7 +148,7 @@ background-color: #FFF;
                 </div>
             </a>
 
-            <a class="product" href="#">
+            <a class="product" href="/produto">
                 <div class="product-image">
                     <img class="imagem-produto" src="../images/box.jpg" />
                 </div>
@@ -430,7 +166,7 @@ background-color: #FFF;
                 </div>
             </a>
 
-            <a class="product" href="#">
+            <a class="product" href="/produto">
                 <div class="product-image">
                     <img class="imagem-produto" src="../images/box.jpg" />
                 </div>
@@ -448,7 +184,7 @@ background-color: #FFF;
                 </div>
             </a>
 
-            <a class="product" href="#">
+            <a class="product" href="/produto">
                 <div class="product-image">
                     <img class="imagem-produto" src="../images/box.jpg" />
                 </div>
@@ -466,7 +202,7 @@ background-color: #FFF;
                 </div>
             </a>
 
-            <a class="product" href="#">
+            <a class="product" href="/produto">
                 <div class="product-image">
                     <img class="imagem-produto" src="../images/box.jpg" />
                 </div>
@@ -484,7 +220,7 @@ background-color: #FFF;
                 </div>
             </a>
 
-            <a class="product" href="#">
+            <a class="product" href="/produto">
                 <div class="product-image">
                     <img class="imagem-produto" src="../images/box.jpg" />
                 </div>
@@ -502,7 +238,7 @@ background-color: #FFF;
                 </div>
             </a>
 
-            <a class="product" href="#">
+            <a class="product" href="/produto">
                 <div class="product-image">
                     <img class="imagem-produto" src="../images/box.jpg" />
                 </div>
@@ -520,7 +256,7 @@ background-color: #FFF;
                 </div>
             </a>
 
-            <a class="product" href="#">
+            <a class="product" href="/produto">
                 <div class="product-image">
                     <img class="imagem-produto" src="../images/box.jpg" />
                 </div>

@@ -22,6 +22,7 @@ router.get('/', function (req, res, next) {
   res.sendFile(principal)
 });
 
+
 router.get('/Login', function (req, res, next) {
   let login = path.join(__dirname, "../views/Login-bookgear.html");
   res.sendFile(login);
@@ -91,7 +92,6 @@ router.get('/carrinho', function (req, res, next) {
   res.sendFile(carrinho);
 })
 
-
 router.get('/user', function (req, res, next) {
   let principal = path.join(__dirname, "../views/tela_usuario.html")
   res.sendFile(principal)
@@ -107,10 +107,14 @@ router.get('/wishlist', function(req,res,next){
   res.sendFile(wishlist);
 })
 
-
 router.get('/autores', function(req,res,next){
   let wishlist = path.join(__dirname, "../views/wishlist.html");
   res.sendFile(wishlist);
+})
+
+router.get('/produto', function (req, res, next) {
+  let produto = path.join(__dirname, "../views/pagina-produto.html");
+  res.sendFile(produto);
 })
 
 app.use(router);

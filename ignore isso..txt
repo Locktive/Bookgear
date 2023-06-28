@@ -1,1 +1,0 @@
-Para ativar o servidor no localhost, clicar com o botão direito na pasta bookgear dentro do vscode e ativar npmscripts
