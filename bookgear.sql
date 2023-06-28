@@ -33,8 +33,8 @@ CREATE TABLE `autor` (
   `data_nascimento` date NOT NULL,
   `data_morte` date DEFAULT NULL,
   `telefone` int NOT NULL,
-  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `autor`
@@ -62,7 +62,7 @@ CREATE TABLE `caixa` (
   `id_caixa` int NOT NULL,
   `id_tipocaixa` int NOT NULL,
   `id_tema` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `caixa`
@@ -85,7 +85,7 @@ CREATE TABLE `caixa_tipo` (
   `descricao` varchar(50) NOT NULL,
   `valor` decimal(10,2) NOT NULL,
   `tamanho` varchar(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `caixa_tipo`
@@ -105,7 +105,7 @@ INSERT INTO `caixa_tipo` (`id_caixatipo`, `descricao`, `valor`, `tamanho`) VALUE
 CREATE TABLE `carrinho` (
   `id_carrinho` int NOT NULL,
   `fk_cliente` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `carrinho`
@@ -126,8 +126,8 @@ CREATE TABLE `cliente` (
   `email` varchar(120) NOT NULL,
   `senha` varchar(100) NOT NULL,
   `endereco` varchar(150) NOT NULL,
-  `imagem` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `imagem` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `cliente`
@@ -162,7 +162,7 @@ CREATE TABLE `compra` (
   `status` varchar(100) NOT NULL,
   `id_cliente` int NOT NULL,
   `datahora` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -174,8 +174,8 @@ CREATE TABLE `editora` (
   `id_editora` int NOT NULL,
   `nome` varchar(100) NOT NULL,
   `telefone` int NOT NULL,
-  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `editora`
@@ -203,7 +203,7 @@ CREATE TABLE `lista_de_desejos` (
   `id_lista_desejos` int NOT NULL,
   `id_cliente` int NOT NULL,
   `id_produto` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -219,8 +219,8 @@ CREATE TABLE `livro` (
   `Nome` varchar(100) NOT NULL,
   `Estoque` int NOT NULL,
   `id_tema` int NOT NULL,
-  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `livro`
@@ -248,7 +248,7 @@ CREATE TABLE `livros_caixa` (
   `id_livros_caixa` int NOT NULL,
   `id_livro` int NOT NULL,
   `id_caixa` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `livros_caixa`
@@ -285,7 +285,7 @@ CREATE TABLE `log` (
   `action` varchar(100) NOT NULL,
   `qtde_original` int NOT NULL,
   `qtde_nova` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -297,7 +297,7 @@ CREATE TABLE `produto` (
   `id_produto` int NOT NULL,
   `id_caixa` int DEFAULT NULL,
   `id_livro` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `produto`
@@ -325,7 +325,7 @@ CREATE TABLE `produtos_compra` (
   `id_produtos_compra` int NOT NULL,
   `id_produtos` int NOT NULL,
   `id_compra` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -337,7 +337,7 @@ CREATE TABLE `produto_carrinho` (
   `id_produto_carrinho` int NOT NULL,
   `id_produto` int NOT NULL,
   `id_carrinho` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -348,7 +348,7 @@ CREATE TABLE `produto_carrinho` (
 CREATE TABLE `tema` (
   `id_tema` int NOT NULL,
   `nome` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `tema`
