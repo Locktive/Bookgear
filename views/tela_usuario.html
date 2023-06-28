@@ -46,25 +46,28 @@
 
 
         .principal {
-            background-color: rgba(42, 41, 43);
+            background-color: rgb(40, 40, 41);
             padding: 20px;
             padding-top: 20px;
-            height: 25vw;
+            height: 24rem;
             width: 65%;
-            margin: 10% 0px 0px 16%;
-            justify-content: space-between;
+            margin: 120px 0px 0px 16%;
+            justify-content: left;
+            display: inline-flex;
         }
-        .insidebox{
+
+        .insidebox {
             background-color: #181818;
             display: flex;
             flex-direction: column;
-            height: 25vw;
-            width: 15vw;
-            align-items: center; 
+            min-height: 360px;
+            height: fit-content;
+            width: 220px;
+            align-items: center;
         }
-        
-        .categorias{
-            list-style-type: none;  
+
+        .categorias {
+            list-style-type: none;
         }
 
         .input_categoria {
@@ -78,18 +81,42 @@
         color: gray;
     }
 
-    .input_categoria:hover {
-        background-color: #f85d03;
-        transition: 0.3s ease;
-        text-decoration: none;
-        cursor: pointer;
-        color: black;
-    }
+        .input_categoria:hover {
+            background-color: #f85d03;
+            transition: 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+            color: black;
+        }
 
-    .User{
-        margin: 2vw;
-        color: white;
-    }
+        .User {
+            margin: 25px;
+            color: white;
+        }
+
+        .user-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .data{
+            margin-left: 10px;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        form input{
+            color: white;
+            background-color: rgba(20, 20, 20, 0.021);
+            border-bottom: 1px solid rgb(59, 59, 59);
+            height: 30px;
+            width: 260px;
+            margin-top: 15px;
+            text-align: left;
+        }
     </style>
 </head>
 
@@ -132,12 +159,22 @@
 
     <div class="principal">
         <div class="insidebox">
+            <img src="../images/unnamed.png" class="user-img">
             <h1 class="User">User</h1>
-                <ul class="categorias">
-                    <li><button type="url" href="#" class="input_categoria">Dados pessoais</button></li>
-                    <li><button type="url" href="#" class="input_categoria">Histórico de compras</button></li>
-                    <li><button type="url" href="#" class="input_categoria">Status de entrega</button></li>
-                </ul>
+            <ul class="categorias">
+                <li><button type="url" href="#" class="input_categoria">Dados pessoais</button></li>
+                <li><button type="url" href="#" class="input_categoria">Histórico de compras</button></li>
+                <li><button type="url" href="#" class="input_categoria">Status de entrega</button></li>
+            </ul>
+        </div>
+        <div class="data">
+            <h1 class="title">Dados pessoais</h1>
+            <form>
+                <label for="userchange"></label>
+                <input type="text" placeholder="Nome de Usuário" id="userchange">
+                <input type="text" placeholder="E-mail">
+                <input type="text">
+            </form>
         </div>
     </div>
 
