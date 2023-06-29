@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Jun-2023 às 17:19
+-- Tempo de geração: 29-Jun-2023 às 17:22
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -33,8 +33,8 @@ CREATE TABLE `autor` (
   `data_nascimento` date NOT NULL,
   `data_morte` date DEFAULT NULL,
   `telefone` int NOT NULL,
-  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `autor`
@@ -62,7 +62,7 @@ CREATE TABLE `caixa` (
   `id_caixa` int NOT NULL,
   `id_tipocaixa` int NOT NULL,
   `id_tema` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `caixa`
@@ -85,7 +85,7 @@ CREATE TABLE `caixa_tipo` (
   `descricao` varchar(50) NOT NULL,
   `valor` decimal(10,2) NOT NULL,
   `tamanho` varchar(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `caixa_tipo`
@@ -105,7 +105,7 @@ INSERT INTO `caixa_tipo` (`id_caixatipo`, `descricao`, `valor`, `tamanho`) VALUE
 CREATE TABLE `carrinho` (
   `id_carrinho` int NOT NULL,
   `fk_cliente` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `carrinho`
@@ -126,28 +126,29 @@ CREATE TABLE `cliente` (
   `email` varchar(120) NOT NULL,
   `senha` varchar(100) NOT NULL,
   `endereco` varchar(150) NOT NULL,
-  `imagem` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  `imagem` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `cpf` varchar(14) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `cliente`
 --
 
-INSERT INTO `cliente` (`id_cliente`, `nome`, `email`, `senha`, `endereco`, `imagem`) VALUES
-(1, 'Hillard', 'hfeasby0@google.nl', '5xC6i0Zlxe', '0 Merry Place', ''),
-(2, 'Madelle', 'mbark1@arstechnica.com', 'bN2Pe64RvIo', '9 Scoville Court', ''),
-(3, 'Sybilla', 'sstoakley2@house.gov', 'Uhe2zjGi', '430 Hermina Alley', ''),
-(4, 'Dionne', 'dtarrier3@adobe.com', 'YOHMLq8p', '415 Lakeland Pass', ''),
-(5, 'Mitchell', 'mvasnev4@yahoo.com', 'leiSLcaw', '7 Dorton Way', ''),
-(6, 'Gerardo', 'gblofeld5@theatlantic.com', 'bzI7ImzL', '59365 Prairie Rose Road', ''),
-(7, 'Byram', 'bseth6@jugem.jp', 'jk1VPDEo', '87 4th Crossing', ''),
-(8, 'Ebba', 'etreske7@instagram.com', '48yZffyOr8', '037 Kingsford Crossing', ''),
-(9, 'Emelia', 'eroz8@wiley.com', 'gxrYWOiGnz', '260 Sachtjen Lane', ''),
-(10, 'Juliet', 'jbrimble9@cdbaby.com', 'WlGKM4YS', '29 Stuart Hill', ''),
-(26, 'mano', 'mano@gmail.com', 'manitomassa', 'rua do mano 1', ''),
-(36, 'Bodia', 'bodia@letsgo', 'feijoada', 'rua papel mache', ''),
-(37, 'a', 'a@a', 'a', 'a', ''),
-(39, 'EU', 'EU@EUMESMO.COM', 'EUESTOUAQUI', 'BEM AQUI', NULL);
+INSERT INTO `cliente` (`id_cliente`, `nome`, `email`, `senha`, `endereco`, `imagem`, `cpf`) VALUES
+(1, 'Hillard', 'hfeasby0@google.nl', '5xC6i0Zlxe', '0 Merry Place', '', NULL),
+(2, 'Madelle', 'mbark1@arstechnica.com', 'bN2Pe64RvIo', '9 Scoville Court', '', NULL),
+(3, 'Sybilla', 'sstoakley2@house.gov', 'Uhe2zjGi', '430 Hermina Alley', '', NULL),
+(4, 'Dionne', 'dtarrier3@adobe.com', 'YOHMLq8p', '415 Lakeland Pass', '', NULL),
+(5, 'Mitchell', 'mvasnev4@yahoo.com', 'leiSLcaw', '7 Dorton Way', '', NULL),
+(6, 'Gerardo', 'gblofeld5@theatlantic.com', 'bzI7ImzL', '59365 Prairie Rose Road', '', NULL),
+(7, 'Byram', 'bseth6@jugem.jp', 'jk1VPDEo', '87 4th Crossing', '', NULL),
+(8, 'Ebba', 'etreske7@instagram.com', '48yZffyOr8', '037 Kingsford Crossing', '', NULL),
+(9, 'Emelia', 'eroz8@wiley.com', 'gxrYWOiGnz', '260 Sachtjen Lane', '', NULL),
+(10, 'Juliet', 'jbrimble9@cdbaby.com', 'WlGKM4YS', '29 Stuart Hill', '', NULL),
+(26, 'mano', 'mano@gmail.com', 'manitomassa', 'rua do mano 1', '', NULL),
+(36, 'Bodia', 'bodia@letsgo', 'feijoada', 'rua papel mache', '', NULL),
+(37, 'a', 'a@a', 'a', 'a', '', NULL),
+(39, 'EU', 'EU@EUMESMO.COM', 'EUESTOUAQUI', 'BEM AQUI', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,7 @@ CREATE TABLE `compra` (
   `status` varchar(100) NOT NULL,
   `id_cliente` int NOT NULL,
   `datahora` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -174,8 +175,8 @@ CREATE TABLE `editora` (
   `id_editora` int NOT NULL,
   `nome` varchar(100) NOT NULL,
   `telefone` int NOT NULL,
-  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `editora`
@@ -203,7 +204,7 @@ CREATE TABLE `lista_de_desejos` (
   `id_lista_desejos` int NOT NULL,
   `id_cliente` int NOT NULL,
   `id_produto` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -219,8 +220,8 @@ CREATE TABLE `livro` (
   `Nome` varchar(100) NOT NULL,
   `Estoque` int NOT NULL,
   `id_tema` int NOT NULL,
-  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `livro`
@@ -248,7 +249,7 @@ CREATE TABLE `livros_caixa` (
   `id_livros_caixa` int NOT NULL,
   `id_livro` int NOT NULL,
   `id_caixa` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `livros_caixa`
@@ -285,7 +286,7 @@ CREATE TABLE `log` (
   `action` varchar(100) NOT NULL,
   `qtde_original` int NOT NULL,
   `qtde_nova` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -297,7 +298,7 @@ CREATE TABLE `produto` (
   `id_produto` int NOT NULL,
   `id_caixa` int DEFAULT NULL,
   `id_livro` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `produto`
@@ -325,7 +326,7 @@ CREATE TABLE `produtos_compra` (
   `id_produtos_compra` int NOT NULL,
   `id_produtos` int NOT NULL,
   `id_compra` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -337,7 +338,7 @@ CREATE TABLE `produto_carrinho` (
   `id_produto_carrinho` int NOT NULL,
   `id_produto` int NOT NULL,
   `id_carrinho` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -348,7 +349,7 @@ CREATE TABLE `produto_carrinho` (
 CREATE TABLE `tema` (
   `id_tema` int NOT NULL,
   `nome` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `tema`
