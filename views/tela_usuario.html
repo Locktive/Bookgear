@@ -9,140 +9,9 @@
     <link rel="stylesheet" type="text/css" href="../stylesheets/cabecalho.css">
     <link rel="stylesheet" type="text/css" href="../stylesheets/barrapesquisa.css">
     <link rel="stylesheet" type="text/css" href="../stylesheets/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/tela_usuario.css">
     <link rel="icon" type="image/x-icon" href="images/logo-removebg-preview.png">
-    
-    <style>
-        body {
-            background-color: rgb(66, 66, 66);
-            background-image: url(../images/background2.jpg);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            display: block;
 
-        }
-
-        .principal {
-            background-color: rgb(29, 29, 29);
-            padding: 20px;
-            padding-top: 20px;
-            height: 24rem;
-            width: 60%;
-            justify-content: left;
-            display: inline-flex;
-
-        }
-
-        .container {
-            margin-top: 13%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            height: auto;
-            width: 100%;
-        }
-
-        .insidebox {
-            background-color: #181818;
-            display: flex;
-            flex-direction: column;
-            min-height: 100%;
-            height: fit-content;
-            width: 25vw;
-            align-items: center;
-        }
-
-        .categorias {
-            list-style-type: none;
-        }
-
-        .input_categoria {
-            font-size: 15px;
-            border: none;
-            padding: 5%;
-            margin-top: 7%;
-            width: 220px;
-            max-width: 220px;
-            transition: 0.6s ease;
-            background-color: rgb(24, 24, 24);
-            color: gray;
-        }
-
-        .input_categoria:hover {
-            background-color: #f85d03;
-            transition: 0.3s ease;
-            text-decoration: none;
-            cursor: pointer;
-            color: black;
-        }
-
-        .User {
-            margin: 25px;
-            color: white;
-        }
-
-        .user-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-top: 10px;
-        }
-
-        .data {
-            margin-left: 20%;
-            margin-top: 40px;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-        }
-
-        form input {
-            color: white;
-            background-color: rgba(20, 20, 20, 0.021);
-            border-bottom: 1px solid rgb(59, 59, 59);
-            height: 30px;
-            width: 260px;
-            margin-top: 15px;
-            text-align: left;
-        }
-
-        .mini-box {
-            display: inline-flex;
-            flex-direction: row;
-        }
-
-        .mini-box input {
-            border-radius: 10px;
-            background-color: #ff7300;
-            color: rgb(34, 34, 34);
-            width: fit-content;
-            height: 25px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font: bold 17px sans-serif;
-            margin: 15px 0px 0px 50px;
-            border: none;
-        }
-
-        .mini-box input:hover {
-            background-color: #d15e00;
-        }
-
-        .pag1 {
-            display: contents;
-        }
-
-        .pag2 {
-            display: none;
-        }
-
-        .pag3 {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -161,7 +30,7 @@
             </div>
 
 
-            <div class="userb">
+            <div class="user">
                 <a href="/Login">
                     <button type="url" class="botao">Entrar</button></a>
                 <a class="login" href="/Cadastro">
@@ -185,74 +54,40 @@
         <div class="principal">
             <div class="insidebox">
                 <img src="../images/unnamed.png" class="user-img">
-                <h1 class="User">User</h1>
+                <h1 class="Userb">User</h1>
                 <ul class="categorias">
-                    <li><button style="margin-top: 0%;" onclick="pagsw(1)" class="input_categoria">Dados pessoais</button></li>
-                    <li><button onclick="pagsw(2)" class="input_categoria">Histórico de compras</button></li>
-                    <li><button onclick="pagsw(3)" class="input_categoria">Status de entrega</button></li>
+                    <li class="li-user"><button style="margin-top: 0%;" onclick="pagsw(1)" class="input_categoria">Dados pessoais</button></li>
+                    <li class="li-user"><button onclick="pagsw(2)" class="input_categoria">Histórico de compras</button></li>
+                    <li class="li-user"><button onclick="pagsw(3)" class="input_categoria">Status de entrega</button></li>
                 </ul>
             </div>
-            <div class="data">
-                <div class="pag1">
-                    <h1 class="title" style="color: #ff7300; margin-left: 5px;">Dados pessoais</h1>
-                    <form id="info" action="/user" method="post">
-                        <input type="text" id="" placeholder="Nome de Usuário" id="userchange"><br>
-                        <input type="text" placeholder="E-mail"><br>
-                        <input type="password" placeholder="Senha"><br>
-                        <input type="text" placeholder="CPF"><br>
-                        <input type="text" placeholder="Endereço"><br>
-                        <div class="mini-box">
-                            <input type="submit" value="Alterar informações" id="botao">
-                        </div>
-                    </form>
-                </div>
-                <div class="pag2">
+            <div class="Dados-pessoais1">
+                
+                <div class="data">
+                    <div class="pag1">
+                        <h1 class="title" style="color: #ff7300; margin-left: 5px;">Dados pessoais</h1>
+                        <form id="info" action="/user" method="post">
+                            <input type="text" id="" placeholder="Nome de Usuário" id="userchange"><br>
+                            <input type="text" placeholder="E-mail"><br>
+                            <input type="password" placeholder="Senha"><br>
+                            <input type="text" placeholder="CPF"><br>
+                            <input type="text" placeholder="Endereço"><br>
+                            <div class="mini-box">
+                                <input type="submit" value="Alterar informações" id="botao">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="pag2">
 
-                </div>
-                <div class="pag3">
+                    </div>
+                    <div class="pag3">
 
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
     <script src="../javascript/usuario.js"></script>
-    <script>
-        var cadastro = document.getElementById("info");
-        cadastro.addEventListener("submit", (e) => {
-            var name = document.getElementById("username").value
-            var pw = document.getElementById("senha").value;
-            var confirm = document.getElementById("confirmar").value;
-            var email = document.getElementById("email").value;
-            var address = document.getElementById("address").value;
-            //check empty password field  
-            if (pw === "" || email === "" || address === "" || nome === "") {
-                event.preventDefault();
-                document.getElementById("message").innerHTML = "**Preencha todos os dados";
-                // document.getElementById("message").innerHTML = pw + " " + confirm;
-            } else {
-                if (pw === confirm) {
-                    event.preventDefault();
-                    if (pw.length >= 8) {
-                        event.preventDefault();
-                        if (pw.length <= 15) {
-                            return document.getElementById("cadastro").submit();
-                        } else {
-                            event.preventDefault();
-                            document.getElementById("message").innerHTML = "Tamanho da senha não deve ser maior que 15 caracteres";
-                        }
-                    }
-                    else {
-                        event.preventDefault();
-                        document.getElementById("message").innerHTML = "Senha necessita ter mais de 8 caracteres";
-                    }
-                } else {
-                    document.getElementById("message").innerHTML = "Senhas não coincidem";
-                    event.preventDefault();
-                }
-            }
-        });
-    </script>
 </body>
 
 </html>

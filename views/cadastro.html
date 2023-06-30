@@ -153,8 +153,8 @@
             </div>
         </div>
     </div>
-    <script>
-        var cadastro = document.getElementById("cadastro");
+    <script src="../javascript/cadastro.js">
+    var cadastro = document.getElementById("cadastro");
         cadastro.addEventListener("submit", (e) => {
             var name = document.getElementById("username").value
             var pw = document.getElementById("senha").value;
@@ -187,8 +187,7 @@
                     event.preventDefault();
                 }
             }
-        });
-    </script>
+        });</script>
 </body>
 
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29-Jun-2023 às 17:22
+-- Tempo de geração: 30-Jun-2023 às 15:06
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `autor` (
   `id_autor` int NOT NULL,
-  `nome` varchar(80) NOT NULL,
+  `nome` varchar(80) COLLATE utf8mb4_bin NOT NULL,
   `data_nascimento` date NOT NULL,
   `data_morte` date DEFAULT NULL,
   `telefone` int NOT NULL,
@@ -82,19 +82,20 @@ INSERT INTO `caixa` (`id_caixa`, `id_tipocaixa`, `id_tema`) VALUES
 
 CREATE TABLE `caixa_tipo` (
   `id_caixatipo` int NOT NULL,
-  `descricao` varchar(50) NOT NULL,
+  `descricao` varchar(50) COLLATE utf8mb4_bin NOT NULL,
   `valor` decimal(10,2) NOT NULL,
-  `tamanho` varchar(1) NOT NULL
+  `tamanho` varchar(1) COLLATE utf8mb4_bin NOT NULL,
+  `estoque` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `caixa_tipo`
 --
 
-INSERT INTO `caixa_tipo` (`id_caixatipo`, `descricao`, `valor`, `tamanho`) VALUES
-(1, 'Caixa pequena para até 4 livros', '16.00', 'P'),
-(2, 'Caixa média para até 8 livros', '25.00', 'M'),
-(3, 'Caixa grande para até 15 livros', '35.00', 'G');
+INSERT INTO `caixa_tipo` (`id_caixatipo`, `descricao`, `valor`, `tamanho`, `estoque`) VALUES
+(1, 'Caixa pequena para até 4 livros', '16.00', 'P', 123),
+(2, 'Caixa média para até 8 livros', '25.00', 'M', 57),
+(3, 'Caixa grande para até 15 livros', '35.00', 'G', 48);
 
 -- --------------------------------------------------------
 
@@ -122,12 +123,12 @@ INSERT INTO `carrinho` (`id_carrinho`, `fk_cliente`) VALUES
 
 CREATE TABLE `cliente` (
   `id_cliente` int NOT NULL,
-  `nome` varchar(80) NOT NULL,
-  `email` varchar(120) NOT NULL,
-  `senha` varchar(100) NOT NULL,
-  `endereco` varchar(150) NOT NULL,
+  `nome` varchar(80) COLLATE utf8mb4_bin NOT NULL,
+  `email` varchar(120) COLLATE utf8mb4_bin NOT NULL,
+  `senha` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `endereco` varchar(150) COLLATE utf8mb4_bin NOT NULL,
   `imagem` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `cpf` varchar(14) DEFAULT NULL
+  `cpf` varchar(14) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -145,10 +146,25 @@ INSERT INTO `cliente` (`id_cliente`, `nome`, `email`, `senha`, `endereco`, `imag
 (8, 'Ebba', 'etreske7@instagram.com', '48yZffyOr8', '037 Kingsford Crossing', '', NULL),
 (9, 'Emelia', 'eroz8@wiley.com', 'gxrYWOiGnz', '260 Sachtjen Lane', '', NULL),
 (10, 'Juliet', 'jbrimble9@cdbaby.com', 'WlGKM4YS', '29 Stuart Hill', '', NULL),
-(26, 'mano', 'mano@gmail.com', 'manitomassa', 'rua do mano 1', '', NULL),
-(36, 'Bodia', 'bodia@letsgo', 'feijoada', 'rua papel mache', '', NULL),
-(37, 'a', 'a@a', 'a', 'a', '', NULL),
-(39, 'EU', 'EU@EUMESMO.COM', 'EUESTOUAQUI', 'BEM AQUI', NULL, NULL);
+(41, 'adadaa', 'teste@dada.com', 'banana01', 'algum lugar', NULL, NULL),
+(43, 'ayoba', 'ayoba@email.com', 'ayobamanus', 'casa ayobabro', NULL, NULL);
+
+--
+-- Acionadores `cliente`
+--
+DELIMITER $$
+CREATE TRIGGER `delete_log` AFTER DELETE ON `cliente` FOR EACH ROW INSERT INTO log (action, id_cliente) VALUES('delete', id_cliente)
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `insert_log` AFTER INSERT ON `cliente` FOR EACH ROW INSERT INTO log (action, id_cliente)
+  VALUES('insert', NEW.id_cliente)
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `update_log` AFTER UPDATE ON `cliente` FOR EACH ROW INSERT INTO log (action, id_cliente) VALUES('update', NEW.id_cliente)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -158,9 +174,9 @@ INSERT INTO `cliente` (`id_cliente`, `nome`, `email`, `senha`, `endereco`, `imag
 
 CREATE TABLE `compra` (
   `id_compra` int NOT NULL,
-  `tipo_pagamento` varchar(100) NOT NULL,
+  `tipo_pagamento` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `valor_total` int NOT NULL,
-  `status` varchar(100) NOT NULL,
+  `status` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `id_cliente` int NOT NULL,
   `datahora` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
@@ -173,7 +189,7 @@ CREATE TABLE `compra` (
 
 CREATE TABLE `editora` (
   `id_editora` int NOT NULL,
-  `nome` varchar(100) NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `telefone` int NOT NULL,
   `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
@@ -217,7 +233,7 @@ CREATE TABLE `livro` (
   `fk_autor` int NOT NULL,
   `fk_editora` int NOT NULL,
   `Preco` decimal(10,2) NOT NULL,
-  `Nome` varchar(100) NOT NULL,
+  `Nome` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `Estoque` int NOT NULL,
   `id_tema` int NOT NULL,
   `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
@@ -229,7 +245,7 @@ CREATE TABLE `livro` (
 
 INSERT INTO `livro` (`id_livro`, `fk_autor`, `fk_editora`, `Preco`, `Nome`, `Estoque`, `id_tema`, `image_url`) VALUES
 (1, 7, 9, '23.72', 'Pearls and Pigs (Helmiä ja sikoja)', 444, 1, ''),
-(2, 1, 2, '79.35', 'Highwaymen', 429, 5, ''),
+(2, 1, 2, '79.35', 'Highwaymen', 428, 5, ''),
 (3, 4, 8, '21.41', 'Cirque du Soleil: Dralion', 881, 8, ''),
 (4, 6, 5, '21.71', 'Dead Man\'s Letters (Pisma myortvogo cheloveka)', 461, 10, ''),
 (5, 2, 3, '12.21', 'Cosmos', 497, 10, ''),
@@ -238,6 +254,25 @@ INSERT INTO `livro` (`id_livro`, `fk_autor`, `fk_editora`, `Preco`, `Nome`, `Est
 (8, 9, 9, '83.49', 'Eddie Izzard: Force Majeure Live', 600, 7, ''),
 (9, 3, 7, '49.42', 'Major Movie Star', 512, 1, ''),
 (10, 9, 10, '95.01', 'Master of Ballantrae, The', 47, 9, '');
+
+--
+-- Acionadores `livro`
+--
+DELIMITER $$
+CREATE TRIGGER `change_log_delete` AFTER DELETE ON `livro` FOR EACH ROW INSERT INTO log (action, id_livro, qtde_nova)
+ VALUES('delete', id_livro, OLD.Estoque)
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `change_log_insert` AFTER INSERT ON `livro` FOR EACH ROW INSERT INTO log (action, id_livro, qtde_nova)
+  VALUES('insert', NEW.id_livro, NEW.Estoque)
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `change_log_update` AFTER UPDATE ON `livro` FOR EACH ROW INSERT INTO log (action, id_livro, qtde_nova,qtde_original)
+  VALUES('update', NEW.id_livro, NEW.Estoque,OLD.Estoque)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -283,10 +318,18 @@ CREATE TABLE `log` (
   `id_caixa` int DEFAULT NULL,
   `id_livro` int DEFAULT NULL,
   `id_editora` int DEFAULT NULL,
-  `action` varchar(100) NOT NULL,
-  `qtde_original` int NOT NULL,
-  `qtde_nova` int NOT NULL
+  `action` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `qtde_original` int DEFAULT NULL,
+  `qtde_nova` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Extraindo dados da tabela `log`
+--
+
+INSERT INTO `log` (`id_log`, `id_cliente`, `id_autor`, `id_caixa`, `id_livro`, `id_editora`, `action`, `qtde_original`, `qtde_nova`) VALUES
+(1, 43, NULL, NULL, NULL, NULL, 'insert', NULL, NULL),
+(2, NULL, NULL, NULL, 2, NULL, 'update', 429, 428);
 
 -- --------------------------------------------------------
 
@@ -297,24 +340,42 @@ CREATE TABLE `log` (
 CREATE TABLE `produto` (
   `id_produto` int NOT NULL,
   `id_caixa` int DEFAULT NULL,
-  `id_livro` int DEFAULT NULL
+  `id_livro` int DEFAULT NULL,
+  `qtde_livro` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Extraindo dados da tabela `produto`
 --
 
-INSERT INTO `produto` (`id_produto`, `id_caixa`, `id_livro`) VALUES
-(1, 3, 5),
-(2, 4, 3),
-(3, 1, 9),
-(4, NULL, 4),
-(5, NULL, 3),
-(6, NULL, 10),
-(7, 2, NULL),
-(8, 1, NULL),
-(9, 2, 9),
-(10, NULL, 5);
+INSERT INTO `produto` (`id_produto`, `id_caixa`, `id_livro`, `qtde_livro`) VALUES
+(1, 3, 5, 1),
+(2, 4, 3, 1),
+(3, 1, 9, 0),
+(4, NULL, 4, 0),
+(5, NULL, 3, 0),
+(6, NULL, 10, 0),
+(7, 2, NULL, 0),
+(8, 1, NULL, 0),
+(9, 2, 9, 0),
+(10, NULL, 5, 0),
+(11, 2, 2, 0);
+
+--
+-- Acionadores `produto`
+--
+DELIMITER $$
+CREATE TRIGGER `atualiza_estoque` BEFORE INSERT ON `produto` FOR EACH ROW UPDATE livro
+SET Estoque = Estoque - 1
+WHERE id_livro = NEW.id_livro
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `deleta_venda` AFTER DELETE ON `produto` FOR EACH ROW UPDATE livro
+SET Estoque = Estoque + 1
+WHERE id_livro = OLD.id_livro
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -348,7 +409,7 @@ CREATE TABLE `produto_carrinho` (
 
 CREATE TABLE `tema` (
   `id_tema` int NOT NULL,
-  `nome` varchar(30) NOT NULL
+  `nome` varchar(30) COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -447,7 +508,12 @@ ALTER TABLE `livros_caixa`
 -- Índices para tabela `log`
 --
 ALTER TABLE `log`
-  ADD PRIMARY KEY (`id_log`);
+  ADD PRIMARY KEY (`id_log`),
+  ADD KEY `id_autor` (`id_autor`),
+  ADD KEY `id_editora` (`id_editora`),
+  ADD KEY `clientes` (`id_cliente`),
+  ADD KEY `livros` (`id_livro`),
+  ADD KEY `caixas` (`id_caixa`);
 
 --
 -- Índices para tabela `produto`
@@ -511,7 +577,7 @@ ALTER TABLE `carrinho`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_cliente` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de tabela `compra`
@@ -547,13 +613,13 @@ ALTER TABLE `livros_caixa`
 -- AUTO_INCREMENT de tabela `log`
 --
 ALTER TABLE `log`
-  MODIFY `id_log` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_log` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id_produto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_produto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `produtos_compra`
@@ -617,6 +683,16 @@ ALTER TABLE `livro`
 ALTER TABLE `livros_caixa`
   ADD CONSTRAINT `id_caixa` FOREIGN KEY (`id_caixa`) REFERENCES `caixa` (`id_caixa`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `id_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `log`
+--
+ALTER TABLE `log`
+  ADD CONSTRAINT `caixas` FOREIGN KEY (`id_caixa`) REFERENCES `caixa_tipo` (`id_caixatipo`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `clientes` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON UPDATE RESTRICT,
+  ADD CONSTRAINT `id_autor` FOREIGN KEY (`id_autor`) REFERENCES `autor` (`id_autor`) ON UPDATE RESTRICT,
+  ADD CONSTRAINT `id_editora` FOREIGN KEY (`id_editora`) REFERENCES `editora` (`id_editora`) ON UPDATE RESTRICT,
+  ADD CONSTRAINT `livros` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`) ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `produto`

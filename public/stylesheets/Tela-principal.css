@@ -25,7 +25,8 @@
 
 
     .principal {
-        background-color: rgba(42, 41, 43, 0.9);
+        background-color: rgba(42, 41, 43, 0.6);
+        backdrop-filter: blur(6px);
         padding: 20px;
         padding-top: 30px;
         height: fit-content;
@@ -107,25 +108,6 @@
         text-align: center;
     }
 
-    .item {
-        display: block;
-        color: white;
-        justify-content: center;
-        font-family: 'Verdana', Courier, monospace;
-        text-align: center;
-        transition: 0.5s ease;
-
-    }
-
-    .item:hover {
-        transform: scale(1.2);
-        background-color: rgba(26, 26, 26, 0.8);
-        transition: 0.3s ease;
-        cursor: pointer;
-        box-shadow: 0px 0px 10px rgb(42, 41, 43);
-
-    }
-
     .descrição {
         margin: auto;
         color: grey;
@@ -173,7 +155,6 @@
         &:hover {
             transform: scale(1.1);
             width: auto;
-            background-color: rgba(26, 26, 26, 0.8);
             transition: 0.3s ease;
             cursor: pointer;
             box-shadow: 0px 0px 10px rgb(42, 41, 43);
