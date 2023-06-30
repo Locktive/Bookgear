@@ -156,12 +156,13 @@
     <script>
         var cadastro = document.getElementById("cadastro");
         cadastro.addEventListener("submit", (e) => {
+            var name = document.getElementById("username").value
             var pw = document.getElementById("senha").value;
             var confirm = document.getElementById("confirmar").value;
             var email = document.getElementById("email").value;
             var address = document.getElementById("address").value;
             //check empty password field  
-            if (pw === "" || email === "" || address === "" || nome === "") {
+            if (pw === "" || email === "" || address === "" || name === "") {
                 event.preventDefault();
                 document.getElementById("message").innerHTML = "**Preencha todos os dados";
                 // document.getElementById("message").innerHTML = pw + " " + confirm;

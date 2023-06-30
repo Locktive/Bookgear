@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../stylesheets/barrapesquisa.css">
     <link rel="stylesheet" type="text/css" href="../stylesheets/scrollbar.css">
     <link rel="icon" type="image/x-icon" href="images/logo-removebg-preview.png">
+    
     <style>
         body {
             background-color: rgb(66, 66, 66);
@@ -33,7 +34,7 @@
         }
 
         .container {
-            margin-top: 100px;
+            margin-top: 13%;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -89,7 +90,7 @@
         }
 
         .data {
-            margin-left: 175px;
+            margin-left: 20%;
             margin-top: 40px;
             width: 100%;
             height: 100%;
@@ -116,13 +117,13 @@
             border-radius: 10px;
             background-color: #ff7300;
             color: rgb(34, 34, 34);
-            width: 100px;
+            width: fit-content;
             height: 25px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font: bold 17px sans-serif;
-            margin: 15px 0px 0px 80px;
+            margin: 15px 0px 0px 50px;
             border: none;
         }
 
@@ -186,22 +187,22 @@
                 <img src="../images/unnamed.png" class="user-img">
                 <h1 class="User">User</h1>
                 <ul class="categorias">
-                    <li><button style="margin-top: 0%;" href="#" class="input_categoria">Dados pessoais</button></li>
-                    <li><button href="#" class="input_categoria">Histórico de compras</button></li>
-                    <li><button href="#" class="input_categoria">Status de entrega</button></li>
+                    <li><button style="margin-top: 0%;" onclick="pagsw(1)" class="input_categoria">Dados pessoais</button></li>
+                    <li><button onclick="pagsw(2)" class="input_categoria">Histórico de compras</button></li>
+                    <li><button onclick="pagsw(3)" class="input_categoria">Status de entrega</button></li>
                 </ul>
             </div>
             <div class="data">
                 <div class="pag1">
                     <h1 class="title" style="color: #ff7300; margin-left: 5px;">Dados pessoais</h1>
-                    <form action="/user" method="post">
-                        <input type="text" placeholder="Nome de Usuário" id="userchange"><br>
+                    <form id="info" action="/user" method="post">
+                        <input type="text" id="" placeholder="Nome de Usuário" id="userchange"><br>
                         <input type="text" placeholder="E-mail"><br>
-                        <input type="text" placeholder="Senha"><br>
+                        <input type="password" placeholder="Senha"><br>
                         <input type="text" placeholder="CPF"><br>
                         <input type="text" placeholder="Endereço"><br>
                         <div class="mini-box">
-                            <input type="submit" placeholder="Cadastrar" id="botao">
+                            <input type="submit" value="Alterar informações" id="botao">
                         </div>
                     </form>
                 </div>
@@ -215,9 +216,11 @@
 
         </div>
     </div>
+    <script src="../javascript/usuario.js"></script>
     <script>
-        var cadastro = document.getElementById("cadastro");
+        var cadastro = document.getElementById("info");
         cadastro.addEventListener("submit", (e) => {
+            var name = document.getElementById("username").value
             var pw = document.getElementById("senha").value;
             var confirm = document.getElementById("confirmar").value;
             var email = document.getElementById("email").value;
