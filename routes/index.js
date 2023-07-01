@@ -113,8 +113,7 @@ router.get('/autores', function(req,res,next){
 })
 
 router.get('/produto', function (req, res, next) {
-  let produto = path.join(__dirname, "../views/pagina-produto.html");
-  res.sendFile(produto);
+  res.render('pagina-produto');
 })
 
 app.use(router);
