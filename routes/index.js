@@ -18,14 +18,14 @@ const connection = mysql.createConnection({
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  let principal = path.join(__dirname, "../views/Tela-principal_BookGear.html")
-  res.sendFile(principal)
+  let principal = path.join(__dirname, "../views/Tela-principal_BookGear.ejs")
+  res.render(principal)
 });
 
 
 router.get('/Login', function (req, res, next) {
-  let login = path.join(__dirname, "../views/Login-bookgear.html");
-  res.sendFile(login);
+  let login = path.join(__dirname, "../views/Login-bookgear.ejs");
+  res.render(login);
 })
 
 router.post('/Login', function (req, res) {
@@ -58,8 +58,8 @@ router.post('/Login', function (req, res) {
 });
 
 router.get('/cadastro', function (req, res, next) {
-  let cadastro = path.join(__dirname, "../views/cadastro.html");
-  res.sendFile(cadastro);
+  let cadastro = path.join(__dirname, "../views/cadastro.ejs");
+  res.render(cadastro);
 })
 
 router.post('/cadastro', function (req, res) {
@@ -83,33 +83,33 @@ router.post('/cadastro', function (req, res) {
 });
 
 router.get('/compre', function (req, res, next) {
-  let login = path.join(__dirname, "../views/book.html");
-  res.sendFile(login);
+  let login = path.join(__dirname, "../views/book.ejs");
+  res.render(login);
 })
 
 router.get('/carrinho', function (req, res, next) {
-  let carrinho = path.join(__dirname, "../views/carrinho.html");
-  res.sendFile(carrinho);
+  let carrinho = path.join(__dirname, "../views/carrinho.ejs");
+  res.render(carrinho);
 })
 
 router.get('/user', function (req, res, next) {
-  let principal = path.join(__dirname, "../views/tela_usuario.html")
-  res.sendFile(principal)
+  let principal = path.join(__dirname, "../views/tela_usuario.ejs")
+  res.render(principal)
 });
 
 router.get('/pagamento', function (req, res, next) {
-  let principal = path.join(__dirname, "../views/book.html")
-  res.sendFile(principal)
+  let principal = path.join(__dirname, "../views/book.ejs")
+  res.render(principal)
 });
 
 router.get('/wishlist', function(req,res,next){
-  let wishlist = path.join(__dirname, "../views/wishlist.html");
-  res.sendFile(wishlist);
+  let wishlist = path.join(__dirname, "../views/wishlist.ejs");
+  res.render(wishlist);
 })
 
 router.get('/autores', function(req,res,next){
-  let wishlist = path.join(__dirname, "../views/wishlist.html");
-  res.sendFile(wishlist);
+  let wishlist = path.join(__dirname, "../views/wishlist.ejs");
+  res.render(wishlist);
 })
 
 router.get('/produto', function (req, res, next) {
@@ -131,7 +131,7 @@ app.use(function (req, res, next) {
 
   // respond with html page
   if (req.accepts('html')) {
-    res.sendFile(__dirname, '../views/error.html')
+    res.render(__dirname, '../views/error.ejs')
     return;
   }
 
