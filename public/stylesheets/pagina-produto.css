@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&display=swap');
-
-* {
+.cart{
     font-family: 'Verdana', Courier, monospace;
     color: grey;
+}
+a {
+    color: grey;
+    text-decoration:none ;
+    font-style: none;
 }
 
 body {
@@ -12,9 +16,8 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
-
 .tabs-content{
-    color: #2e2b2b;
+
 }
 select option{
     background-color: rgb(39, 39, 39);
@@ -36,6 +39,7 @@ body {
     width: 500px;
     height: 500px;
     display: flex;
+    justify-content: space-around;
 
 }
 
@@ -44,17 +48,24 @@ body {
 }
 
 .cart {
-    background-color: rgba(42, 41, 43, 0.9);
+    font-family: 'Verdana', Courier, monospace;
+    border: #1b1b1b solid 1px;
+    border-radius: 5px;
+    background-color: rgba(42, 41, 43, 0.6);
+    color: grey;
+    backdrop-filter: blur(6px);
     padding: 20px;
     border-radius: 5px;
-    margin:50px;
+    margin:20px;
     margin-top: 100px;
+    min-height: 620px;
+    min-width: 1250px;
 }
 
 .row1 {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+    justify-content: space-evenly;
 }
 
 #ProductImg {
@@ -189,7 +200,7 @@ body {
 
 .price span:first-child {
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 300;
     margin-right: 10px;
     color: rgb(255, 255, 255);
     display: inline;
@@ -208,7 +219,7 @@ body {
 
 .reviews p {
     font-size: 15px;
-    color: #adadad;
+
     margin: 0;
     margin-left: 8px;
     line-height: 19px;
@@ -222,7 +233,7 @@ body {
     font-size: 26px;
     font-weight: 100;
     font-style: italic;
-    color: #ffffff;
+
 }
 
 .product-inf {
@@ -231,6 +242,7 @@ body {
 
 .product-inf ul {
     display: flex;
+    justify-content: space-evenly;
     list-style: none;
 }
 
@@ -238,10 +250,18 @@ body {
     margin-right: 15px;
 }
 
+/* Botão de informações de produtos */
 .product-inf ul li {
     padding: 10px 30px;
-    transition: 0.3s;
     cursor: pointer;
+
+}
+.product-inf{
+    color: grey ;
+}
+
+p{
+    color: grey;
 }
 
 .product-inf ul li:hover {
@@ -250,9 +270,10 @@ body {
 }
 
 .product-inf ul li {
-    color: #c7c7c7;
+    color: black;
     font-size: 18px;
     font-weight: 500;
+    color: black;
 }
 
 .product-inf ul li a:hover {
@@ -263,6 +284,7 @@ body {
     border-bottom: 3px solid #000000;
     background: #ff7300;
     transition: 0.3s;
+    color: black;
 }
 
 #Details {
@@ -271,7 +293,7 @@ body {
 
 .custom-btn {
     background: #ff7300;
-    color: #ffffff;
+    color: grey;
     display: block;
     width: 200px;
     text-align: center;
@@ -279,23 +301,27 @@ body {
     border-radius: 18px;
     padding: 6px;
     transition: 0.3s;
-    font-weight: 500;
+    font-weight: 600;
+    background: #363636;
+    text-decoration: none;
 
 }
 
 .custom-btn:hover {
     text-decoration: none;
-    color: #fff;
+    background: #f85d03;
+    color:  black;
     opacity: 0.88;
 }
 
 .tudo {
     display: flex;
+    height: 250px;
+    justify-content: space-around;
 }
 
 .buttons {
-    background-color: #330a0a;
-    box-shadow: 0px 0px 5px #534e4e;
+    color: #000;
     padding: 10px;
     height: 200px;
     width: 210px;
@@ -312,6 +338,20 @@ body {
     align-items: center;
     justify-content: center;
 }
+.col-mde-4{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+
+}
+.col-md-6{
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-between;
+    width: 700px;
+    height: 500px;
+}
 
 .descricao {
     display: block;
@@ -323,9 +363,9 @@ body {
 
 .small-imgs {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 120px;
-    width: 450px;
+    width: 500px;
 
 }
 
@@ -340,30 +380,32 @@ body {
 .custom-btn i {
     margin-left: 15px;
 }
-
-.size,
+.size{
+    cursor: pointer;
+    background: rgba(66, 66, 66,0);
+    border-radius:5px ;
+    width: 60px;
+    height: 30px;
+    color: grey;  
+}
 .quantity {
     cursor: pointer;
     background: rgba(66, 66, 66,0);
+    border-radius:5px ;
+    width: 60px;
+    height: 30px;
+    color: grey;
 }
+h5{
+font-size: 15px;
+}
+
 .size-custom-select{
     cursor: pointer;
-    
     text-decoration: none;
-    
+    color: grey;
     background: rgba(66, 66, 66,0);
 
-}
-/* .size-custom-active{
-    color: #ff0000;
-} */
-
-
-.size:focus,
-.quantity:focus {
-    border-color: #000000 !important;
-    outline: 0;
-    box-shadow: 0 0 0 .2rem rgba(0, 0, 0, 0.25) !important;
 }
 
 @media only screen and (max-width: 768px) {
@@ -373,6 +415,7 @@ body {
 
     .sze {
         margin-top: 28px;
+        color: grey;
     }
 
     .qty {

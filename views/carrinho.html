@@ -25,17 +25,6 @@
         justify-content: space-evenly;
     }
 
-    header {
-
-        margin-bottom: 100px;
-        width: 100%;
-        grid-template-columns: 100px 400px 100px;
-        grid-template-rows: 20px 25px 20px;
-        background-color: rgba(42, 41, 43, 0.9);
-        box-shadow: 0px 0px 10px rgb(42, 41, 43);
-
-    }
-
     .principal {
         margin-top: 100px;
         position: relative;
@@ -100,6 +89,11 @@
         padding: 20px;
     }
 
+    .carrinho {
+        color: rgb(19, 19, 19);
+        background-color: #f85d03;
+    }
+
     .imgbox {
         width: 140px;
         height: 130px;
@@ -113,10 +107,13 @@
     }
 
     .item {
+
         color: rgb(179, 179, 179);
         display: grid;
+        backdrop-filter: blur(6px);
         box-shadow: 0px 0px 3px rgb(42, 41, 43);
-        background-color: rgba(42, 41, 43, 0.8);
+        background-color: rgba(42, 41, 43, 0.4);
+        border: #1b1b1b solid 1px;
         border-radius: 4px;
         justify-content: center;
         font-family: 'Verdana', Courier, monospace;
@@ -220,14 +217,17 @@
         padding: 2px;
         border: none 1px;
         border-radius: 3px;
-        background: #3d3d3d;;
+        background: #3d3d3d;
+        ;
     }
 
     .compra {
         width: 380px;
         height: 320px;
-        background-color: rgba(42, 41, 43, 0.8);
+        backdrop-filter: blur(6px);
         box-shadow: 0px 0px 3px rgb(42, 41, 43);
+        background-color: rgba(42, 41, 43, 0.4);
+        border: #1b1b1b solid 1px;
         border-radius: 4px;
         margin-left: 15px;
         left: 950px;
@@ -361,12 +361,12 @@
         <div class="cabecalho">
             <nav>
                 <ul>
-                    <li><a href="/">HOME</a></li>
-                    <li><a href="#">CAIXAS</a></li>
-                    <li><a href="/user">AUTORES</a></li>
-                    <li><a href="#">EDITORA</a></li>
-                    <li><a href="/wishlist">WISHLIST</a></li>
-                    <li><a href="/carrinho">CARRINHO</a></li>
+                    <li><a class="home" href="/">HOME</a></li>
+                    <li><a class="caixas" href="#">CAIXAS</a></li>
+                    <li><a class="autores" href="/user">AUTORES</a></li>
+                    <li><a class="editora" href="#">EDITOR</a></li>
+                    <li><a class="wishlist" href="/wishlist">WISHLIST</a></li>
+                    <li><a class="carrinho" href="/carrinho">CARRINHO</a></li>
                 </ul>
             </nav>
         </div>

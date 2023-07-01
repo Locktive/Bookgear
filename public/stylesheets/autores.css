@@ -1,4 +1,7 @@
-
+p{
+    color: rgb(179, 179, 179);
+    font-family: 'Verdana', Courier, monospace;
+}
 body {
     background-color: rgb(20, 20, 20);
     background-image: url(../images/background.jpg);
@@ -43,14 +46,22 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: rgba(42, 41, 43, 0.8);
+    background-color: rgba(42, 41, 43, 0.4);
+    border: #1b1b1b solid 1px;
+    backdrop-filter: blur(6px);
     padding: 30px;
     max-width: 1280px;
     height: fit-content;
     width: 90%;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; 
+       
 }
+.autores-cab{
+    color: rgb(19, 19, 19);
+    background-color: #f85d03;
+}
+
 
 .autor-img {
     border-radius: 110px;
@@ -118,9 +129,12 @@ main {
     height: 664px;
 }
 .autor{
-    display: flex;
+    display: grid;
+    grid-template-rows: 350px 50;
+    grid-template-columns: 200px 200px;
     height: 200px;
     width: 400px;
+    background-color: aqua;
 }
 .autor-desc{
     height: 200px;
