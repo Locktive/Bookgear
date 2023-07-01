@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Jun-2023 às 15:06
+-- Tempo de geração: 01-Jul-2023 às 16:53
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -50,7 +50,11 @@ INSERT INTO `autor` (`id_autor`, `nome`, `data_nascimento`, `data_morte`, `telef
 (7, 'Feliza Antat', '1967-04-03', NULL, 1442822868, ''),
 (8, 'Janot Simants', '2000-05-12', NULL, 2145283647, ''),
 (9, 'Rudie O\'Halligan', '1993-08-15', NULL, 2147483612, ''),
-(10, 'Shayne Stansall', '1939-04-25', '2005-11-17', 1271963237, '');
+(10, 'Shayne Stansall', '1939-04-25', '2005-11-17', 1271963237, ''),
+(11, 'Karl Marx', '1818-05-05', '1883-03-14', 2312313, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdH31sjyesHEfDsYcWixcojXwvYx0pyozAEQ&usqp=CAU'),
+(12, 'Moisés', '1371-06-12', '1271-04-29', 2345678, 'https://cdn.pixabay.com/photo/2022/12/27/13/12/moises-7680928_640.jpg'),
+(13, 'H. P. Lovecraft', '1890-08-20', '1937-03-15', 65465432, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/H._P._Lovecraft%2C_June_1934.jpg/250px-H._P._Lovecraft%2C_June_1934.jpg'),
+(14, 'Tazercraft', '2011-07-12', NULL, 164816649, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7xGoUBDVx4dAwO2VgSuXxVpzFmMd4El325g&usqp=CAU');
 
 -- --------------------------------------------------------
 
@@ -147,7 +151,8 @@ INSERT INTO `cliente` (`id_cliente`, `nome`, `email`, `senha`, `endereco`, `imag
 (9, 'Emelia', 'eroz8@wiley.com', 'gxrYWOiGnz', '260 Sachtjen Lane', '', NULL),
 (10, 'Juliet', 'jbrimble9@cdbaby.com', 'WlGKM4YS', '29 Stuart Hill', '', NULL),
 (41, 'adadaa', 'teste@dada.com', 'banana01', 'algum lugar', NULL, NULL),
-(43, 'ayoba', 'ayoba@email.com', 'ayobamanus', 'casa ayobabro', NULL, NULL);
+(43, 'ayoba', 'ayoba@email.com', 'ayobamanus', 'casa ayobabro', NULL, NULL),
+(44, 'Henrique', 'pizza@potato', '1111111111', 'Rua massa', NULL, NULL);
 
 --
 -- Acionadores `cliente`
@@ -253,7 +258,11 @@ INSERT INTO `livro` (`id_livro`, `fk_autor`, `fk_editora`, `Preco`, `Nome`, `Est
 (7, 10, 5, '43.24', 'Home', 521, 6, ''),
 (8, 9, 9, '83.49', 'Eddie Izzard: Force Majeure Live', 600, 7, ''),
 (9, 3, 7, '49.42', 'Major Movie Star', 512, 1, ''),
-(10, 9, 10, '95.01', 'Master of Ballantrae, The', 47, 9, '');
+(10, 9, 10, '95.01', 'Master of Ballantrae, The', 47, 9, ''),
+(13, 11, 6, '123.99', 'O Manifesto Comunista', 69, 3, 'https://static21.minhalojanouol.com.br/anitagaribaldi/produto/multifotos/hd/20200711114128_2853997147_DZ.jpg'),
+(14, 12, 1, '70.00', 'A Bíblia Sagrada ', 65, 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlFDX05_YledaveaYEZdBLso18fNIo0KB9pg&usqp=CAU'),
+(15, 13, 8, '66.66', 'Tales of Horro', 213, 5, 'https://www.knihydobrovsky.cz/thumbs/book-detail/mod_eshop/produkty/371659968/6.jpg'),
+(16, 14, 6, '31.99', 'Herobrine : A lenda', 42, 8, 'https://m.media-amazon.com/images/I/814YwXI7YML._AC_UF1000,1000_QL80_.jpg');
 
 --
 -- Acionadores `livro`
@@ -329,7 +338,13 @@ CREATE TABLE `log` (
 
 INSERT INTO `log` (`id_log`, `id_cliente`, `id_autor`, `id_caixa`, `id_livro`, `id_editora`, `action`, `qtde_original`, `qtde_nova`) VALUES
 (1, 43, NULL, NULL, NULL, NULL, 'insert', NULL, NULL),
-(2, NULL, NULL, NULL, 2, NULL, 'update', 429, 428);
+(2, NULL, NULL, NULL, 2, NULL, 'update', 429, 428),
+(3, NULL, NULL, NULL, 13, NULL, 'insert', NULL, 69),
+(4, NULL, NULL, NULL, 14, NULL, 'insert', NULL, 65),
+(5, NULL, NULL, NULL, 15, NULL, 'insert', NULL, 213),
+(6, NULL, NULL, NULL, 15, NULL, 'update', 213, 213),
+(7, NULL, NULL, NULL, 16, NULL, 'insert', NULL, 42),
+(8, 44, NULL, NULL, NULL, NULL, 'insert', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -365,9 +380,16 @@ INSERT INTO `produto` (`id_produto`, `id_caixa`, `id_livro`, `qtde_livro`) VALUE
 -- Acionadores `produto`
 --
 DELIMITER $$
-CREATE TRIGGER `atualiza_estoque` BEFORE INSERT ON `produto` FOR EACH ROW UPDATE livro
-SET Estoque = Estoque - 1
-WHERE id_livro = NEW.id_livro
+CREATE TRIGGER `atualizar_estoque` BEFORE INSERT ON `produto` FOR EACH ROW BEGIN
+	UPDATE livro SET Estoque = Estoque - NEW.qtde_livro WHERE id_livro = NEW.id_livro; 
+    IF (SELECT COUNT(*) FROM produto WHERE id_caixa = NEW.id_caixa) = 0 THEN
+        IF NEW.id_caixa IS NOT NULL THEN
+            UPDATE caixa_tipo
+            SET estoque = estoque - 1
+            WHERE id_caixa = NEW.id_caixa;
+        END IF;
+    END IF;
+END
 $$
 DELIMITER ;
 DELIMITER $$
@@ -553,7 +575,7 @@ ALTER TABLE `tema`
 -- AUTO_INCREMENT de tabela `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id_autor` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_autor` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `caixa`
@@ -577,7 +599,7 @@ ALTER TABLE `carrinho`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_cliente` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de tabela `compra`
@@ -601,7 +623,7 @@ ALTER TABLE `lista_de_desejos`
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `livros_caixa`
@@ -613,7 +635,7 @@ ALTER TABLE `livros_caixa`
 -- AUTO_INCREMENT de tabela `log`
 --
 ALTER TABLE `log`
-  MODIFY `id_log` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_log` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
