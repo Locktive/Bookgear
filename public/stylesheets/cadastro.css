@@ -1,0 +1,69 @@
+.texto {
+    color: white;
+    width: 35px;
+    height: 10%;
+    margin-top: 60px;
+}
+
+.box {
+    flex-direction: column;
+    margin: 38px 0px 0px 475px;
+    width: 400px;
+    height: 510px;
+    text-align: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.Login {
+    color: #f85d03;
+    font: bold 30px sans-serif;
+    margin-left: 135px;
+}
+
+.btn-username {
+    color: white;
+    background-color: rgba(20, 20, 20, 0.021);
+    border-bottom: 1px solid rgb(59, 59, 59);
+    height: 30px;
+    width: 260px;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.mini-box {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.mini-box input {
+    border-radius: 10px;
+    background-color: #ff7300;
+    color: rgb(34, 34, 34);
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font: bold 17px sans-serif;
+    margin: 15px 0px 0px 10px;
+    border: none;
+}
+
+.mini-box input:hover {
+    background-color: #d15e00;
+}
+
+.forgot-password a:link,
+.forgot-password a:visited,
+.forgot-password {
+    margin-top: 20px;
+    color: #ff7300;
+    font: bold 17px sans-serif;
+}
+
+.wrongpass {
+    color: red;
+    margin-top: 10px;
+    display: none;
+}

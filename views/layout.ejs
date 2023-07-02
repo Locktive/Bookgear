@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- title %></title>
+    <link rel="stylesheet" type="text/css" href="./../stylesheets/rodape.css">
+    <link rel="stylesheet" type="text/css" href="./../stylesheets/cabecalho.css">
+    <link rel="stylesheet" type="text/css" href="./../stylesheets/barrapesquisa.css">
+    <link rel="icon" type="image/x-icon" href="images/logo-removebg-preview.png">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/scrollbar.css">
+    
+    <!-- switch para determinar o css e script utilizado -->
+    <% switch (pageId) { case 'principal':  %>
+    <link rel="stylesheet" href="./../stylesheets/Tela-principal.css">
+    <% break;  case 'wishlist':  %>
+    <link rel="stylesheet" href="./../stylesheets/wishlist.css">
+    <% break;  case 'user':  %>
+    <link rel="stylesheet" href="./../stylesheets/tela_usuario.css">
+    <% break;  case 'autor':  %>
+    <link rel="stylesheet" href="./../stylesheets/autores.css">
+    <% break;  case 'produto':  %>
+    <link rel="stylesheet" href="./../stylesheets/pagina-produto.css">
+    <% break;  case 'login':  %>
+    <link rel="stylesheet" href="./../stylesheets/login.css">
+    <% break;  case 'carrinho':  %>
+    <link rel="stylesheet" href="./../stylesheets/carrinho.css">
+    <% break;  case 'cadastro':  %>
+    <link rel="stylesheet" href="./../stylesheets/cadastro.css">
+    <% break;  } %>
+
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: rgb(37, 37, 37);
+            background-image: url(../images/background2.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- parcial para o cabecalho -->
+    <%- include('partials/cabecalho.ejs') %>
+        <div>
+            <!-- corpo da tela definida -->
+            <%- body %>
+            <!-- parcial do rodape -->
+            <%- include('partials/rodape.ejs') %>
+        </div>
+
+    <!-- switch para determinar o css e script utilizado -->
+    <% switch (pageId) { case 'user':  %>
+    <script src="./../javascript/usuario.js"></script>
+    <% break;  case 'produto':  %>
+    <script src="./../javascript/pagina-produto.js"></script>
+    <% break;  case 'wishlist':  %>
+    <script src="./../javascript/wishlist.js"></script>
+    <% break;  case 'cadastro':  %>
+    <script src="./../javascript/cadastro.js"></script>
+    <% break;  case 'principal'  %>    
+    <script src="./../javascript/querysql.js"></script>
+    <% break;  } %>
+</body>
+
+</html>

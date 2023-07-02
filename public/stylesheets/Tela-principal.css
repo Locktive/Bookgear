@@ -1,12 +1,3 @@
-body {
-    height: 100%;
-    width: 100%;
-    background-color: rgb(37, 37, 37);
-    background-image: url(../images/background2.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
 
 .grid-principal {
     display: grid;
@@ -147,7 +138,6 @@ body {
     color: black;
 }
 
-.categorias>li {}
 
 /* produto */
 .imagem-produto {

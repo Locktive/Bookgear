@@ -1,31 +1,19 @@
 const express = require('express');
 var router = express.Router();
-const path = require('path');
 var bodyParser = require('body-parser');
-var mysql = require('mysql2');
 const { set } = require('../app');
 var app = express();
-app.use(express.static('../public'))
 
-const connection = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'root',
-  password: 'root',
-  database: 'bookgear',
-  port: '3306'
-});
 
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  let principal = path.join(__dirname, "../views/Tela-principal_BookGear.ejs")
-  res.render(principal)
+  res.render("layouts/Tela-principal_BookGear.ejs", {title: 'BookGear', pageId: 'principal'})
 });
 
 
 router.get('/Login', function (req, res, next) {
-  let login = path.join(__dirname, "../views/Login-bookgear.ejs");
-  res.render(login);
+  res.render("layouts/Login-bookgear.ejs", {title: 'Login - BookGear', pageId: 'login'});
 })
 
 router.post('/Login', function (req, res) {
@@ -58,8 +46,7 @@ router.post('/Login', function (req, res) {
 });
 
 router.get('/cadastro', function (req, res, next) {
-  let cadastro = path.join(__dirname, "../views/cadastro.ejs");
-  res.render(cadastro);
+  res.render("layouts/cadastro.ejs", {title: 'Cadastro - BookGear', pageId: 'cadastro'});
 })
 
 router.post('/cadastro', function (req, res) {
@@ -83,37 +70,31 @@ router.post('/cadastro', function (req, res) {
 });
 
 router.get('/compre', function (req, res, next) {
-  let login = path.join(__dirname, "../views/book.ejs");
-  res.render(login);
+  res.render("layouts/book.ejs", {title: 'BookGear - book', pageId: 'cadastro'});
 })
 
 router.get('/carrinho', function (req, res, next) {
-  let carrinho = path.join(__dirname, "../views/carrinho.ejs");
-  res.render(carrinho);
+  res.render("layouts/carrinho.ejs", {title: 'Carrinho - BookGear', pageId: 'carrinho'});
 })
 
 router.get('/user', function (req, res, next) {
-  let principal = path.join(__dirname, "../views/tela_usuario.ejs")
-  res.render(principal)
+  res.render("layouts/tela_usuario.ejs", {title: 'BookGear', pageId: 'user'});
 });
 
 router.get('/pagamento', function (req, res, next) {
-  let principal = path.join(__dirname, "../views/book.ejs")
-  res.render(principal)
+  res.render("layouts/book.ejs", {title: 'Pagamento - BookGear', pageId: 'pagamento'});
 });
 
 router.get('/wishlist', function(req,res,next){
-  let wishlist = path.join(__dirname, "../views/wishlist.ejs");
-  res.render(wishlist);
+  res.render("layouts/wishlist.ejs", {title: 'Wishlist - BookGear', pageId: 'wishlist'});
 })
 
 router.get('/autores', function(req,res,next){
-  let wishlist = path.join(__dirname, "../views/wishlist.ejs");
-  res.render(wishlist);
+  res.render("layouts/autores.ejs", {title: 'Autores - BookGear', pageId: 'autor'});
 })
 
 router.get('/produto', function (req, res, next) {
-  res.render('pagina-produto');
+  res.render('layouts/pagina-produto.ejs', {title: 'BookGear'});
 })
 
 app.use(router);
@@ -130,8 +111,8 @@ app.use(function (req, res, next) {
   res.status(404);
 
   // respond with html page
-  if (req.accepts('html')) {
-    res.render(__dirname, '../views/error.ejs')
+  if (req.accepts('ejs')) {
+    res.render('error.ejs')
     return;
   }
 

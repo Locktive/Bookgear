@@ -1,0 +1,79 @@
+.texto {
+    color: white;
+    width: 35px;
+    height: 10%;
+    margin-top: 120px;
+}
+
+.box {
+    flex-direction: column;
+    margin: 38px 0px 0px 475px;
+    width: 400px;
+    height: 500px;
+    text-align: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.Login {
+    color: #ff7300;
+    font: bold 30px sans-serif;
+    margin-left: 155px;
+}
+
+.btn-username {
+    color: white;
+    background-color: rgba(20, 20, 20, 0.021);
+    border-bottom: 1px solid rgb(59, 59, 59);
+    height: 30px;
+    width: 260px;
+    margin-top: 20px;
+    text-align: left;
+
+}
+
+.forgot-password a:link,
+.forgot-password a:visited,
+.forgot-password {
+    margin-top: 20px;
+    color: #ff7300;
+    font: bold 17px sans-serif;
+}
+
+.mini-box {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.mini-box a,
+.mini-box input {
+    border-radius: 10px;
+}
+
+.mini-box a:link,
+.mini-box a:visited,
+.mini-box input {
+    background-color: #ff7300;
+    color: rgb(34, 34, 34);
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font: bold 17px sans-serif;
+    margin: 20px 0px 0px 10px;
+    cursor: pointer;
+}
+
+.mini-box a:hover,
+.mini-box a:active,
+.mini-box input:hover,
+.mini-box input:active {
+    background-color: #d15e00;
+}
+
+.wrongpass {
+    color: red;
+    margin-top: 10px;
+    display: none;
+}

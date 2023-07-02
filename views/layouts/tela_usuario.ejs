@@ -1,0 +1,47 @@
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/tela_usuario.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="principal">
+            <div class="insidebox">
+                <img src="../images/unnamed.png" class="user-img">
+                <h1 class="Userb">User</h1>
+                <ul class="categorias">
+                    <li class="li-user"><button style="margin-top: 0%;" onclick="pagsw(1)" class="input_categoria">Dados pessoais</button></li>
+                    <li class="li-user"><button onclick="pagsw(2)" class="input_categoria">Histórico de compras</button></li>
+                    <li class="li-user"><button onclick="pagsw(3)" class="input_categoria">Status de entrega</button></li>
+                </ul>
+            </div>
+            <div class="Dados-pessoais1">
+                
+                <div class="data">
+                    <div class="pag1">
+                        <h1 class="title" style="color: #ff7300; margin-left: 5px;">Dados pessoais</h1>
+                        <form id="info" action="/user" method="post">
+                            <input type="text" id="" placeholder="Nome de Usuário" id="userchange"><br>
+                            <input type="text" placeholder="E-mail"><br>
+                            <input type="password" placeholder="Senha"><br>
+                            <input type="text" placeholder="CPF"><br>
+                            <input type="text" placeholder="Endereço"><br>
+                            <div class="mini-box">
+                                <input type="submit" value="Alterar informações" id="botao">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="pag2">
+
+                    </div>
+                    <div class="pag3">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../javascript/usuario.js"></script>
+</body>
+
+</html>
