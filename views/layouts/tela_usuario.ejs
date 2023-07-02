@@ -1,4 +1,3 @@
-
 <head>
     <link rel="stylesheet" type="text/css" href="../stylesheets/tela_usuario.css">
 </head>
@@ -10,29 +9,96 @@
                 <img src="../images/unnamed.png" class="user-img">
                 <h1 class="Userb">User</h1>
                 <ul class="categorias">
-                    <li class="li-user"><button style="margin-top: 0%;" onclick="pagsw(1)" class="input_categoria">Dados pessoais</button></li>
-                    <li class="li-user"><button onclick="pagsw(2)" class="input_categoria">Histórico de compras</button></li>
-                    <li class="li-user"><button onclick="pagsw(3)" class="input_categoria">Status de entrega</button></li>
+                    <li class="li-user"><button style="margin-top: 0%;" onclick="pagsw(1)" class="input_categoria">Dados
+                            pessoais</button></li>
+                    <li class="li-user"><button onclick="pagsw(2)" class="input_categoria">Histórico de compras</button>
+                    </li>
+                    <li class="li-user"><button onclick="pagsw(3)" class="input_categoria">Status de entrega</button>
+                    </li>
                 </ul>
             </div>
             <div class="Dados-pessoais1">
-                
+
                 <div class="data">
+                    <!-- Pagina 1, Dados pessoais-->
                     <div class="pag1">
-                        <h1 class="title" style="color: #ff7300; margin-left: 5px;">Dados pessoais</h1>
+                        <h1 class="title" style="color: rgb(255, 80, 0); margin-left: 5px;">Dados pessoais</h1>
                         <form id="info" action="/user" method="post">
-                            <input type="text" id="" placeholder="Nome de Usuário" id="userchange"><br>
-                            <input type="text" placeholder="E-mail"><br>
-                            <input type="password" placeholder="Senha"><br>
-                            <input type="text" placeholder="CPF"><br>
-                            <input type="text" placeholder="Endereço"><br>
+                            <input type="text" id="" placeholder="Nome de Usuário" id="userchange">
+                            <input type="text" placeholder="E-mail">
+                            <input type="password" placeholder="Senha">
+                            <input type="text" placeholder="CPF">
+                            <input type="text" placeholder="Endereço">
                             <div class="mini-box">
                                 <input type="submit" value="Alterar informações" id="botao">
                             </div>
                         </form>
                     </div>
-                    <div class="pag2">
 
+                    <!-- Pagina 2, Historico de compras] -->
+                    <div class="pag2">
+                        <h1 class="title" style="color: rgb(255, 80, 0); margin-left: 5px;">Historico de compras</h1>
+
+
+                        <div class="descricao">
+                            <p>Data da compra</p>
+                            <p>Produtos</p>
+                            <p>Valor pago</p>
+                        </div>
+                        <div class="historico">
+
+                            <div class="compras">
+                                <div class="desc data-compra">
+                                    <p id="Datacompra">xx/xx/xxxx</p>
+                                </div>
+                                <!-- produtos comprados -->
+                                <div class="desc prod-comprados ">
+                                    <p id="produto1">Caixa da bookgear</p>
+                                    <p id="produto2">Caixa da bookgear</p>
+                                    <p id="produto3">Caixa da bookgear</p>
+                                    <p id="produto4">Caixa da bookgear</p>
+                                    <p id="produto5">Caixa da bookgear</p>
+                                    <p id="produto6">Caixa da bookgear</p>
+                                    <p id="produto7">Caixa da bookgear</p>
+                                    </script>
+
+                                </div>
+                                <div class="desc valor-pago">
+                                    <div class="val-compra">
+                                        <p>R$
+                                        <p id="preco">90,50</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="compras">
+                                <div class="desc data-compra">
+                                    <p id="Datacompra">xx/xx/xxxx</p>
+                                </div>
+                                <!-- produtos comprados -->
+                                <div class="desc prod-comprados ">
+                                    <p id="produto1">Caixa da bookgear</p>
+                                    <p id="produto2">Caixa da bookgear</p>
+                                    <p id="produto6">Caixa da bookgear</p>
+                                    <p id="produto7">Caixa da bookgear</p>
+                                    </script>
+
+                                </div>
+                                <div class="desc valor-pago">
+                                    <div class="val-compra">
+                                        <p>R$
+                                        <p id="preco">90,50</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="compras">
+
+                            </div>
+
+                        </div>
                     </div>
                     <div class="pag3">
 
@@ -41,7 +107,8 @@
             </div>
         </div>
     </div>
-    <script src="../javascript/usuario.js"></script>
+    <script src="../javascript/usuario.js">
+    </script>
 </body>
 
 </html>
