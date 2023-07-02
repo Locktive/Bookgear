@@ -1,6 +1,5 @@
 const express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
 const { set } = require('../app');
 var app = express();
 
