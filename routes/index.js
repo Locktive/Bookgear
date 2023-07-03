@@ -1,100 +1,153 @@
 const express = require('express');
 var router = express.Router();
-const { set } = require('../app');
 var app = express();
-
-
-
+const session = require('express-session');
+var mysql = require('mysql2')
+const connection = mysql.createConnection({
+  host: '127.0.0.1',
+  user: 'root',
+  password: '',
+  database: 'bookgear',
+  port: '3306'
+});
+connection.on("error", (error) => console.log(error));
+connection.once("open", () => console.log("Conectado ao banco"));
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render("layouts/Tela-principal_BookGear.ejs", {title: 'BookGear', pageId: 'principal'})
+  res.render("layouts/Tela-principal_BookGear.ejs", { pageId: 'principal' })
 });
 
 
 router.get('/Login', function (req, res, next) {
-  res.render("layouts/Login-bookgear.ejs", {title: 'Login - BookGear', pageId: 'login'});
-})
+  res.render("layouts/Login-bookgear.ejs", { pageId: 'login' })
+});
 
-router.post('/Login', function (req, res) {
+router.post('/Login_auth', function (req, res) {
   var name = req.body.name;
   var password = req.body.senha;
   var sql = 'SELECT * FROM cliente WHERE nome = ?';
   connection.query(sql, [name], function (err, results, fields) {
-    if (!err) {
+    if (!err) {  
       console.log("Resultado:", results);
-      console.log(name)
-      console.log(password)
       if (results && results.length > 0) {
         var passCheck = results[0].senha;
-        if (password === passCheck) {
-          res.send("Bem vindo " + name)
-          console.log("deu bom")
+        if (password === passCheck) {    
+          req.session.user = results[0];
+          console.log("Connected as " + results[0].nome);
+          res.redirect('/');
         } else {
-          res.send("Senha errada")
-          console.log("nao deu bom")
+          res.render('layouts/Login-bookgear.ejs', { pageId: 'login' , errorMessage: 'Senha incorreta' });
+          return;
         }
       } else {
-        res.send("Usuario nao encontrado")
+        // Usuário não existe, definir a mensagem de erro e renderizar a página de login novamente
+        res.render('layouts/Login-bookgear.ejs', { pageId: 'login' , errorMessage: 'Usuário não encontrado' });
+        return;
       }
     } else {
       console.log("Consulta não realizada");
+      return;
     }
-
   })
   console.log("Enviado ao servidor");
 });
 
-router.get('/cadastro', function (req, res, next) {
-  res.render("layouts/cadastro.ejs", {title: 'Cadastro - BookGear', pageId: 'cadastro'});
-})
+// Middleware para verificar a autenticação
+function requireAuth(req, res, next) {
+  if (req.session.user) {
+    // O usuário está conectado, continue com a próxima rota
+    next();
+  } else {
+    // O usuário não está conectado, redireciona para a página de login
+    res.redirect('/login');
+  }
+}
 
-router.post('/cadastro', function (req, res) {
+router.get('/cadastro', function (req, res, next) {
+  res.render("layouts/cadastro.ejs", { pageId: 'cadastro' });
+});
+
+router.post('/cadastro_user', function (req, res) {
   var name = req.body.username;
   var password = req.body.password;
+  var confirm = req.body.confirm;
   var email = req.body.email;
   var address = req.body.address;
-  var values = [
-    [name, email, password, address]
-  ];
-  var sql = 'INSERT INTO cliente (nome,email,senha,endereco) VALUES ?';
-    connection.query(sql, [values], function (err, results, fields) {
-      if (!err) {
-        console.log("Resultado:", results);
-      } else {
-        console.log(err);
-      }
 
-    })
+  // Verificar se algum campo está vazio
+  if (!name || !password || !confirm || !email || !address) {
+    res.render('layouts/cadastro.ejs', { pageId: 'cadastro', errorMessage: 'Por favor, preencha todos os campos' });
+    return;
+  }
+
+  // Verificar se a senha tem menos de 8 caracteres ou mais de 15
+  if (password.length < 8 || password.length > 15) {
+    res.render('layouts/cadastro.ejs', { pageId: 'cadastro', errorMessage: 'A senha deve ter entre 8 e 15 caracteres' });
+    return;
+  }
+
+  // Verificar se a senha e a confirmação de senha são iguais
+  if (password !== confirm) {
+    res.render('layouts/cadastro.ejs', { pageId: 'cadastro', errorMessage: 'A senha e a confirmação de senha não correspondem' });
+    return;
+  }
+
+  var values = [[name, email, password, address]];
+  var sql = 'INSERT INTO cliente (nome, email, senha, endereco) VALUES ?';
+
+  connection.query(sql, [values], function (err, results, fields) {
+    if (!err) {
+      console.log("Resultado:", results);
+      // Renderizar a página de cadastro novamente com a mensagem de confirmação e o título
+      res.render('layouts/cadastro.ejs', { pageId: 'cadastro', confirmationMessage: 'Cadastro realizado com sucesso' });
+    } else {
+      console.log(err);
+    }
+  });
   console.log("Enviado ao servidor");
 });
 
+
 router.get('/compre', function (req, res, next) {
-  res.render("layouts/book.ejs", {title: 'BookGear - book', pageId: 'cadastro'});
-})
+  res.render("layouts/book.ejs", { pageId: 'cadastro' })
+});
 
 router.get('/carrinho', function (req, res, next) {
-  res.render("layouts/carrinho.ejs", {title: 'Carrinho - BookGear', pageId: 'carrinho'});
-})
+  res.render("layouts/carrinho.ejs", { pageId: 'carrinho' })
+});
 
-router.get('/user', function (req, res, next) {
-  res.render("layouts/tela_usuario.ejs", {title: 'BookGear', pageId: 'user'});
+router.get('/user',requireAuth, function (req, res, next) {
+  res.render("layouts/tela_usuario.ejs", { pageId: 'user' })
 });
 
 router.get('/pagamento', function (req, res, next) {
-  res.render("layouts/book.ejs", {title: 'Pagamento - BookGear', pageId: 'pagamento'});
+  res.render("layouts/book.ejs", { pageId: 'pagamento' })
 });
 
-router.get('/wishlist', function(req,res,next){
-  res.render("layouts/wishlist.ejs", {title: 'Wishlist - BookGear', pageId: 'wishlist'});
-})
+router.get('/wishlist', function (req, res, next) {
+  res.render("layouts/wishlist.ejs", { pageId: 'wishlist' })
+});
 
-router.get('/autores', function(req,res,next){
-  res.render("layouts/autores.ejs", {title: 'Autores - BookGear', pageId: 'autor'});
-})
+router.get('/autores', function (req, res, next) {
+  res.render("layouts/autores.ejs", { pageId: 'autor' })
+});
 
 router.get('/produto', function (req, res, next) {
-  res.render('layouts/pagina-produto.ejs', {title: 'BookGear'});
-})
+  res.render('layouts/pagina-produto.ejs', { pageId: 'produto' })
+});
+
+// Rota para finalizar a sessão
+app.get('/logout', function(req, res) {
+  // Utilize o método 'destroy()' para finalizar a sessão
+  req.session.destroy(function(err) {
+    if (err) {
+      console.log(err);
+    } else {
+      // Redirecione para a página de login ou outra página após finalizar a sessão
+      res.redirect('/login');
+    }
+  });
+});
 
 app.use(router);
 
@@ -112,7 +165,7 @@ app.use(function (req, res, next) {
   // respond with html page
   if (req.accepts('ejs')) {
     res.render('error.ejs')
-    return;
+    return console.error();
   }
 
   // // respond with json

@@ -28,9 +28,9 @@ body {
 
 }
 
-.home {
+.cat-home {
     color: rgb(19, 19, 19);
-    background-color: #f85d03;
+    background-color: #ff5000
 }
 
 .container-principal {
@@ -140,7 +140,7 @@ body {
 }
 
 .input_categoria:hover {
-    background-color: #f85d03;
+    background-color: #ff5000;
     transition: 0.3s ease;
     text-decoration: none;
     cursor: pointer;

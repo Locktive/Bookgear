@@ -9,6 +9,10 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+.cat-autores{
+    color: rgb(19, 19, 19);
+    background-color: #ff5000;
+}
 
 img {
     max-width: 100%;
@@ -16,14 +20,7 @@ img {
 }
 
 a {
-    color: inherit;
-}
-
-input,
-button,
-textarea,
-select {
-    font: inherit;
+  color: inherit;
 }
 
 button {
@@ -248,7 +245,7 @@ main {
 
 }
 
-.credits a {
+.credits > a {
     display: block;
 }
 

@@ -6,7 +6,7 @@
             <div class="texto">
                 <p class="Login">Cadastro</p>
             </div>
-            <form action="/cadastro" method="post" name="cadastro" class="info" id="cadastro">
+            <form action="/cadastro_user" method="post" name="cadastro" class="info" id="cadastro">
                 <input type="text" name="username" class="btn-username" placeholder="Nome" id="nome" required>
                 <input type="email" name="email" class="btn-username" placeholder="E-mail" id="email" required>
                 <input type="password" id="senha" name="password" class="btn-username" placeholder="Senha" required>
@@ -18,9 +18,16 @@
                 <span id="message" style="color:red"></span>
                 <br>
                 <div class="mini-box">
-                    <input type="submit" placeholder="Cadastrar" id="botao">
+                    <input type="submit" value="Cadastrar" id="botao">
                 </div>
             </form>
+            <% if (typeof errorMessage !== 'undefined') { %>
+                <p class="error-message"><%= errorMessage %></p>
+            <% } %>
+
+            <% if (typeof confirmationMessage !== 'undefined') { %>
+                <p class="success-message"><%= confirmationMessage %></p>
+            <% } %>
             <div>
                 <p class="forgot-password">Já tem conta? <a href="/Login">Entrar</a></p>
             </div>

@@ -64,6 +64,14 @@ body {
 
 }
 
+.btn-username:-webkit-autofill,
+.btn-username:-webkit-autofill:hover,
+.btn-username :-webkit-autofill:focus {
+    -webkit-text-fill-color: grey;
+    -webkit-text-size-adjust: 100%;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
 .forgot-password a:link,
 .forgot-password a:visited,
 .forgot-password {
@@ -134,5 +142,4 @@ body {
 .wrongpass {
     color: red;
     margin-top: 10px;
-    display: none;
 }

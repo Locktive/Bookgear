@@ -13,6 +13,10 @@ body {
     align-items: center;
     justify-content: space-evenly;
 }
+.error-message{
+    color: #ff5000;
+    text-decoration: underline;
+}
 
 .container {
     margin-top: 100px;
@@ -102,7 +106,7 @@ body {
 .forgot-password a:visited,
 .forgot-password {
     margin-top: 20px;
-    color: #ff7300;
+    color: #ff5000;
     font: bold 17px sans-serif;
 }
 
