@@ -6,7 +6,7 @@ var mysql = require('mysql2')
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: '',
+  password: 'root',
   database: 'bookgear',
   port: '3306'
 });
@@ -136,18 +136,7 @@ router.get('/produto', function (req, res, next) {
   res.render('layouts/pagina-produto.ejs', { pageId: 'produto' })
 });
 
-// Rota para finalizar a sessão
-app.get('/logout', function(req, res) {
-  // Utilize o método 'destroy()' para finalizar a sessão
-  req.session.destroy(function(err) {
-    if (err) {
-      console.log(err);
-    } else {
-      // Redirecione para a página de login ou outra página após finalizar a sessão
-      res.redirect('/login');
-    }
-  });
-});
+
 
 app.use(router);
 
