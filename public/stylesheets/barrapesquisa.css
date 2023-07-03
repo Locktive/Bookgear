@@ -14,6 +14,10 @@
    width: 500px;
    padding: 0 10px;
 }
+.search-box:focus-within>input {
+   width: 500px;
+   padding: 0 10px;
+}
 
 .search-box:hover>.icon {
    background: #ff5e00;

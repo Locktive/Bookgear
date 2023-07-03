@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Jun-2023 às 15:06
--- Versão do servidor: 8.0.21
--- versão do PHP: 8.1.2
+-- Tempo de geração: 03-Jul-2023 às 04:04
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `autor` (
-  `id_autor` int NOT NULL,
+  `id_autor` int(11) NOT NULL,
   `nome` varchar(80) COLLATE utf8mb4_bin NOT NULL,
   `data_nascimento` date NOT NULL,
   `data_morte` date DEFAULT NULL,
-  `telefone` int NOT NULL,
-  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
+  `telefone` int(11) NOT NULL,
+  `image_url` varchar(300) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -50,7 +50,11 @@ INSERT INTO `autor` (`id_autor`, `nome`, `data_nascimento`, `data_morte`, `telef
 (7, 'Feliza Antat', '1967-04-03', NULL, 1442822868, ''),
 (8, 'Janot Simants', '2000-05-12', NULL, 2145283647, ''),
 (9, 'Rudie O\'Halligan', '1993-08-15', NULL, 2147483612, ''),
-(10, 'Shayne Stansall', '1939-04-25', '2005-11-17', 1271963237, '');
+(10, 'Shayne Stansall', '1939-04-25', '2005-11-17', 1271963237, ''),
+(11, 'Karl Marx', '1818-05-05', '1883-03-14', 2312313, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdH31sjyesHEfDsYcWixcojXwvYx0pyozAEQ&usqp=CAU'),
+(12, 'Moisés', '1371-06-12', '1271-04-29', 2345678, 'https://cdn.pixabay.com/photo/2022/12/27/13/12/moises-7680928_640.jpg'),
+(13, 'H. P. Lovecraft', '1890-08-20', '1937-03-15', 65465432, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/H._P._Lovecraft%2C_June_1934.jpg/250px-H._P._Lovecraft%2C_June_1934.jpg'),
+(14, 'Tazercraft', '2011-07-12', NULL, 164816649, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7xGoUBDVx4dAwO2VgSuXxVpzFmMd4El325g&usqp=CAU');
 
 -- --------------------------------------------------------
 
@@ -59,9 +63,9 @@ INSERT INTO `autor` (`id_autor`, `nome`, `data_nascimento`, `data_morte`, `telef
 --
 
 CREATE TABLE `caixa` (
-  `id_caixa` int NOT NULL,
-  `id_tipocaixa` int NOT NULL,
-  `id_tema` int NOT NULL
+  `id_caixa` int(11) NOT NULL,
+  `id_tipocaixa` int(11) NOT NULL,
+  `id_tema` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -81,11 +85,11 @@ INSERT INTO `caixa` (`id_caixa`, `id_tipocaixa`, `id_tema`) VALUES
 --
 
 CREATE TABLE `caixa_tipo` (
-  `id_caixatipo` int NOT NULL,
+  `id_caixatipo` int(11) NOT NULL,
   `descricao` varchar(50) COLLATE utf8mb4_bin NOT NULL,
   `valor` decimal(10,2) NOT NULL,
   `tamanho` varchar(1) COLLATE utf8mb4_bin NOT NULL,
-  `estoque` int NOT NULL
+  `estoque` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -104,8 +108,8 @@ INSERT INTO `caixa_tipo` (`id_caixatipo`, `descricao`, `valor`, `tamanho`, `esto
 --
 
 CREATE TABLE `carrinho` (
-  `id_carrinho` int NOT NULL,
-  `fk_cliente` int NOT NULL
+  `id_carrinho` int(11) NOT NULL,
+  `fk_cliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -122,12 +126,12 @@ INSERT INTO `carrinho` (`id_carrinho`, `fk_cliente`) VALUES
 --
 
 CREATE TABLE `cliente` (
-  `id_cliente` int NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   `nome` varchar(80) COLLATE utf8mb4_bin NOT NULL,
   `email` varchar(120) COLLATE utf8mb4_bin NOT NULL,
   `senha` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `endereco` varchar(150) COLLATE utf8mb4_bin NOT NULL,
-  `imagem` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `imagem` varchar(200) COLLATE utf8mb4_bin DEFAULT NULL,
   `cpf` varchar(14) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
@@ -147,7 +151,11 @@ INSERT INTO `cliente` (`id_cliente`, `nome`, `email`, `senha`, `endereco`, `imag
 (9, 'Emelia', 'eroz8@wiley.com', 'gxrYWOiGnz', '260 Sachtjen Lane', '', NULL),
 (10, 'Juliet', 'jbrimble9@cdbaby.com', 'WlGKM4YS', '29 Stuart Hill', '', NULL),
 (41, 'adadaa', 'teste@dada.com', 'banana01', 'algum lugar', NULL, NULL),
-(43, 'ayoba', 'ayoba@email.com', 'ayobamanus', 'casa ayobabro', NULL, NULL);
+(43, 'ayoba', 'ayoba@email.com', 'ayobamanus', 'casa ayobabro', NULL, NULL),
+(44, 'Henrique', 'pizza@potato', '1111111111', 'Rua massa', 'https://lh3.googleusercontent.com/a-/AD_cMMQHBTXSg1HZjmCH7K27bxgXN9xQaqij14xlrUmhXOkT2iQ=s240-p-k-rw-no', NULL),
+(45, 'timão', 'hakunamatata@gmail.com', 'aaaaaaaaaa', 'Selva africana', NULL, NULL),
+(46, 'timão', 'a@b', 'a', 'aaaaaaaaaaa', NULL, NULL),
+(47, 'guigamesbr1', 'mandeubom@YES', 'seraqvaidar', 'onde sera?', NULL, NULL);
 
 --
 -- Acionadores `cliente`
@@ -173,11 +181,11 @@ DELIMITER ;
 --
 
 CREATE TABLE `compra` (
-  `id_compra` int NOT NULL,
+  `id_compra` int(11) NOT NULL,
   `tipo_pagamento` varchar(100) COLLATE utf8mb4_bin NOT NULL,
-  `valor_total` int NOT NULL,
+  `valor_total` int(11) NOT NULL,
   `status` varchar(100) COLLATE utf8mb4_bin NOT NULL,
-  `id_cliente` int NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   `datahora` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
@@ -188,10 +196,10 @@ CREATE TABLE `compra` (
 --
 
 CREATE TABLE `editora` (
-  `id_editora` int NOT NULL,
+  `id_editora` int(11) NOT NULL,
   `nome` varchar(100) COLLATE utf8mb4_bin NOT NULL,
-  `telefone` int NOT NULL,
-  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
+  `telefone` int(11) NOT NULL,
+  `image_url` varchar(300) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -217,9 +225,9 @@ INSERT INTO `editora` (`id_editora`, `nome`, `telefone`, `image_url`) VALUES
 --
 
 CREATE TABLE `lista_de_desejos` (
-  `id_lista_desejos` int NOT NULL,
-  `id_cliente` int NOT NULL,
-  `id_produto` int NOT NULL
+  `id_lista_desejos` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `id_produto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
@@ -229,14 +237,14 @@ CREATE TABLE `lista_de_desejos` (
 --
 
 CREATE TABLE `livro` (
-  `id_livro` int NOT NULL,
-  `fk_autor` int NOT NULL,
-  `fk_editora` int NOT NULL,
+  `id_livro` int(11) NOT NULL,
+  `fk_autor` int(11) NOT NULL,
+  `fk_editora` int(11) NOT NULL,
   `Preco` decimal(10,2) NOT NULL,
   `Nome` varchar(100) COLLATE utf8mb4_bin NOT NULL,
-  `Estoque` int NOT NULL,
-  `id_tema` int NOT NULL,
-  `image_url` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
+  `Estoque` int(11) NOT NULL,
+  `id_tema` int(11) NOT NULL,
+  `image_url` varchar(300) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -253,7 +261,11 @@ INSERT INTO `livro` (`id_livro`, `fk_autor`, `fk_editora`, `Preco`, `Nome`, `Est
 (7, 10, 5, '43.24', 'Home', 521, 6, ''),
 (8, 9, 9, '83.49', 'Eddie Izzard: Force Majeure Live', 600, 7, ''),
 (9, 3, 7, '49.42', 'Major Movie Star', 512, 1, ''),
-(10, 9, 10, '95.01', 'Master of Ballantrae, The', 47, 9, '');
+(10, 9, 10, '95.01', 'Master of Ballantrae, The', 47, 9, ''),
+(13, 11, 6, '123.99', 'O Manifesto Comunista', 69, 3, 'https://static21.minhalojanouol.com.br/anitagaribaldi/produto/multifotos/hd/20200711114128_2853997147_DZ.jpg'),
+(14, 12, 1, '70.00', 'A Bíblia Sagrada ', 65, 3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlFDX05_YledaveaYEZdBLso18fNIo0KB9pg&usqp=CAU'),
+(15, 13, 8, '66.66', 'Tales of Horro', 213, 5, 'https://www.knihydobrovsky.cz/thumbs/book-detail/mod_eshop/produkty/371659968/6.jpg'),
+(16, 14, 6, '31.99', 'Herobrine : A lenda', 42, 8, 'https://m.media-amazon.com/images/I/814YwXI7YML._AC_UF1000,1000_QL80_.jpg');
 
 --
 -- Acionadores `livro`
@@ -281,9 +293,9 @@ DELIMITER ;
 --
 
 CREATE TABLE `livros_caixa` (
-  `id_livros_caixa` int NOT NULL,
-  `id_livro` int NOT NULL,
-  `id_caixa` int NOT NULL
+  `id_livros_caixa` int(11) NOT NULL,
+  `id_livro` int(11) NOT NULL,
+  `id_caixa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -312,15 +324,15 @@ INSERT INTO `livros_caixa` (`id_livros_caixa`, `id_livro`, `id_caixa`) VALUES
 --
 
 CREATE TABLE `log` (
-  `id_log` int NOT NULL,
-  `id_cliente` int DEFAULT NULL,
-  `id_autor` int DEFAULT NULL,
-  `id_caixa` int DEFAULT NULL,
-  `id_livro` int DEFAULT NULL,
-  `id_editora` int DEFAULT NULL,
+  `id_log` int(11) NOT NULL,
+  `id_cliente` int(11) DEFAULT NULL,
+  `id_autor` int(11) DEFAULT NULL,
+  `id_caixa` int(11) DEFAULT NULL,
+  `id_livro` int(11) DEFAULT NULL,
+  `id_editora` int(11) DEFAULT NULL,
   `action` varchar(100) COLLATE utf8mb4_bin NOT NULL,
-  `qtde_original` int DEFAULT NULL,
-  `qtde_nova` int DEFAULT NULL
+  `qtde_original` int(11) DEFAULT NULL,
+  `qtde_nova` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -329,7 +341,17 @@ CREATE TABLE `log` (
 
 INSERT INTO `log` (`id_log`, `id_cliente`, `id_autor`, `id_caixa`, `id_livro`, `id_editora`, `action`, `qtde_original`, `qtde_nova`) VALUES
 (1, 43, NULL, NULL, NULL, NULL, 'insert', NULL, NULL),
-(2, NULL, NULL, NULL, 2, NULL, 'update', 429, 428);
+(2, NULL, NULL, NULL, 2, NULL, 'update', 429, 428),
+(3, NULL, NULL, NULL, 13, NULL, 'insert', NULL, 69),
+(4, NULL, NULL, NULL, 14, NULL, 'insert', NULL, 65),
+(5, NULL, NULL, NULL, 15, NULL, 'insert', NULL, 213),
+(6, NULL, NULL, NULL, 15, NULL, 'update', 213, 213),
+(7, NULL, NULL, NULL, 16, NULL, 'insert', NULL, 42),
+(8, 44, NULL, NULL, NULL, NULL, 'insert', NULL, NULL),
+(9, 45, NULL, NULL, NULL, NULL, 'insert', NULL, NULL),
+(10, 46, NULL, NULL, NULL, NULL, 'insert', NULL, NULL),
+(11, 47, NULL, NULL, NULL, NULL, 'insert', NULL, NULL),
+(12, 44, NULL, NULL, NULL, NULL, 'update', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -338,10 +360,10 @@ INSERT INTO `log` (`id_log`, `id_cliente`, `id_autor`, `id_caixa`, `id_livro`, `
 --
 
 CREATE TABLE `produto` (
-  `id_produto` int NOT NULL,
-  `id_caixa` int DEFAULT NULL,
-  `id_livro` int DEFAULT NULL,
-  `qtde_livro` int NOT NULL
+  `id_produto` int(11) NOT NULL,
+  `id_caixa` int(11) DEFAULT NULL,
+  `id_livro` int(11) DEFAULT NULL,
+  `qtde_livro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -365,9 +387,16 @@ INSERT INTO `produto` (`id_produto`, `id_caixa`, `id_livro`, `qtde_livro`) VALUE
 -- Acionadores `produto`
 --
 DELIMITER $$
-CREATE TRIGGER `atualiza_estoque` BEFORE INSERT ON `produto` FOR EACH ROW UPDATE livro
-SET Estoque = Estoque - 1
-WHERE id_livro = NEW.id_livro
+CREATE TRIGGER `atualizar_estoque` BEFORE INSERT ON `produto` FOR EACH ROW BEGIN
+	UPDATE livro SET Estoque = Estoque - NEW.qtde_livro WHERE id_livro = NEW.id_livro; 
+    IF (SELECT COUNT(*) FROM produto WHERE id_caixa = NEW.id_caixa) = 0 THEN
+        IF NEW.id_caixa IS NOT NULL THEN
+            UPDATE caixa_tipo
+            SET estoque = estoque - 1
+            WHERE id_caixa = NEW.id_caixa;
+        END IF;
+    END IF;
+END
 $$
 DELIMITER ;
 DELIMITER $$
@@ -384,9 +413,9 @@ DELIMITER ;
 --
 
 CREATE TABLE `produtos_compra` (
-  `id_produtos_compra` int NOT NULL,
-  `id_produtos` int NOT NULL,
-  `id_compra` int NOT NULL
+  `id_produtos_compra` int(11) NOT NULL,
+  `id_produtos` int(11) NOT NULL,
+  `id_compra` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
@@ -396,9 +425,9 @@ CREATE TABLE `produtos_compra` (
 --
 
 CREATE TABLE `produto_carrinho` (
-  `id_produto_carrinho` int NOT NULL,
-  `id_produto` int NOT NULL,
-  `id_carrinho` int NOT NULL
+  `id_produto_carrinho` int(11) NOT NULL,
+  `id_produto` int(11) NOT NULL,
+  `id_carrinho` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
@@ -408,7 +437,7 @@ CREATE TABLE `produto_carrinho` (
 --
 
 CREATE TABLE `tema` (
-  `id_tema` int NOT NULL,
+  `id_tema` int(11) NOT NULL,
   `nome` varchar(30) COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
@@ -553,91 +582,91 @@ ALTER TABLE `tema`
 -- AUTO_INCREMENT de tabela `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id_autor` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `caixa`
 --
 ALTER TABLE `caixa`
-  MODIFY `id_caixa` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_caixa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `caixa_tipo`
 --
 ALTER TABLE `caixa_tipo`
-  MODIFY `id_caixatipo` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_caixatipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `carrinho`
 --
 ALTER TABLE `carrinho`
-  MODIFY `id_carrinho` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_carrinho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de tabela `compra`
 --
 ALTER TABLE `compra`
-  MODIFY `id_compra` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `editora`
 --
 ALTER TABLE `editora`
-  MODIFY `id_editora` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_editora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `lista_de_desejos`
 --
 ALTER TABLE `lista_de_desejos`
-  MODIFY `id_lista_desejos` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_lista_desejos` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `livro`
 --
 ALTER TABLE `livro`
-  MODIFY `id_livro` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_livro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `livros_caixa`
 --
 ALTER TABLE `livros_caixa`
-  MODIFY `id_livros_caixa` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_livros_caixa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `log`
 --
 ALTER TABLE `log`
-  MODIFY `id_log` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id_produto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `produtos_compra`
 --
 ALTER TABLE `produtos_compra`
-  MODIFY `id_produtos_compra` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produtos_compra` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `produto_carrinho`
 --
 ALTER TABLE `produto_carrinho`
-  MODIFY `id_produto_carrinho` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_produto_carrinho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `tema`
 --
 ALTER TABLE `tema`
-  MODIFY `id_tema` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_tema` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restrições para despejos de tabelas
@@ -647,73 +676,73 @@ ALTER TABLE `tema`
 -- Limitadores para a tabela `caixa`
 --
 ALTER TABLE `caixa`
-  ADD CONSTRAINT `caixa_ibfk_2` FOREIGN KEY (`id_tipocaixa`) REFERENCES `caixa_tipo` (`id_caixatipo`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `caixa_ibfk_3` FOREIGN KEY (`id_tema`) REFERENCES `tema` (`id_tema`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `caixa_ibfk_2` FOREIGN KEY (`id_tipocaixa`) REFERENCES `caixa_tipo` (`id_caixatipo`),
+  ADD CONSTRAINT `caixa_ibfk_3` FOREIGN KEY (`id_tema`) REFERENCES `tema` (`id_tema`);
 
 --
 -- Limitadores para a tabela `carrinho`
 --
 ALTER TABLE `carrinho`
-  ADD CONSTRAINT `carrinho_ibfk_1` FOREIGN KEY (`fk_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `carrinho_ibfk_1` FOREIGN KEY (`fk_cliente`) REFERENCES `cliente` (`id_cliente`);
 
 --
 -- Limitadores para a tabela `compra`
 --
 ALTER TABLE `compra`
-  ADD CONSTRAINT `id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`);
 
 --
 -- Limitadores para a tabela `lista_de_desejos`
 --
 ALTER TABLE `lista_de_desejos`
-  ADD CONSTRAINT `id_cliente2` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `id_produto` FOREIGN KEY (`id_produto`) REFERENCES `produto` (`id_produto`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_cliente2` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`),
+  ADD CONSTRAINT `id_produto` FOREIGN KEY (`id_produto`) REFERENCES `produto` (`id_produto`);
 
 --
 -- Limitadores para a tabela `livro`
 --
 ALTER TABLE `livro`
-  ADD CONSTRAINT `fk_autor` FOREIGN KEY (`fk_autor`) REFERENCES `autor` (`id_autor`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `fk_editora` FOREIGN KEY (`fk_editora`) REFERENCES `editora` (`id_editora`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `livro_ibfk_1` FOREIGN KEY (`id_tema`) REFERENCES `tema` (`id_tema`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `fk_autor` FOREIGN KEY (`fk_autor`) REFERENCES `autor` (`id_autor`),
+  ADD CONSTRAINT `fk_editora` FOREIGN KEY (`fk_editora`) REFERENCES `editora` (`id_editora`),
+  ADD CONSTRAINT `livro_ibfk_1` FOREIGN KEY (`id_tema`) REFERENCES `tema` (`id_tema`);
 
 --
 -- Limitadores para a tabela `livros_caixa`
 --
 ALTER TABLE `livros_caixa`
-  ADD CONSTRAINT `id_caixa` FOREIGN KEY (`id_caixa`) REFERENCES `caixa` (`id_caixa`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `id_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_caixa` FOREIGN KEY (`id_caixa`) REFERENCES `caixa` (`id_caixa`),
+  ADD CONSTRAINT `id_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`);
 
 --
 -- Limitadores para a tabela `log`
 --
 ALTER TABLE `log`
-  ADD CONSTRAINT `caixas` FOREIGN KEY (`id_caixa`) REFERENCES `caixa_tipo` (`id_caixatipo`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `clientes` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON UPDATE RESTRICT,
-  ADD CONSTRAINT `id_autor` FOREIGN KEY (`id_autor`) REFERENCES `autor` (`id_autor`) ON UPDATE RESTRICT,
-  ADD CONSTRAINT `id_editora` FOREIGN KEY (`id_editora`) REFERENCES `editora` (`id_editora`) ON UPDATE RESTRICT,
-  ADD CONSTRAINT `livros` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`) ON UPDATE RESTRICT;
+  ADD CONSTRAINT `caixas` FOREIGN KEY (`id_caixa`) REFERENCES `caixa_tipo` (`id_caixatipo`),
+  ADD CONSTRAINT `clientes` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`),
+  ADD CONSTRAINT `id_autor` FOREIGN KEY (`id_autor`) REFERENCES `autor` (`id_autor`),
+  ADD CONSTRAINT `id_editora` FOREIGN KEY (`id_editora`) REFERENCES `editora` (`id_editora`),
+  ADD CONSTRAINT `livros` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`);
 
 --
 -- Limitadores para a tabela `produto`
 --
 ALTER TABLE `produto`
-  ADD CONSTRAINT `fk_caixa` FOREIGN KEY (`id_caixa`) REFERENCES `caixa` (`id_caixa`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `fk_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `fk_caixa` FOREIGN KEY (`id_caixa`) REFERENCES `caixa` (`id_caixa`),
+  ADD CONSTRAINT `fk_livro` FOREIGN KEY (`id_livro`) REFERENCES `livro` (`id_livro`);
 
 --
 -- Limitadores para a tabela `produtos_compra`
 --
 ALTER TABLE `produtos_compra`
-  ADD CONSTRAINT `fk_compra` FOREIGN KEY (`id_compra`) REFERENCES `compra` (`id_compra`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `fk_produto` FOREIGN KEY (`id_produtos`) REFERENCES `produto` (`id_produto`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `fk_compra` FOREIGN KEY (`id_compra`) REFERENCES `compra` (`id_compra`),
+  ADD CONSTRAINT `fk_produto` FOREIGN KEY (`id_produtos`) REFERENCES `produto` (`id_produto`);
 
 --
 -- Limitadores para a tabela `produto_carrinho`
 --
 ALTER TABLE `produto_carrinho`
-  ADD CONSTRAINT `id_carrinho` FOREIGN KEY (`id_carrinho`) REFERENCES `carrinho` (`id_carrinho`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `id_produto2` FOREIGN KEY (`id_produto`) REFERENCES `produto` (`id_produto`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_carrinho` FOREIGN KEY (`id_carrinho`) REFERENCES `carrinho` (`id_carrinho`),
+  ADD CONSTRAINT `id_produto2` FOREIGN KEY (`id_produto`) REFERENCES `produto` (`id_produto`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

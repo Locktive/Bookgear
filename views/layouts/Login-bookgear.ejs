@@ -1,0 +1,25 @@
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="texto">
+                <p class="Login">Login</p>
+            </div>
+            <form class="info" action="/Login_auth" method="post" name="form">
+                <input type="text" name="name" id="name" class="btn-username" placeholder="Nome de usuário" required>
+                <input type="password" id="senha" name="senha" class="btn-username" placeholder="Senha" required> <br>
+                <% if (typeof errorMessage !=='undefined' ) { %>
+                    <p class="wrongpass">
+                        <%= errorMessage %>
+                    </p>
+                    <% } %>
+                        <div class="mini-box">
+                            <input class="log-botao" type="submit" value="Entrar">
+                            <a class="log-botao" href="/cadastro">
+                                <p>Cadastrar</p>
+                            </a>
+                        </div>
+            </form>
+            <p class="forgot-password"><a href="#">Esqueceu a senha?</a></p>
+        </div>
+    </div>
+</body>

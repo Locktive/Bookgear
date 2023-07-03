@@ -1,0 +1,36 @@
+
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="texto">
+                <p class="Login">Cadastro</p>
+            </div>
+            <form action="/cadastro_user" method="post" name="cadastro" class="info" id="cadastro">
+                <input type="text" name="username" class="btn-username" placeholder="Nome" id="nome" required>
+                <input type="email" name="email" class="btn-username" placeholder="E-mail" id="email" required>
+                <input type="password" id="senha" name="password" class="btn-username" placeholder="Senha" required>
+                <input type="password" id="confirmar" name="confirm" class="btn-username" placeholder="Confirmar senha"
+                    required>
+                <input id="address" type="text" name="address" class="btn-username" placeholder="Endereço" required>
+                <br>
+
+                <span id="message" style="color:red"></span>
+                <br>
+                <div class="mini-box">
+                    <input type="submit" value="Cadastrar" id="botao">
+                </div>
+            </form>
+            <% if (typeof errorMessage !== 'undefined') { %>
+                <p class="error-message"><%= errorMessage %></p>
+            <% } %>
+
+            <% if (typeof confirmationMessage !== 'undefined') { %>
+                <p class="success-message"><%= confirmationMessage %></p>
+            <% } %>
+            <div>
+                <p class="forgot-password">Já tem conta? <a href="/Login">Entrar</a></p>
+            </div>
+        </div>
+    </div>
+</body>

@@ -106,7 +106,7 @@ body{
 .cvc-field-group{
     margin-top: 10px;
     display: inline-block;
-    float: right;
+    /* float: right; */
 }
 
 

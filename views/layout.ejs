@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<%- include('partials/head.ejs') %>
+
+<body>
+    <!-- parcial para o cabecalho -->
+    <%- include('partials/cabecalho.ejs') %>
+        <div>
+            <!-- corpo da tela definida -->
+            <%- body %>
+            
+        </div>
+        <div>
+            <!-- parcial do rodape -->
+            <%- include('partials/rodape.ejs') %>
+        </div>
+
+    <!-- switch para determinar o css e script utilizado -->
+    <% switch (pageId) { case 'user':  %>
+    <script src="./../javascript/usuario.js"></script>
+    <% break;  case 'produto':  %>
+    <script src="./../javascript/pagina-produto.js"></script>
+    <% break;  case 'wishlist':  %>
+    <script src="./../javascript/wishlist.js"></script>
+    <% break;  case 'principal':  %>    
+    <script src="./../javascript/querysql.js"></script>
+    <% break;  } %>
+</body>
+
+</html>

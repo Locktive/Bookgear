@@ -1,0 +1,145 @@
+body {
+    background-color: rgb(66, 66, 66);
+    background-image: url(../images/background2.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.info {
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.texto {
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    border: #1b1b1b solid 1px;
+    border-radius: 5px;
+    background-color: rgba(42, 41, 43, 0.2);
+    backdrop-filter: blur(3px);
+    padding: 30px;
+    width: 300px;
+    height: 400px;
+    justify-content: space-around;
+    overflow-y: auto;
+}
+
+.Login {
+    color: rgb(255, 80, 0);
+    font: bold 30px sans-serif;
+    width: 200px;
+
+
+}
+
+.btn-username {
+    color: white;
+    background-color: rgba(20, 20, 20, 0.021);
+    border-bottom: 1px solid rgb(59, 59, 59);
+    height: 30px;
+    width: 260px;
+    margin-top: 20px;
+    text-align: left;
+
+}
+
+.btn-username:-webkit-autofill,
+.btn-username:-webkit-autofill:hover,
+.btn-username :-webkit-autofill:focus {
+    -webkit-text-fill-color: grey;
+    -webkit-text-size-adjust: 100%;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.forgot-password a:link,
+.forgot-password a:visited,
+.forgot-password {
+    margin-top: 20px;
+    color: rgb(255, 80, 0);
+    font: bold 17px sans-serif;
+    text-align: center;
+
+}
+
+.mini-box {
+    display: flex;
+}
+
+.log-botao:link,
+.log-botao:visited,
+.log-botao {
+    background-color: rgb(255, 80, 0);
+    color: rgb(8, 8, 8);
+    width: 120px;
+    border-radius: 20px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font: bold 17px sans-serif;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.log-botao:active,
+.log-botao:hover {
+    background-color: rgb(170, 54, 0);
+}
+
+.mini-box a {
+    border-radius: 20px;
+    justify-content: center;
+    transition-duration: 0.2s;
+}
+
+.mini-box a p {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    text-align: bottom;
+    height: 25px;
+    color: black;
+}
+
+.mini-box a:hover {
+    background-color: rgb(170, 54, 0);
+    transition-duration: 0.2s;
+
+}
+
+#name:focus,
+#senha:focus {
+    color: white;
+    background-color: rgba(20, 20, 20, 0.021);
+    border-bottom: 1px solid rgb(255, 80, 0);
+    height: 30px;
+    width: 260px;
+    margin: 10px;
+}
+
+
+.wrongpass {
+    color: red;
+    margin-top: 10px;
+}

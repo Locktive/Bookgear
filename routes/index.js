@@ -1,12 +1,8 @@
 const express = require('express');
 var router = express.Router();
-const path = require('path');
-var bodyParser = require('body-parser');
-var mysql = require('mysql2');
-const { set } = require('../app');
 var app = express();
-app.use(express.static('../public'))
-
+const session = require('express-session');
+var mysql = require('mysql2')
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
@@ -14,108 +10,133 @@ const connection = mysql.createConnection({
   database: 'bookgear',
   port: '3306'
 });
-
-
+connection.on("error", (error) => console.log(error));
+connection.once("open", () => console.log("Conectado ao banco"));
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  let principal = path.join(__dirname, "../views/Tela-principal_BookGear.html")
-  res.sendFile(principal)
+  res.render("layouts/Tela-principal_BookGear.ejs", { pageId: 'principal' })
 });
 
 
 router.get('/Login', function (req, res, next) {
-  let login = path.join(__dirname, "../views/Login-bookgear.html");
-  res.sendFile(login);
-})
+  res.render("layouts/Login-bookgear.ejs", { pageId: 'login' })
+});
 
-router.post('/Login', function (req, res) {
+router.post('/Login_auth', function (req, res) {
   var name = req.body.name;
   var password = req.body.senha;
   var sql = 'SELECT * FROM cliente WHERE nome = ?';
   connection.query(sql, [name], function (err, results, fields) {
-    if (!err) {
+    if (!err) {  
       console.log("Resultado:", results);
-      console.log(name)
-      console.log(password)
       if (results && results.length > 0) {
         var passCheck = results[0].senha;
-        if (password === passCheck) {
-          res.send("Bem vindo " + name)
-          console.log("deu bom")
+        if (password === passCheck) {    
+          req.session.user = results[0];
+          console.log("Connected as " + results[0].nome);
+          res.redirect('/');
         } else {
-          res.send("Senha errada")
-          console.log("nao deu bom")
+          res.render('layouts/Login-bookgear.ejs', { pageId: 'login' , errorMessage: 'Senha incorreta' });
+          return;
         }
       } else {
-        res.send("Usuario nao encontrado")
+        // Usuário não existe, definir a mensagem de erro e renderizar a página de login novamente
+        res.render('layouts/Login-bookgear.ejs', { pageId: 'login' , errorMessage: 'Usuário não encontrado' });
+        return;
       }
     } else {
       console.log("Consulta não realizada");
+      return;
     }
-
   })
   console.log("Enviado ao servidor");
 });
 
-router.get('/cadastro', function (req, res, next) {
-  let cadastro = path.join(__dirname, "../views/cadastro.html");
-  res.sendFile(cadastro);
-})
+// Middleware para verificar a autenticação
+function requireAuth(req, res, next) {
+  if (req.session.user) {
+    // O usuário está conectado, continue com a próxima rota
+    next();
+  } else {
+    // O usuário não está conectado, redireciona para a página de login
+    res.redirect('/login');
+  }
+}
 
-router.post('/cadastro', function (req, res) {
+router.get('/cadastro', function (req, res, next) {
+  res.render("layouts/cadastro.ejs", { pageId: 'cadastro' });
+});
+
+router.post('/cadastro_user', function (req, res) {
   var name = req.body.username;
   var password = req.body.password;
+  var confirm = req.body.confirm;
   var email = req.body.email;
   var address = req.body.address;
-  var values = [
-    [name, email, password, address]
-  ];
-  var sql = 'INSERT INTO cliente (nome,email,senha,endereco) VALUES ?';
-    connection.query(sql, [values], function (err, results, fields) {
-      if (!err) {
-        console.log("Resultado:", results);
-      } else {
-        console.log(err);
-      }
 
-    })
+  // Verificar se algum campo está vazio
+  if (!name || !password || !confirm || !email || !address) {
+    res.render('layouts/cadastro.ejs', { pageId: 'cadastro', errorMessage: 'Por favor, preencha todos os campos' });
+    return;
+  }
+
+  // Verificar se a senha tem menos de 8 caracteres ou mais de 15
+  if (password.length < 8 || password.length > 15) {
+    res.render('layouts/cadastro.ejs', { pageId: 'cadastro', errorMessage: 'A senha deve ter entre 8 e 15 caracteres' });
+    return;
+  }
+
+  // Verificar se a senha e a confirmação de senha são iguais
+  if (password !== confirm) {
+    res.render('layouts/cadastro.ejs', { pageId: 'cadastro', errorMessage: 'A senha e a confirmação de senha não correspondem' });
+    return;
+  }
+
+  var values = [[name, email, password, address]];
+  var sql = 'INSERT INTO cliente (nome, email, senha, endereco) VALUES ?';
+
+  connection.query(sql, [values], function (err, results, fields) {
+    if (!err) {
+      console.log("Resultado:", results);
+      // Renderizar a página de cadastro novamente com a mensagem de confirmação e o título
+      res.render('layouts/cadastro.ejs', { pageId: 'cadastro', confirmationMessage: 'Cadastro realizado com sucesso' });
+    } else {
+      console.log(err);
+    }
+  });
   console.log("Enviado ao servidor");
 });
 
+
 router.get('/compre', function (req, res, next) {
-  let login = path.join(__dirname, "../views/book.html");
-  res.sendFile(login);
-})
+  res.render("layouts/book.ejs", { pageId: 'cadastro' })
+});
 
 router.get('/carrinho', function (req, res, next) {
-  let carrinho = path.join(__dirname, "../views/carrinho.html");
-  res.sendFile(carrinho);
-})
+  res.render("layouts/carrinho.ejs", { pageId: 'carrinho' })
+});
 
-router.get('/user', function (req, res, next) {
-  let principal = path.join(__dirname, "../views/tela_usuario.html")
-  res.sendFile(principal)
+router.get('/user',requireAuth, function (req, res, next) {
+  res.render("layouts/tela_usuario.ejs", { pageId: 'user' })
 });
 
 router.get('/pagamento', function (req, res, next) {
-  let principal = path.join(__dirname, "../views/book.html")
-  res.sendFile(principal)
+  res.render("layouts/book.ejs", { pageId: 'pagamento' })
 });
 
-router.get('/wishlist', function(req,res,next){
-  let wishlist = path.join(__dirname, "../views/wishlist.html");
-  res.sendFile(wishlist);
-})
+router.get('/wishlist', function (req, res, next) {
+  res.render("layouts/wishlist.ejs", { pageId: 'wishlist' })
+});
 
-router.get('/autores', function(req,res,next){
-  let wishlist = path.join(__dirname, "../views/wishlist.html");
-  res.sendFile(wishlist);
-})
+router.get('/autores', function (req, res, next) {
+  res.render("layouts/autores.ejs", { pageId: 'autor' })
+});
 
 router.get('/produto', function (req, res, next) {
-  let produto = path.join(__dirname, "../views/pagina-produto.html");
-  res.sendFile(produto);
-})
+  res.render('layouts/pagina-produto.ejs', { pageId: 'produto' })
+});
+
+
 
 app.use(router);
 
@@ -131,9 +152,9 @@ app.use(function (req, res, next) {
   res.status(404);
 
   // respond with html page
-  if (req.accepts('html')) {
-    res.sendFile(__dirname, '../views/error.html')
-    return;
+  if (req.accepts('ejs')) {
+    res.render('error.ejs')
+    return console.error();
   }
 
   // // respond with json
