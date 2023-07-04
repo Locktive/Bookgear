@@ -11,7 +11,7 @@ body {
 .grid-principal {
     display: grid;
     height: fit-content;
-    width: 80%;
+    width: 100%;
     row-gap: 50px;
     justify-content: space-between;
     grid-template-columns: 190px 190px 190px 190px 190px;
@@ -33,20 +33,25 @@ body {
     background-color: #ff5000
 }
 
+/*     display: flex;
+    flex-direction: row; */
+
 .container-principal {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 236px 75%;
+    justify-content: center;
+    column-gap: 5%;
     border: #1b1b1b solid 1px;
     border-radius: 5px;
     background-color: rgba(42, 41, 43, 0.2);
     backdrop-filter: blur(6px);
     padding: 20px;
     padding-top: 30px;
+    padding-bottom: 180px;
     height: fit-content;
     min-width: 1300px;
     width: 1fr;
     row-gap: 50px;
-    justify-content: space-between;
 
 }
 
@@ -250,4 +255,39 @@ body {
 
 .product-price {
     margin-top: .25rem;
+}
+
+.ver-mais {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+}
+
+.botao-mais {
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    color: rgb(158, 158, 158);
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px grey solid;
+    padding: 9px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.2s;
+    font-size: 16px;
+    margin: 4px 2px;
+
+}
+
+.botao-mais:hover {
+    border: none;
+    border: 2px #ff5000 solid;
+    color: #080808;
+    background: #ff5000;
+    cursor: pointer;
+
 }

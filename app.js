@@ -12,21 +12,13 @@ var mysql = require('mysql2');
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: 'root',
+  password: '',
   database: 'bookgear',
   port: '3306'
 });
 connection.on("error", (error) => console.log(error));
 connection.once("open", () => console.log("Conectado ao banco"));
 var app = express();
-
-const sessionStore = new MySQLStore({
-  expiration: 86400000, // Tempo de expiração da sessão (em milissegundos)
-  createDatabaseTable: true, // Cria automaticamente a tabela para armazenar as sessões
-  schema: {
-    tableName: 'sessions' // Nome da tabela que irá armazenar as sessões
-  }
-}, connection);
 
 // view engine setup
 app.set('views', path.join(__dirname, './views'));
