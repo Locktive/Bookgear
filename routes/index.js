@@ -6,7 +6,7 @@ var mysql = require('mysql2')
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: '',
+  password: 'root',
   database: 'bookgear',
   port: '3306'
 });
@@ -112,6 +112,10 @@ router.get('/compre', function (req, res, next) {
   res.render("layouts/book.ejs", { pageId: 'cadastro' })
 });
 
+router.get('/caixa', function (req, res, next) {
+  res.render("layouts/caixa.ejs", { pageId: 'caixa' })
+});
+
 router.get('/carrinho', function (req, res, next) {
   res.render("layouts/carrinho.ejs", { pageId: 'carrinho' })
 });
@@ -136,7 +140,9 @@ router.get('/produto', function (req, res, next) {
   res.render('layouts/pagina-produto.ejs', { pageId: 'produto' })
 });
 
-
+router.get('/pedido', function(req , res, next){
+  res.render('layouts/pedido.ejs', { pageId: 'pedido' })
+});
 
 app.use(router);
 
@@ -148,7 +154,7 @@ app.use(router);
 // $ curl http://localhost:3000/notfound -H "Accept: application/json"
 // $ curl http://localhost:3000/notfound -H "Accept: text/plain"
 
-app.use(function (req, res, next) {
+app.use(function (req, res) {
   res.status(404);
 
   // respond with html page

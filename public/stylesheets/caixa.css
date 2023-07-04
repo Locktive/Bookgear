@@ -1,7 +1,4 @@
-﻿* {
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
+﻿
 
 /* idioma */
 div.language {
@@ -96,12 +93,6 @@ div.language {
     }
 }
 
-body {
-    /* background-image:linear-gradient(to right, rgb(40, 40, 40), rgb(86, 86, 88), rgb(40, 40, 40)); */
-    background-image: url("../images/background/background2.jpg");
-    background-size: cover;
-}
-
 h1,h4,label {
     text-align: center;
     color: ivory;
@@ -122,8 +113,6 @@ h4 {
 }
 h5 {
     background: -webkit-linear-gradient( rgb(171, 201, 16), rgb(56, 56, 56));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     margin: 5px 5px 0px 5px !important;
     font-size: 20px !important;
     font-weight: bold !important;
@@ -133,10 +122,10 @@ h6 {
     vertical-align: middle;
     color: rgb(160, 160, 160);
 }
-input {
+/* input {
     margin: 0px auto;
     display: block;
-}
+} */
 label {
     margin: 0px auto;
     margin-top: 5px;
@@ -152,19 +141,7 @@ label {
     display: table;
     clear: both;
 }
-div.header {
-    z-index: 50;
-    background: -webkit-linear-gradient( rgb(71, 71, 71), rgb(20, 17, 17));
-    top: 0px;
-    left: 0px;
-    position: fixed;
-    width: 100%;
-    padding: 5px;
-    height: 50px;
-    border-bottom-style: solid;
-    border-bottom-width: 5px;
-    border-bottom-color: rgb(171, 201, 16);
-}
+
 div.content {
     z-index: 1;
     margin-top: 70px;
