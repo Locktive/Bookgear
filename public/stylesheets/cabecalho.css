@@ -31,13 +31,14 @@ header {
 }
 
 .logo img {
-  margin-left: 15px;
   height: 80px;
 }
-.user{
-    display: flex;
-    width: fit-content;
+
+.user {
+  display: flex;
+  width: fit-content;
   column-gap: 20px;
+  width: 280px;
 }
 
 .user a {
