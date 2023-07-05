@@ -1,11 +1,10 @@
-﻿
-
-/* idioma */
+﻿/* idioma */
 div.language {
     position: absolute;
     right: 5%;
     top: 20%;
 }
+
 
 .flags {
     width: 28px;
@@ -15,7 +14,13 @@ div.language {
 
 /* Animação de transição de paginas */
 .animation {
+    margin-top: 130px;
+    padding-bottom: 50px;
     animation: page_transition 1s;
+    border: #1b1b1b solid 1px;
+    border-radius: 5px;
+    background-color: rgba(42, 41, 43, 0.2);
+    backdrop-filter: blur(6px);
 }
 
 @keyframes page_transition {
@@ -37,10 +42,12 @@ div.language {
         font-size: 20px;
         height: 30px;
     }
+
     #nomeStatusEsteira {
         font-size: 20px;
         height: 30px;
     }
+
     .containerVertical {
         width: 10% !important;
     }
@@ -49,32 +56,44 @@ div.language {
 @media screen and (max-width: 600px) {
     div.coluns {
         width: 100%;
+        background-color: rgba(14, 14, 14, 0.5);
+        border: #1b1b1b solid 1px;
+        border-radius: 5px;
+        box-shadow: 0 0 14px rgb(14, 14, 14) inset;
     }
+
     h5 {
         overflow: auto;
         left: 0% !important;
     }
+
     div.infoPedido {
         width: 100%;
     }
+
     div.responsiveStatus {
         width: 50%;
     }
+
     div.nomeStatus {
         font-size: 15px;
         height: 30px;
     }
+
     #nomeStatusEsteira {
         font-size: 15px;
         height: 30px;
         width: 50%;
     }
+
     .imagemStatus {
         margin: 0px !important;
     }
+
     .containerVertical {
         width: 50% !important;
     }
+
     .company {
         justify-content: left !important;
     }
@@ -85,20 +104,25 @@ div.language {
     .sidenav {
         padding-top: 15px;
     }
+
     .sidenav a {
         font-size: 18px;
     }
+
     #nomeStatusEsteira {
         width: 50%;
     }
 }
 
-h1,h4,label {
+h1,
+h4,
+label {
     text-align: center;
     color: ivory;
 }
+
 label {
-    font-family:sans-serif;
+    font-family: sans-serif;
 }
 
 h3 {
@@ -107,21 +131,25 @@ h3 {
     margin-bottom: 10px;
     color: rgb(160, 160, 160);
 }
+
 h4 {
     margin-top: 10px;
     margin-bottom: 15px;
 }
+
 h5 {
-    background: -webkit-linear-gradient( rgb(171, 201, 16), rgb(56, 56, 56));
+    background: -webkit-linear-gradient(rgb(171, 201, 16), rgb(56, 56, 56));
     margin: 5px 5px 0px 5px !important;
     font-size: 20px !important;
     font-weight: bold !important;
 }
+
 h6 {
     text-align: center;
     vertical-align: middle;
     color: rgb(160, 160, 160);
 }
+
 /* input {
     margin: 0px auto;
     display: block;
@@ -136,6 +164,7 @@ label {
 .row {
     text-align: center;
 }
+
 .row:after {
     content: "";
     display: table;
@@ -144,7 +173,7 @@ label {
 
 div.content {
     z-index: 1;
-    margin-top: 70px;
+    margin-top: 120px;
 }
 
 div.company {
@@ -156,7 +185,7 @@ div.company {
     visibility: visible;
 }
 
-.company img{
+.company img {
     width: 40px;
     height: 36px;
 }
@@ -165,21 +194,25 @@ div.blocos {
     max-width: 1000px;
     margin: 0 auto;
 }
+
 div.laminas {
     max-width: 400px;
     margin: 20px auto;
 }
+
 div.coluns {
-    display: inline-block; 
+    display: inline-block;
     /*width: 49%;*/
-    vertical-align:middle; 
+    vertical-align: middle;
     margin: 4px;
 }
+
 div.andar {
     margin-top: 30px;
     text-align: center;
     width: 100%;
 }
+
 div.pedido {
     text-align: center;
 }
@@ -188,12 +221,15 @@ div.pedido {
 ::-webkit-scrollbar {
     width: 1%;
 }
+
 ::-webkit-scrollbar-track {
     background: #474a51;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #25262a;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: #2e2f34;
 }
@@ -211,19 +247,19 @@ div.pedido {
     transition: 0.5s;
     padding-top: 60px;
 
-  }
-  
-  .sidenav a{
+}
+
+.sidenav a {
     padding: 8px 8px 8px 15px;
     text-decoration: none;
     font-size: 15px;
     color: rgb(171, 201, 16);
     display: block;
     transition: 0.3s;
-    font-family:Verdana;
-  }
-  
-  .sidenav .closebtn {
+    font-family: Verdana;
+}
+
+.sidenav .closebtn {
     position: absolute;
     top: 0;
     left: 8px;
@@ -231,19 +267,19 @@ div.pedido {
     margin-right: 30px;
     padding-left: 0;
     padding-top: 0;
-  }
+}
 
-  div.iconmenu{
-    font-size:28px;
-    cursor:pointer;
-    margin-left:8px; 
+div.iconmenu {
+    font-size: 28px;
+    cursor: pointer;
+    margin-left: 8px;
     color: #ffffff;
     height: 30px;
     width: 20px;
     vertical-align: middle;
-  }
+}
 
-  /*Aparencia caixas de seleção*/
+/*Aparencia caixas de seleção*/
 p.warning {
     font-size: small;
     color: red;
@@ -251,19 +287,21 @@ p.warning {
     margin-top: 10px !important;
     height: 10px;
 }
+
 input.buttom {
     margin-top: 15px;
     margin-bottom: 7px;
 }
+
 select.blocks {
     margin-top: 5px;
     color: rgb(255, 255, 255);
-    background-color:rgb(121, 121, 121);
+    background-color: rgb(121, 121, 121);
     width: 100px;
     height: 25px;
     border: 5px;
-    border-radius:15px; 
-    text-align-last: center;   
+    border-radius: 15px;
+    text-align-last: center;
     cursor: pointer;
 }
 
@@ -274,22 +312,23 @@ select:disabled {
 input.blocks {
     margin-top: 5px;
     color: rgb(255, 255, 255);
-    background-color:rgb(121, 121, 121);
+    background-color: rgb(121, 121, 121);
     width: 100px;
     height: 25px;
     border: 5px;
-    border-radius:15px; 
-    text-align-last: center;  
+    border-radius: 15px;
+    text-align-last: center;
     text-transform: uppercase;
 }
+
 select.blockmaior {
     margin-top: 10px;
     color: rgb(255, 255, 255);
-    background-color:rgb(121, 121, 121);
+    background-color: rgb(121, 121, 121);
     width: 150px;
     height: 25px;
-    border-radius:10px;
-    text-align-last: center;  
+    border-radius: 10px;
+    text-align-last: center;
 }
 
 /* Define sobreposição das imagens */
@@ -304,7 +343,7 @@ div.relative1 {
     max-width: 98%;
     z-index: 40;
     padding: 5px;
-    margin-left: 0%;  
+    margin-left: 0%;
 }
 
 div.absolute0 {
@@ -312,25 +351,28 @@ div.absolute0 {
     top: 0px;
     width: 100%;
 }
-    
+
 div.absolute1 {
     position: absolute;
     top: 0px;
     left: 0px;
     z-index: 10;
 }
+
 div.absolute2 {
     position: absolute;
     top: 0px;
     left: 0px;
     z-index: 30;
 }
+
 div.absolute3 {
     position: absolute;
     top: 0px;
     left: 0px;
     z-index: 20;
 }
+
 div.absolute4 {
     position: absolute;
     top: 0px;
@@ -344,7 +386,7 @@ div.absolute4 {
     width: 250px;
     height: 40px;
     color: rgb(255, 255, 255);
-    background-color:rgb(121, 121, 121);
+    background-color: rgb(121, 121, 121);
     border: none;
     text-align: center;
     text-decoration: none;
@@ -356,8 +398,8 @@ div.absolute4 {
 }
 
 .button:hover {
-background-color: #628d3b;
-transition: 1s;
+    background-color: #628d3b;
+    transition: 1s;
 }
 
 .button:disabled {
@@ -376,7 +418,7 @@ transition: 1s;
 }
 
 .buttonCancelar {
-width: 250px !important;
+    width: 250px !important;
 }
 
 /* Aparência do campo de texto */
@@ -387,21 +429,21 @@ width: 250px !important;
     width: 160px;
     height: 40px;
     color: rgb(255, 255, 255);
-    background-color:rgb(121, 121, 121);
+    background-color: rgb(121, 121, 121);
     border: none;
     text-align: center;
     border-radius: 10px;
     font-size: 16px;
     vertical-align: middle;
-  }
+}
 
 /* Aparência dos Bargraph */
 .containerHorizontal {
-  width: 90%;
-  background-color: #808080;
-  margin-left: 5%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+    width: 90%;
+    background-color: #808080;
+    margin-left: 5%;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 div.conteinerVerticaisStatus {
@@ -412,7 +454,7 @@ div.conteinerVerticaisStatus {
 }
 
 .containerVertical {
-    display: inline-block; 
+    display: inline-block;
     width: 10%;
     margin: 4% 4% 2% 4%;
     height: auto;
@@ -432,9 +474,8 @@ div.conteinerVerticaisStatus {
     background-color: #da2020;
 }
 
-.barraProgresso
-{
-    background-color:  #808080; 
+.barraProgresso {
+    background-color: #808080;
     border-radius: 10px;
     text-align: center;
     padding-top: 10px;
@@ -443,7 +484,7 @@ div.conteinerVerticaisStatus {
 }
 
 .passo1 {
-    background-color: #4CAF50; 
+    background-color: #4CAF50;
     width: 12.5%;
 }
 
@@ -477,6 +518,14 @@ div.conteinerVerticaisStatus {
     width: 87.5%;
 }
 
+form{
+    background-color: rgba(14, 14, 14, 0.5);
+    border: #1b1b1b solid 1px;
+    border-radius: 5px;
+    box-shadow: 0 0 14px rgb(14, 14, 14) inset;
+    padding-left: 10px;
+}
+
 .finalizado {
     background-color: #4CAF50;
     width: 100%;
@@ -491,6 +540,7 @@ div.conteinerVerticaisStatus {
     background-color: rgb(121, 121, 121);
     cursor: default;
 }
+
 .nomeStatus {
     font-size: 1.3vw;
     background-color: #4CAF50;
@@ -499,13 +549,13 @@ div.conteinerVerticaisStatus {
     border-bottom-right-radius: 10px;
     padding-top: 5px;
     font-weight: bold;
-    color: #515151!important;
+    color: #515151 !important;
 }
 
 #nomeStatusEsteira {
     /* font-size: 1.3vw; */
     background-color: rgb(121, 121, 121);
-    width:65%;
+    width: 65%;
     margin: auto;
     margin-bottom: 4vw;
     border-radius: 10px;
@@ -514,11 +564,11 @@ div.conteinerVerticaisStatus {
     color: #69e896 !important;
 }
 
-#infoGerarPedido{
+#infoGerarPedido {
     justify-content: center;
 }
 
-#infoGerarPedido h1{
+#infoGerarPedido h1 {
     color: green;
 }
 
@@ -526,7 +576,7 @@ div.conteinerVerticaisStatus {
     color: white;
     display: inline-block;
     width: 10%;
-    vertical-align:middle; 
+    vertical-align: middle;
 }
 
 .tempoProducao {
@@ -546,7 +596,7 @@ div.conteinerVerticaisStatus {
     margin: 4px;
 }
 
-.padrao_texto{
+.padrao_texto {
     display: none;
 }
 
@@ -567,7 +617,8 @@ div.conteinerVerticaisStatus {
     padding-left: 2%;
     text-align: start;
 }
-#plannedFinishTime{
+
+#plannedFinishTime {
     display: inline-block;
     width: 50%;
     text-align: end;
@@ -577,15 +628,18 @@ div.conteinerVerticaisStatus {
 #telegram {
     margin-top: 30px;
 }
+
 #telegramLink {
     text-decoration: none;
 }
-.telegramButton p{
+
+.telegramButton p {
     color: #FFFFFF;
     font-size: 16px;
     padding: 11px;
 }
-.telegramButton{
+
+.telegramButton {
     background-color: #1682FB;
     width: 250px;
     height: 40px;
@@ -593,7 +647,8 @@ div.conteinerVerticaisStatus {
     margin: auto;
     transition: 1s;
 }
-.telegramButton:hover{
+
+.telegramButton:hover {
     background-color: #03057f;
     transition: 1s;
 }
@@ -611,6 +666,7 @@ div.conteinerVerticaisStatus {
     width: 300px;
     padding: 50px 30px 10px 30px;
 }
+
 .card-image {
     display: block;
     min-height: 20rem;
@@ -618,24 +674,24 @@ div.conteinerVerticaisStatus {
     background-size: cover;
     background-color: transparent !important;
 
-  }
-  
-  .card-image>img {
+}
+
+.card-image>img {
     display: block;
     width: 100%;
     opacity: 0;
-  }
-  
-  .card-list {
+}
+
+.card-list {
     display: block;
     margin: 1rem auto;
     padding: 0;
     font-size: 0;
     text-align: center;
     list-style: none;
-  }
-  
-  .card {
+}
+
+.card {
     display: inline-block !important;
     width: 90%;
     max-width: 25rem;
@@ -646,47 +702,47 @@ div.conteinerVerticaisStatus {
     box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.5);
     transition: transform 0.1s ease-in-out, box-shadow 0.1s;
     background-color: transparent !important;
-    border: solid !important; 
+    border: solid !important;
     border-color: rgb(171, 201, 16) !important;
-    border-radius: 50px !important; 
+    border-radius: 50px !important;
     border-width: 4px !important;
-  }
-  
-  .card:hover {
+}
+
+.card:hover {
     transform: translateY(-0.5rem) scale(1.0125);
     box-shadow: 0 0.5em 3rem -1rem rgba(0, 0, 0, 0.5);
-  }
-  
-  .card-description {
+}
+
+.card-description {
     display: block;
     padding: 1em 0.5em;
     color: white;
     text-decoration: none;
-  }
-  
-  .card-description:hover {
+}
+
+.card-description:hover {
     color: white;
     text-decoration: none;
-  }
-  
-  .card-description>h2 {
+}
+
+.card-description>h2 {
     margin: 0 0 0.5em;
-  }
-  
-  .card-description>p {
+}
+
+.card-description>p {
     margin: 0;
-  }
+}
 
-  #redirectProdutividade {
+#redirectProdutividade {
     background-image: url("../images/produtividade.png");
-    background-size: contain; 
+    background-size: contain;
     margin: 10px
-  }
+}
 
-  #redirectConsumo {
+#redirectConsumo {
     background-image: url("../images/consumo.png");
-    background-size: contain; 
+    background-size: contain;
     margin: 10px
-  }
+}
 
 /*----------------------------------------- TagoIO ------------------------------------------------*/
