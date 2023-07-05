@@ -3,15 +3,26 @@ var router = express.Router();
 var app = express();
 const session = require('express-session');
 var mysql = require('mysql2')
+var session = require('express-session');
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: '',
+  password: 'root',
   database: 'bookgear',
   port: '3306'
 });
 connection.on("error", (error) => console.log(error));
 connection.once("open", () => console.log("Conectado ao banco"));
+
+app.use(
+  session({
+    secret: 'livrosn1c3y3b0y@',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+  })
+)
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render("layouts/Tela-principal_BookGear.ejs", { pageId: 'principal' })
@@ -33,8 +44,9 @@ router.post('/Login_auth', function (req, res) {
         var passCheck = results[0].senha;
         if (password === passCheck) {    
           req.session.user = results[0];
-          console.log("Connected as " + results[0].nome);
-          res.redirect('/');
+          var username = results[0].nome;
+          console.log("Connected as " + username);
+          res.render('layouts/Tela-principal_BookGear.ejs', { pageId: 'principal' , username: username , Userlogged: 'sim'});
         } else {
           res.render('layouts/Login-bookgear.ejs', { pageId: 'login' , errorMessage: 'Senha incorreta' });
           return;

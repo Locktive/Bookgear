@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var session = require('express-session');
+
 var expressLayouts = require('express-ejs-layouts');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,7 +12,7 @@ var mysql = require('mysql2');
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: '',
+  password: 'root',
   database: 'bookgear',
   port: '3306'
 });
@@ -30,14 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(
-  session({
-    secret: 'livrosn1c3y3b0y@',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 60000 }
-  })
-)
+
 app.use(express.static('../public'))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
