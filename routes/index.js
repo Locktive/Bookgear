@@ -1,27 +1,19 @@
 const express = require('express');
 var router = express.Router();
 var app = express();
-const session = require('express-session');
+const cookieParser = require("cookie-parser");
 var mysql = require('mysql2')
-var session = require('express-session');
+app.use(cookieParser());
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-  password: 'root',
+  password: '',
   database: 'bookgear',
   port: '3306'
 });
 connection.on("error", (error) => console.log(error));
 connection.once("open", () => console.log("Conectado ao banco"));
 
-app.use(
-  session({
-    secret: 'livrosn1c3y3b0y@',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 60000 }
-  })
-)
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -39,14 +31,15 @@ router.post('/Login_auth', function (req, res) {
   var sql = 'SELECT * FROM cliente WHERE nome = ?';
   connection.query(sql, [name], function (err, results, fields) {
     if (!err) {  
-      console.log("Resultado:", results);
       if (results && results.length > 0) {
         var passCheck = results[0].senha;
         if (password === passCheck) {    
+          console.log("Resultado:", results);
           req.session.user = results[0];
-          var username = results[0].nome;
-          console.log("Connected as " + username);
-          res.render('layouts/Tela-principal_BookGear.ejs', { pageId: 'principal' , username: username , Userlogged: 'sim'});
+          console.log(req.session.user)
+          // console.log(req.session.user);
+        console.log("Connected as " + req.session.user.nome);
+        res.render('layouts/Tela-principal_BookGear.ejs', { pageId: 'principal', username: req.session.user.nome, Userlogged: 'sim' });
         } else {
           res.render('layouts/Login-bookgear.ejs', { pageId: 'login' , errorMessage: 'Senha incorreta' });
           return;
@@ -64,16 +57,7 @@ router.post('/Login_auth', function (req, res) {
   console.log("Enviado ao servidor");
 });
 
-// Middleware para verificar a autenticação
-function requireAuth(req, res, next) {
-  if (req.session.user) {
-    // O usuário está conectado, continue com a próxima rota
-    next();
-  } else {
-    // O usuário não está conectado, redireciona para a página de login
-    res.redirect('/login');
-  }
-}
+
 
 router.get('/cadastro', function (req, res, next) {
   res.render("layouts/cadastro.ejs", { pageId: 'cadastro' });
@@ -119,6 +103,29 @@ router.post('/cadastro_user', function (req, res) {
   console.log("Enviado ao servidor");
 });
 
+function requireAuth(req, res, next) {
+  if (req.session.user) {
+    // O usuário está conectado, continue com a próxima rota
+    next();
+  } else {
+    // O usuário não está conectado, redireciona para a página de login
+    res.redirect('/Login');
+  }
+}
+
+router.get('/user',requireAuth, function (req, res, next) {
+  res.render("layouts/tela_usuario.ejs", { pageId: 'user' })
+});
+
+
+// Rota para encerrar a sessão
+router.get('/logout', (req, res) => {
+  // Encerra a sessão do usuário
+  req.session.destroy();
+  console.log('Sessão encerrada');
+  res.redirect('/Login');
+});
+
 
 router.get('/compre', function (req, res, next) {
   res.render("layouts/book.ejs", { pageId: 'cadastro' })
@@ -132,9 +139,6 @@ router.get('/carrinho', function (req, res, next) {
   res.render("layouts/carrinho.ejs", { pageId: 'carrinho' })
 });
 
-router.get('/user',requireAuth, function (req, res, next) {
-  res.render("layouts/tela_usuario.ejs", { pageId: 'user' })
-});
 
 router.get('/pagamento', function (req, res, next) {
   res.render("layouts/book.ejs", { pageId: 'pagamento' })

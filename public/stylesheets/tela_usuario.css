@@ -70,7 +70,13 @@ body {
     color: gray;
 }
 
-.input_categoria:hover {
+a.input_categoria{
+    padding: 0;
+    margin: 0;
+    background-color: none;
+}
+
+button.input_categoria:hover {
     background-color: #ff5000;
     transition: 0.3s ease;
     text-decoration: none;
@@ -78,7 +84,7 @@ body {
     color: black;
 }
 
-.input_categoria:focus-within {
+button.input_categoria:focus-within {
     background-color: #ff5000;
     color: black;
 }
