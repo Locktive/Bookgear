@@ -325,6 +325,28 @@ form> input:focus {
     height: 52px;
 }
 
+.botao {
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    color: rgb(158, 158, 158);
+    background: #363636;
+    padding: 9px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.2s;
+    font-size: 16px;
+    margin: 4px 2px;
+  }
+  
+  .botao:hover {
+    border: none;
+    color: #080808;
+    background: #ff5000;
+    cursor: pointer;
+  }
+
 .pag1 {
     display: contents;
 
